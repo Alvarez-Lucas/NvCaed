@@ -11,6 +11,9 @@ vo.hidden = true
 vo.number = true
 vo.relativenumber = true
 
+-- Cursor Line
+vo.cursorline = true
+
 -- Indentation
 vo.shiftwidth = 2
 vo.tabstop = 2

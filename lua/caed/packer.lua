@@ -10,7 +10,7 @@ return require('packer').startup(function(use)
   -- use 'foo2/bar2.nvim'
   use("wbthomason/packer.nvim") -- Packer can manage itself
   use("vimwiki/vimwiki")
-  use("nvim-lua/plenary.nvim")
+  use{"nvim-telescope/telescope.nvim", requires = 'nvim-lua/plenary.nvim', cmd = "Telescope", config = "require('telescope-config)"}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
