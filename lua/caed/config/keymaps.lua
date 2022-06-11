@@ -35,3 +35,12 @@ km("x", "<A-k>", ":move '<-2<CR>gv-gv", defaultOpts)
 -- Keep Selection After Indent
 vc(":vnoremap < <gv")
 vc(":vnoremap > >gv")
+
+-- Telescope
+km("n", "<leader>ff", "<cmd>Telescope find_files<cr>", defaultOpts)
+km("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", defaultOpts)
+km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
+km("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", defaultOpts)
+
+-- Vimwiki
+km("n", "<leader>ww", "<cmd>VimwikiIndex<cr>", defaultOpts)

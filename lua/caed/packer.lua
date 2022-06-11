@@ -9,9 +9,11 @@ return require('packer').startup(function(use)
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
   use("wbthomason/packer.nvim") -- Packer can manage itself
-  use("vimwiki/vimwiki")
-  use{"nvim-telescope/telescope.nvim", requires = 'nvim-lua/plenary.nvim', cmd = "Telescope", config = "require('telescope-config)"}
+  use{"vimwiki/vimwiki", cmd = "VimwikiIndex"}
+--   use{"nvim-telescope/telescope.nvim", requires = {{'nvim-lua/plenary.nvim'}}, cmd = "Telescope"}
+  use{"nvim-telescope/telescope.nvim", requires = {{'nvim-lua/plenary.nvim'}}, cmd = "Telescope", config = function() require('caed.telescope-config') end}
 
+--  use{"nvim-telescope/telescope.nvim", requires = {{'nvim-lua/plenary.nvim'}}, cmd = "Telescope", config = "require('caed.telescope-config)"}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
