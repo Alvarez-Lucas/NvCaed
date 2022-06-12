@@ -37,3 +37,7 @@ vc("set colorcolumn=80")
 
 -- Make Keywords include "-"
 vc("set iskeyword+=-")
+
+-- Scroll off
+vo.scrolloff = 8
+vo.sidescrolloff = 8
