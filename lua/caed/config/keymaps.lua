@@ -43,4 +43,10 @@ km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
 km("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", defaultOpts)
 
 -- Vimwiki
-km("n", "<leader>ww", "<cmd>VimwikiIndex<cr>", defaultOpts)
+km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)
+
+-- Nvim Tree
+km("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", defaultOpts)
+
+-- Copy into system clipboard
+vc("set clipboard+=unnamedplus")
