@@ -41,6 +41,7 @@ km("n", "<leader>ff", "<cmd>Telescope find_files<cr>", defaultOpts)
 km("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", defaultOpts)
 km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
 km("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", defaultOpts)
+km("n", "<leader>z", "<cmd>Telescope zoxide list<cr>", defaultOpts)
 
 -- Vimwiki
 km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)

@@ -39,6 +39,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use({ "jvgrootveld/telescope-zoxide" })
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -47,12 +48,20 @@ return require("packer").startup(function(use)
 		config = "require('caed.treesitter-config')",
 	})
 
+	-- Indent blankline
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		event = "BufRead",
+		config = "require('caed.indent-blankline-config')",
+	})
+
 	-- Comment
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup()
 		end,
+		after = "nvim-treesitter",
 	})
 
 	-- NvimTree
@@ -62,6 +71,7 @@ return require("packer").startup(function(use)
 			require("caed.nvim-tree-config")
 		end,
 		-- cmd = "NvimTreeToggle",
+		-- p
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
