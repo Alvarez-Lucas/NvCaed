@@ -63,6 +63,13 @@ return require("packer").startup(function(use)
 	-- COC
 	use({ "neoclide/coc.nvim", branch = "release", config = "require('caed.coc-config')" })
 
+	-- Code Runner
+	use({
+		"CRAG666/code_runner.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		cmd = "RunCode",
+		config = "require('caed.code_runner-config')",
+	})
 	-- END
 	if packer_bootstrap then
 		require("packer").sync()

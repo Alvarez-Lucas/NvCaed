@@ -50,3 +50,6 @@ km("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", defaultOpts)
 
 -- Copy into system clipboard
 vc("set clipboard+=unnamedplus")
+
+-- Code Runner
+km("n", "<leader>r", "<cmd>RunCode<cr>", defaultOpts)
