@@ -1,6 +1,8 @@
 {
   "stylua.styluaPath": "C:\\Users\\lucas\\.cargo\\bin\\stylua.exe",
   "python.formatting.provider": "black",
+  "diagnostic.checkCurrentLine": true,
+  "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "lua",
     "python",

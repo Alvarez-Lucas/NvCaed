@@ -51,5 +51,24 @@ km("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", defaultOpts)
 -- Copy into system clipboard
 vc("set clipboard+=unnamedplus")
 
--- Code Runner
-km("n", "<leader>r", "<cmd>RunCode<cr>", defaultOpts)
+-- Save File and Code Runner
+km("n", "<leader>r", "<cmd>w<cr><cmd>RunCode<cr>", defaultOpts)
+
+-- Save File
+km("n", "<C-s>", "<cmd>w<cr>", defaultOpts)
+
+-- Change Font Size
+km("n", "<A-left>", "<cmd>set guifont=Hack\\ NF:h15<cr>", defaultOpts)
+vc([[
+nnoremap <A-Up> :silent! let &guifont = substitute(
+ \ &guifont,
+ \ ':h\zs\d\+',
+ \ '\=eval(submatch(0)+1)',
+ \ '')<CR>
+
+nnoremap <A-Down> :silent! let &guifont = substitute(
+ \ &guifont,
+ \ ':h\zs\d\+',
+ \ '\=eval(submatch(0)-1)',
+ \ '')<CR>
+]])

@@ -71,9 +71,14 @@ return require("packer").startup(function(use)
 		config = "require('caed.code_runner-config')",
 	})
 
-	-- Nim Ultest
-
-	use({ "rcarriga/vim-ultest", requires = { "vim-test/vim-test" }, run = ":UpdateRemotePlugins" })
+	use({
+		"honza/vim-snippets",
+		event = "InsertEnter",
+		config = function()
+			vim.cmd("let g:coc_snippet_next = '<tab>'")
+			vim.cmd("let g:coc_snippet_prev = '<S-tab>'")
+		end,
+	})
 
 	-- END
 	if packer_bootstrap then
