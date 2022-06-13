@@ -70,6 +70,11 @@ return require("packer").startup(function(use)
 		cmd = "RunCode",
 		config = "require('caed.code_runner-config')",
 	})
+
+	-- Nim Ultest
+
+	use({ "rcarriga/vim-ultest", requires = { "vim-test/vim-test" }, run = ":UpdateRemotePlugins" })
+
 	-- END
 	if packer_bootstrap then
 		require("packer").sync()

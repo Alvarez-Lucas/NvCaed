@@ -7,9 +7,9 @@ require("code_runner").setup({
 	startinsert = false,
 	term = {
 		--  Position to open the terminal, this option is ignored if mode is tab
-		position = "bot",
+		position = "vert botright split",
 		-- window size, this option is ignored if tab is true
-		size = 8,
+		size = 80,
 	},
 	float = {
 		-- Window border (see ':h nvim_open_win')
