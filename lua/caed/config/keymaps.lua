@@ -1,5 +1,5 @@
 -- api shorteners
-local defaultOpts = {noremap = true, silent = true}
+local defaultOpts = { noremap = true, silent = true }
 local km = vim.api.nvim_set_keymap
 local vc = vim.cmd
 

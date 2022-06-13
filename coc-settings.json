@@ -1,0 +1,4 @@
+{
+  "stylua.styluaPath" : "C:\\Users\\lucas\\.cargo\\bin\\stylua.exe",
+  "coc.preferences.formatOnSaveFiletypes" : ["lua"]
+}
