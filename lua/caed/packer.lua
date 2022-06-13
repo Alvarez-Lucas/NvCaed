@@ -47,6 +47,14 @@ return require("packer").startup(function(use)
 		config = "require('caed.treesitter-config')",
 	})
 
+	-- Comment
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
+
 	-- NvimTree
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -60,9 +68,6 @@ return require("packer").startup(function(use)
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
 
-	-- COC
-	use({ "neoclide/coc.nvim", branch = "release", config = "require('caed.coc-config')" })
-
 	-- Code Runner
 	use({
 		"CRAG666/code_runner.nvim",
@@ -71,9 +76,13 @@ return require("packer").startup(function(use)
 		config = "require('caed.code_runner-config')",
 	})
 
+	-- COC
+	use({ "neoclide/coc.nvim", branch = "release", config = "require('caed.coc-config')" })
+
+	--  vim-Snippets for COC
 	use({
 		"honza/vim-snippets",
-		event = "InsertEnter",
+		-- event = "InsertEnter",
 		config = function()
 			vim.cmd("let g:coc_snippet_next = '<tab>'")
 			vim.cmd("let g:coc_snippet_prev = '<S-tab>'")
