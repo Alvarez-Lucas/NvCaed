@@ -1,6 +1,5 @@
 -- api shorteners
 local fn = vim.fn
-local vc = vim.cmd
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -61,7 +60,7 @@ return require("packer").startup(function(use)
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
 
-	-- LSP?
+	-- COC
 	use({ "neoclide/coc.nvim", branch = "release", config = "require('caed.coc-config')" })
 
 	-- END

@@ -1,4 +1,13 @@
 {
-  "stylua.styluaPath" : "C:\\Users\\lucas\\.cargo\\bin\\stylua.exe",
-  "coc.preferences.formatOnSaveFiletypes" : ["lua"]
+  "stylua.styluaPath": "C:\\Users\\lucas\\.cargo\\bin\\stylua.exe",
+  "python.formatting.provider": "black",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "lua",
+    "python",
+    "json",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ]
 }
