@@ -23,6 +23,12 @@ km("n", "<C-j>", "<C-w>j", defaultOpts)
 km("n", "<C-k>", "<C-w>k", defaultOpts)
 km("n", "<C-l>", "<C-w>l", defaultOpts)
 
+-- Better Terminal Navigation
+km("t", "<C-h>", "<C-\\><C-N><C-w>h", defaultOpts)
+km("t", "<C-j>", "<C-\\><C-N><C-w>j", defaultOpts)
+km("t", "<C-k>", "<C-\\><C-N><C-w>k", defaultOpts)
+km("t", "<C-l>", "<C-\\><C-N><C-w>l", defaultOpts)
+
 -- Save file
 km("n", "<C-s>", "<cmd>w!<cr>", defaultOpts)
 
@@ -65,7 +71,6 @@ km("n", "<C-s>", "<cmd>w<cr>", defaultOpts)
 km("n", "<leader>s", "<cmd>w<cr>", defaultOpts)
 
 -- Clear Highlights
-km("n", "<C-l>", "<cmd>nohlsearch<cr>", defaultOpts)
 km("n", "<Esc>", "<cmd>nohlsearch<cr>", defaultOpts)
 
 -- Change Font Size
