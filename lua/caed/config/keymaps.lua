@@ -69,7 +69,7 @@ km("n", "<C-l>", "<cmd>nohlsearch<cr>", defaultOpts)
 km("n", "<Esc>", "<cmd>nohlsearch<cr>", defaultOpts)
 
 -- Change Font Size
-km("n", "<A-left>", "<cmd>set guifont=Hack\\ NF:h15<cr>", defaultOpts)
+km("n", "<A-left>", "set guifont=JetBrainsMono\\ NF:h15", defaultOpts)
 vc([[
 nnoremap <A-Up> :silent! let &guifont = substitute(
  \ &guifont,

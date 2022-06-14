@@ -139,12 +139,22 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Alpha Dashboard -- TODO Lazy Load
 	use({
 		"goolord/alpha-nvim",
 		config = function()
 			require("caed.alpha-nvim-config")
 		end,
 	})
+
+	-- MORETODO
+	use({
+		"ggandor/lightspeed.nvim",
+		config = function()
+			require("caed.lightspeed-config")
+		end,
+	})
+	use({ "tpope/vim-surround" })
 
 	-- END
 	if packer_bootstrap then
