@@ -4,7 +4,7 @@ local km = vim.api.nvim_set_keymap
 local vc = vim.cmd
 
 -- Leader Key
-km("", "<Space>", "Nop", defaultOpts)
+-- km("", "<Space>", "Nop", defaultOpts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -42,14 +42,17 @@ km("n", "<leader>b", "<cmd>Telescope bookmarks<cr>", defaultOpts)
 -- km("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", defaultOpts)
 -- km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
 -- km("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", defaultOpts)
--- km("n", "<leader>z", "<cmd>Telescope zoxide list<cr>", defaultOpts)
+km("n", "<leader>z", "<cmd>Telescope zoxide list<cr>", defaultOpts)
 
 -- Vimwiki
 km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)
-km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>Telescope find_files<cr>", defaultOpts)
+km("n", "<leader>wf", "<cmd>cd $HOME/vimwiki<cr><cmd>Telescope find_files<cr>", defaultOpts)
 
 -- Nvim Tree
 km("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", defaultOpts)
+
+-- TODO: Close Buffer, w/ save ?
+-- km("n", "<leader>d", "<cmd><cr>", defaultOpts)
 
 -- Copy into system clipboard
 vc("set clipboard+=unnamedplus")
@@ -59,6 +62,11 @@ km("n", "<leader>r", "<cmd>w<cr><cmd>RunCode<cr>", defaultOpts)
 
 -- Save File
 km("n", "<C-s>", "<cmd>w<cr>", defaultOpts)
+km("n", "<leader>s", "<cmd>w<cr>", defaultOpts)
+
+-- Clear Highlights
+km("n", "<C-l>", "<cmd>nohlsearch<cr>", defaultOpts)
+km("n", "<Esc>", "<cmd>nohlsearch<cr>", defaultOpts)
 
 -- Change Font Size
 km("n", "<A-left>", "<cmd>set guifont=Hack\\ NF:h15<cr>", defaultOpts)

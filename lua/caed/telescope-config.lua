@@ -1,6 +1,6 @@
 local actions = require("telescope.actions")
 
-require("telescope").load_extension("zoxide")
+-- require("telescope").load_extension("zoxide")
 
 require("telescope").load_extension("bookmarks")
 

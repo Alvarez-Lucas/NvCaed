@@ -41,8 +41,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Telescope Zoxide
 	use({ "jvgrootveld/telescope-zoxide" })
 
+	-- Telescope Bookmarks
 	use({
 		"dhruvmanila/telescope-bookmarks.nvim",
 		config = function()
@@ -107,6 +109,14 @@ return require("packer").startup(function(use)
 		config = function()
 			vim.cmd("let g:coc_snippet_next = '<tab>'")
 			vim.cmd("let g:coc_snippet_prev = '<S-tab>'")
+		end,
+	})
+
+	-- Which Key
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			require("caed.which-key-config")
 		end,
 	})
 
