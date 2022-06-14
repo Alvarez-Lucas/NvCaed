@@ -121,10 +121,19 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Coc Current Word
+	-- TODO: Test Lazy Load
 	use({
 		"IngoMeyer441/coc_current_word",
 		config = function()
 			require("caed.coc_current_word-config")
+		end,
+	})
+
+	use({
+		"goolord/alpha-nvim",
+		config = function()
+			require("caed.alpha-nvim-config")
 		end,
 	})
 
