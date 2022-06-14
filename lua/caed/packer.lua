@@ -76,6 +76,15 @@ return require("packer").startup(function(use)
 		after = "nvim-treesitter",
 	})
 
+	-- nvim autopairs
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("caed.nvim-autopairs-config")
+		end,
+		after = "nvim-treesitter",
+	})
+
 	-- NvimTree
 	use({
 		"kyazdani42/nvim-tree.lua",

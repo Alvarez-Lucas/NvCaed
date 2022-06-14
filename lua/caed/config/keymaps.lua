@@ -83,3 +83,8 @@ nnoremap <A-Down> :silent! let &guifont = substitute(
  \ '\=eval(submatch(0)-1)',
  \ '')<CR>
 ]])
+
+-- Packer
+km("n", "<leader>pc", "<cmd>PackerCompile<cr>", defaultOpts)
+km("n", "<leader>ps", "<cmd>PackerSync<cr>", defaultOpts)
+km("n", "<leader>pi", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>", defaultOpts)
