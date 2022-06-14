@@ -83,11 +83,12 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 " TODO PUT A NEW BIND HERE <---------------------------------------------------------------------
-" nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>n <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>fe  <Plug>(coc-format-selected)
-nmap <leader>fe  <Plug>(coc-format-selected)
+" TODO PUT A NEW BIND HERE <---------------------------------------------------------------------
+"xmap <leader>fe  <Plug>(coc-format-selected)
+"nmap <leader>fe  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!

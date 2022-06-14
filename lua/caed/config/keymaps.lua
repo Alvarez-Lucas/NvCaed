@@ -37,14 +37,16 @@ vc(":vnoremap < <gv")
 vc(":vnoremap > >gv")
 
 -- Telescope
-km("n", "<leader>ff", "<cmd>Telescope find_files<cr>", defaultOpts)
-km("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", defaultOpts)
-km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
-km("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", defaultOpts)
-km("n", "<leader>z", "<cmd>Telescope zoxide list<cr>", defaultOpts)
+km("n", "<leader>f", "<cmd>Telescope find_files<cr>", defaultOpts)
+km("n", "<leader>b", "<cmd>Telescope bookmarks<cr>", defaultOpts)
+-- km("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", defaultOpts)
+-- km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
+-- km("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", defaultOpts)
+-- km("n", "<leader>z", "<cmd>Telescope zoxide list<cr>", defaultOpts)
 
 -- Vimwiki
 km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)
+km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>Telescope find_files<cr>", defaultOpts)
 
 -- Nvim Tree
 km("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", defaultOpts)

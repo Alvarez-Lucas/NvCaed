@@ -14,6 +14,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require("packer").startup(function(use)
+	use("lewis6991/impatient.nvim")
+	use("nathom/filetype.nvim")
 	use("wbthomason/packer.nvim") -- Packer can manage itself
 
 	-- Colorschemes
@@ -40,11 +42,19 @@ return require("packer").startup(function(use)
 	})
 
 	use({ "jvgrootveld/telescope-zoxide" })
+
+	use({
+		"dhruvmanila/telescope-bookmarks.nvim",
+		config = function()
+			require("caed.telecope-bookmarks-config")
+		end,
+	})
+
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = "TSUpdate",
-		event = "BufWinEnter",
+		event = "BufRead",
 		config = "require('caed.treesitter-config')",
 	})
 
@@ -71,6 +81,7 @@ return require("packer").startup(function(use)
 			require("caed.nvim-tree-config")
 		end,
 		-- cmd = "NvimTreeToggle",
+		-- pf
 		-- p
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
@@ -87,7 +98,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- COC
-	use({ "neoclide/coc.nvim", branch = "release", config = "require('caed.coc-config')" })
+	use({ "neoclide/coc.nvim", branch = "release", config = "require('caed.coc-config')", event = "BufWinEnter" })
 
 	--  vim-Snippets for COC
 	use({
