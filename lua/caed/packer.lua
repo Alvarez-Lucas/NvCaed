@@ -113,10 +113,18 @@ return require("packer").startup(function(use)
 	})
 
 	-- Which Key
+	-- TODO: Lazy load
 	use({
 		"folke/which-key.nvim",
 		config = function()
 			require("caed.which-key-config")
+		end,
+	})
+
+	use({
+		"IngoMeyer441/coc_current_word",
+		config = function()
+			require("caed.coc_current_word-config")
 		end,
 	})
 
