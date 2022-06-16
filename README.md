@@ -2,16 +2,11 @@
 
 A Neovim config.
 
-## Table of Contents
-
-[TOC]
-
 ## Why NvCaed
 
 Fast and configurable. This is my refined attempt at making my end game neovim config.
 
 ## Plugins
-
 
 ### Making things faster
 
@@ -40,11 +35,12 @@ Fast and configurable. This is my refined attempt at making my end game neovim c
 ### File Navigation
 
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [telescope-zoxide](https://github.com/jvgrootveld/telescope-zoxide)
-- [lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim)
-- [vim-bbye](https://github.com/moll/vim-bbye)
+  - [telescope-zoxide](https://github.com/jvgrootveld/telescope-zoxide)
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+- [lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim)
+- [vim-bbye](https://github.com/moll/vim-bbye)
 
 ### Code Actions and Highlighting
 
@@ -53,7 +49,6 @@ Fast and configurable. This is my refined attempt at making my end game neovim c
   - [vim-snippets](https://github.com/honza/vim-snippets)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
   - [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
-  - [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
   - [Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [code_runner.nvim](https://github.com/CRAG666/code_runner.nvim)
 - [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
