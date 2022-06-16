@@ -3,6 +3,10 @@
   "python.formatting.provider": "black",
   "diagnostic.checkCurrentLine": true,
   "suggest.noselect": false,
+
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+
   "coc.preferences.formatOnSaveFiletypes": [
     "lua",
     "python",

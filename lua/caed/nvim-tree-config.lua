@@ -6,7 +6,7 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 	hijack_netrw = true,
 	hijack_unnamed_buffer_when_opening = false,
 	ignore_buffer_on_setup = false,
-	open_on_setup = false,
+	open_on_setup = true,
 	open_on_setup_file = false,
 	open_on_tab = false,
 	sort_by = "name",
@@ -38,10 +38,10 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 		group_empty = false,
 		highlight_git = false,
 		full_name = false,
-		highlight_opened_files = "none",
+		highlight_opened_files = "all",
 		root_folder_modifier = ":~",
 		indent_markers = {
-			enable = false,
+			enable = true,
 			icons = {
 				corner = "└ ",
 				edge = "│ ",
@@ -63,6 +63,7 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 			glyphs = {
 				default = "",
 				symlink = "",
+
 				folder = {
 					arrow_closed = "",
 					arrow_open = "",
@@ -74,14 +75,23 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 					symlink_open = "",
 				},
 				git = {
-					unstaged = "✗",
-					staged = "✓",
+					unstaged = "",
+					staged = "S",
 					unmerged = "",
 					renamed = "➜",
-					untracked = "★",
 					deleted = "",
+					untracked = "U",
 					ignored = "◌",
 				},
+				-- git = {
+				-- 	unstaged = "✗",
+				-- 	staged = "✓",
+				-- 	unmerged = "",
+				-- 	renamed = "➜",
+				-- 	untracked = "★",
+				-- 	deleted = "",
+				-- 	ignored = "◌",
+				-- },
 			},
 		},
 		special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
@@ -91,7 +101,7 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 		auto_open = true,
 	},
 	update_focused_file = {
-		enable = false,
+		enable = true,
 		update_cwd = false,
 		ignore_list = {},
 	},
@@ -135,11 +145,11 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 			max_folder_discovery = 300,
 		},
 		open_file = {
-			quit_on_open = false,
+			quit_on_open = true,
 			resize_window = true,
 			window_picker = {
 				enable = true,
-				chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+				chars = "asdfghjkl;",
 				exclude = {
 					filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
 					buftype = { "nofile", "terminal", "help" },

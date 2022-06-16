@@ -12,7 +12,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+" set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -70,18 +70,18 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call ShowDocumentation()<CR>
+" nnoremap <silent> K :call ShowDocumentation()<CR>
 
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
+"function! ShowDocumentation()
+  "if CocAction('hasProvider', 'hover')
+    "call CocActionAsync('doHover')
+  "else
+    "call feedkeys('K', 'in')
+  "endif
+"endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 " TODO PUT A NEW BIND HERE <---------------------------------------------------------------------
@@ -162,7 +162,7 @@ nnoremap <silent><nowait> <space>ce  :<C-u>CocList extensions<cr>
 " Show commands.
 nnoremap <silent><nowait> <space>cc  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>co  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>co  :<C-u>CocOutline<cr>
 nnoremap <silent><nowait> <space>cf  :<C-u>Format<cr>
 " Search workspace symbols.
 " nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>

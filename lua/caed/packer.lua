@@ -21,12 +21,24 @@ return require("packer").startup(function(use)
 	-- Colorschemes
 	use({
 		"phha/zenburn.nvim",
+		event = "BufWinEnter",
 		config = function()
 			require("zenburn").setup()
 		end,
 		disable = true,
 	})
-	use({ "jacoborus/tender.vim", event = "BufWinEnter", config = "vim.cmd('colorscheme tender')" })
+
+	use({
+		"navarasu/onedark.nvim",
+		-- event = "BufWinEnter",
+		config = function()
+			-- require("caed.onedark-config")
+			require("caed.onedark-config")
+			-- require("onedark").load()
+		end,
+		disable = false,
+	})
+	use({ "jacoborus/tender.vim", event = "BufWinEnter", config = "vim.cmd('colorscheme tender')", disable = true })
 
 	-- Vimwiki
 	use({ "vimwiki/vimwiki", cmd = { "VimwikiIndex", "cd $HOME/vimwiki" } })
@@ -91,9 +103,6 @@ return require("packer").startup(function(use)
 		config = function()
 			require("caed.nvim-tree-config")
 		end,
-		-- cmd = "NvimTreeToggle",
-		-- pf
-		-- p
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
@@ -155,6 +164,30 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({ "tpope/vim-surround" })
+
+	-- TEST: vim renamer
+	use({ "qpkorr/vim-renamer" })
+
+	-- Another test
+	use({ "moll/vim-bbye" })
+
+	-- BufferLine
+	use({
+		"akinsho/bufferline.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", "neoclide/coc.nvim" },
+		config = function()
+			require("caed.bufferline-config")
+		end,
+	})
+
+	-- lualine
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true, "neoclide/coc.nvim" },
+		config = function()
+			require("caed.lualine-config")
+		end,
+	})
 
 	-- END
 	if packer_bootstrap then

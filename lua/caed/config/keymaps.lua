@@ -17,6 +17,15 @@ km("n", "<C-Right>", ":vertical resize +2<CR>", defaultOpts)
 -- Keep Buffer After Paste
 km("v", "p", '"_dP', defaultOpts)
 
+-- Surround shortcut
+--km("v", "<leader>a", "S", defaultOpts)
+
+-- Navigate Buffer
+km("n", "<S-l>", ":bnext<CR>", defaultOpts)
+km("n", "<S-h>", ":bprevious<CR>", defaultOpts)
+km("n", "<A-l>", ":BufferLineMoveNext<CR>", defaultOpts)
+km("n", "<A-h>", ":BufferLineMovePrev<CR>", defaultOpts)
+
 -- Shorten Window Navigation
 km("n", "<C-h>", "<C-w>h", defaultOpts)
 km("n", "<C-j>", "<C-w>j", defaultOpts)
@@ -28,9 +37,6 @@ km("t", "<C-h>", "<C-\\><C-N><C-w>h", defaultOpts)
 km("t", "<C-j>", "<C-\\><C-N><C-w>j", defaultOpts)
 km("t", "<C-k>", "<C-\\><C-N><C-w>k", defaultOpts)
 km("t", "<C-l>", "<C-\\><C-N><C-w>l", defaultOpts)
-
--- Save file
-km("n", "<C-s>", "<cmd>w!<cr>", defaultOpts)
 
 -- Move Text
 km("x", "J", ":move '>+1<CR>gv-gv", defaultOpts)
@@ -44,11 +50,14 @@ vc(":vnoremap > >gv")
 
 -- Telescope
 km("n", "<leader>f", "<cmd>Telescope find_files<cr>", defaultOpts)
-km("n", "<leader>b", "<cmd>Telescope bookmarks<cr>", defaultOpts)
+km("n", "<leader>b", "<cmd>Telescope bookmarks theme=dropdown<cr>", defaultOpts)
 -- km("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", defaultOpts)
 -- km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
 -- km("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", defaultOpts)
-km("n", "<leader>z", "<cmd>Telescope zoxide list<cr>", defaultOpts)
+km("n", "<leader>z", "<cmd>Telescope zoxide list theme=dropdown<cr>", defaultOpts)
+km("n", "<leader><tab>", "<cmd>Telescope buffers<cr>", defaultOpts)
+km("n", "<leader>g", "<cmd>Telescope live_grep<cr>", defaultOpts)
+km("n", "<C-p>", "<cmd>Telescope commands theme=dropdown<cr>", defaultOpts)
 
 -- Vimwiki
 km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)
@@ -58,7 +67,7 @@ km("n", "<leader>wf", "<cmd>cd $HOME/vimwiki<cr><cmd>Telescope find_files<cr>", 
 km("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", defaultOpts)
 
 -- TODO: Close Buffer, w/ save ?
--- km("n", "<leader>d", "<cmd><cr>", defaultOpts)
+km("n", "<leader>d", "<cmd>Bdelete<cr>", defaultOpts)
 
 -- Copy into system clipboard
 vc("set clipboard+=unnamedplus")
@@ -70,11 +79,16 @@ km("n", "<leader>r", "<cmd>w<cr><cmd>RunCode<cr>", defaultOpts)
 km("n", "<C-s>", "<cmd>w<cr>", defaultOpts)
 km("n", "<leader>s", "<cmd>w<cr>", defaultOpts)
 
+-- CocCurrentWordToggle
+km("n", "<leader>ch", "<cmd>CocCurrentWordToggle<cr>", defaultOpts)
+
 -- Clear Highlights
 km("n", "<Esc>", "<cmd>nohlsearch<cr>", defaultOpts)
 
+-- Neovide
+
 -- Change Font Size
-km("n", "<A-left>", "set guifont=JetBrainsMono\\ NF:h15", defaultOpts)
+km("n", "<A-left>", ":set guifont=JetBrainsMono\\ NF:h15<cr>", defaultOpts)
 vc([[
 nnoremap <A-Up> :silent! let &guifont = substitute(
  \ &guifont,
@@ -88,6 +102,9 @@ nnoremap <A-Down> :silent! let &guifont = substitute(
  \ '\=eval(submatch(0)-1)',
  \ '')<CR>
 ]])
+
+-- Toggle Full Screen
+km("n", "<F11>", ":let g:neovide_fullscreen=v:", defaultOpts)
 
 -- Packer
 km("n", "<leader>pc", "<cmd>PackerCompile<cr>", defaultOpts)

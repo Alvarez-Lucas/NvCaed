@@ -27,6 +27,22 @@ require("telescope").setup({
 		--   picker_config_key = value,
 		--   ...
 		-- }
+		find_files = {
+			theme = "dropdown",
+			previewer = false,
+		},
+		zoxide = {
+			theme = "dropdown",
+			previewer = false,
+		},
+		buffers = {
+			theme = "dropdown",
+			previewer = false,
+		},
+		bookmarks = {
+			theme = "dropdown",
+			previewer = false,
+		},
 		-- Now the picker_config_key will be applied every time you call this
 		-- builtin picker
 	},
