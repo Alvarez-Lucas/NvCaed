@@ -7,7 +7,7 @@ require("bufferline").setup({
 		end,
 
 		color_icons = true,
-		separator_style = "thick",
+		separator_style = "thin",
 		diagnostics_update_in_insert = true,
 		show_close_icon = false,
 		show_buffer_close_icons = false,
