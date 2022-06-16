@@ -26,6 +26,17 @@ km("n", "<S-h>", ":bprevious<CR>", defaultOpts)
 km("n", "<A-l>", ":BufferLineMoveNext<CR>", defaultOpts)
 km("n", "<A-h>", ":BufferLineMovePrev<CR>", defaultOpts)
 
+-- BufferLine
+km("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", defaultOpts)
+km("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", defaultOpts)
+km("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", defaultOpts)
+km("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", defaultOpts)
+km("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", defaultOpts)
+km("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", defaultOpts)
+km("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", defaultOpts)
+km("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", defaultOpts)
+km("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", defaultOpts)
+
 -- Shorten Window Navigation
 km("n", "<C-h>", "<C-w>h", defaultOpts)
 km("n", "<C-j>", "<C-w>j", defaultOpts)
@@ -51,13 +62,13 @@ vc(":vnoremap > >gv")
 -- Telescope
 km("n", "<leader>f", "<cmd>Telescope find_files<cr>", defaultOpts)
 km("n", "<leader>b", "<cmd>Telescope bookmarks theme=dropdown<cr>", defaultOpts)
--- km("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", defaultOpts)
 -- km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
--- km("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", defaultOpts)
+km("n", "<leader>h", "<cmd>Telescope help_tags<cr>", defaultOpts)
 km("n", "<leader>z", "<cmd>Telescope zoxide list theme=dropdown<cr>", defaultOpts)
 km("n", "<leader><tab>", "<cmd>Telescope buffers<cr>", defaultOpts)
 km("n", "<leader>g", "<cmd>Telescope live_grep<cr>", defaultOpts)
 km("n", "<C-p>", "<cmd>Telescope commands theme=dropdown<cr>", defaultOpts)
+km("n", "<leader>F", "<cmd>Telescope current_buffer_fuzzy_find<cr>", defaultOpts)
 
 -- Vimwiki
 km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)

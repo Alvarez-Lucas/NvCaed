@@ -1,8 +1,17 @@
 require("bufferline").setup({
 	options = {
 		diagnostics = "coc",
-		separator_style = "slant",
+		-- numbers = "ordinal",
+		numbers = function(opts)
+			return string.format("%s", opts.raise(opts.ordinal))
+		end,
+
+		color_icons = true,
+		separator_style = "thick",
 		diagnostics_update_in_insert = true,
+		show_close_icon = false,
+		show_buffer_close_icons = false,
+		always_show_bufferline = false,
 		offsets = {
 			{
 				filetype = "NvimTree",
@@ -13,7 +22,5 @@ require("bufferline").setup({
 				text_align = "left",
 			},
 		},
-		show_close_icon = false,
-		always_show_bufferline = false,
 	},
 })
