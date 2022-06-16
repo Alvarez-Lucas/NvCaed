@@ -165,9 +165,6 @@ return require("packer").startup(function(use)
 	})
 	use({ "tpope/vim-surround" })
 
-	-- TEST: vim renamer
-	use({ "qpkorr/vim-renamer" })
-
 	-- Another test
 	use({ "moll/vim-bbye" })
 
