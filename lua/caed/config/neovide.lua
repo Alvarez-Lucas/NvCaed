@@ -5,5 +5,6 @@ local vc = vim.cmd
 -- vc("let g:neovide_transparency=0.85")
 -- vc("set guifont=Hack\\ NF:h15")
 -- vc("set guifont=JetBrainsMono\\ NF:h15")
-vc("set guifont=UbuntuMono\\ NF:h15")
+-- vc("set guifont=UbuntuMono\\ NF:h15")
+vc("set guifont=OperatorMono\\ NF:h15")
 -- vc("set linespace=400")
