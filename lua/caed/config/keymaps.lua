@@ -121,3 +121,6 @@ km("n", "<F11>", ":let g:neovide_fullscreen=v:", defaultOpts)
 km("n", "<leader>pc", "<cmd>PackerCompile<cr>", defaultOpts)
 km("n", "<leader>ps", "<cmd>PackerSync<cr>", defaultOpts)
 km("n", "<leader>pi", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>", defaultOpts)
+
+-- Lazy Git
+km("n", "<leader>gg", "<cmd>LazyGit<cr>", defaultOpts)

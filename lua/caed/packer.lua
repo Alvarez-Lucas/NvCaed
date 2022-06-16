@@ -189,6 +189,15 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Lazy Git
+	use({
+		"kdheepak/lazygit.nvim",
+		-- requires = { "kyazdani42/nvim-web-devicons", opt = true, "neoclide/coc.nvim" },
+		-- config = function()
+		-- 	require("caed.lualine-config")
+		-- end,
+	})
+
 	-- END
 	if packer_bootstrap then
 		require("packer").sync()
