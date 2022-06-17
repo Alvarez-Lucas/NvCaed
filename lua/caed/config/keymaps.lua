@@ -5,8 +5,6 @@ local vc = vim.cmd
 
 -- Leader Key
 -- km("", "<Space>", "Nop", defaultOpts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- Normal Mode Keymaps --
 km("n", "<C-Up>", ":resize -2<CR>", defaultOpts)
@@ -18,7 +16,10 @@ km("n", "<C-Right>", ":vertical resize +2<CR>", defaultOpts)
 km("v", "p", '"_dP', defaultOpts)
 
 -- Surround shortcut
---km("v", "<leader>a", "S", defaultOpts)
+--km("v", "<leader>a", "S", defaultOptsj
+--
+-- lightspeed
+-- vim.api.nvim_set_keymap("n", "<leader>j", "<Plug>Lightspeed_omni_s", { noremap = false })
 
 -- Navigate Buffer
 km("n", "<S-l>", ":bnext<CR>", defaultOpts)
@@ -61,7 +62,7 @@ vc(":vnoremap > >gv")
 
 -- Telescope
 km("n", "<leader>f", "<cmd>Telescope find_files<cr>", defaultOpts)
-km("n", "<leader>b", "<cmd>Telescope bookmarks theme=dropdown<cr>", defaultOpts)
+-- km("n", "<leader>b", "<cmd>Telescope bookmarks theme=dropdown<cr>", defaultOpts)
 -- km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
 km("n", "<leader>h", "<cmd>Telescope help_tags<cr>", defaultOpts)
 km("n", "<leader>z", "<cmd>Telescope zoxide list theme=dropdown<cr>", defaultOpts)
@@ -123,4 +124,4 @@ km("n", "<leader>ps", "<cmd>PackerSync<cr>", defaultOpts)
 km("n", "<leader>pi", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>", defaultOpts)
 
 -- Lazy Git
-km("n", "<leader>gg", "<cmd>LazyGit<cr>", defaultOpts)
+km("n", "<leader>lg", "<cmd>LazyGit<cr>", defaultOpts)

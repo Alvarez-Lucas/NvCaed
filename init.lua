@@ -1,4 +1,4 @@
--- vim.opt.shadafile = "NONE"
+vim.opt.shadafile = "NONE"
 -- _G.__luacache_config = {
 -- 	chunks = {
 -- 		enable = true,
@@ -13,10 +13,10 @@
 -- Disable some builtin vim plugins
 
 local disabled_built_ins = {
-	"netrw",
-	"netrwPlugin",
-	"netrwSettings",
-	"netrwFileHandlers",
+	-- "netrw",
+	-- "netrwPlugin",
+	-- "netrwSettings",
+	-- "netrwFileHandlers",
 	"gzip",
 	"zip",
 	"zipPlugin",
@@ -38,9 +38,14 @@ end
 
 require("impatient")
 
-require("caed.packer")
+-- Lightspeed disabled default maps
+vim.g.lightspeed_no_default_keymaps = 0
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+require("caed.packer-config")
 require("caed.config.keymaps")
 require("caed.config.options")
 require("caed.config.neovide")
 
--- vim.opt.shadafile = ""
+vim.opt.shadafile = ""

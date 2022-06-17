@@ -32,8 +32,8 @@ dashboard.section.footer.val = {
 	"WORKING TOMORROW FOR A BETTER TODAY",
 }
 
-dashboard.section.header.opts.hl = "Include"
-dashboard.section.footer.opts.hl = "Keyword"
+-- dashboard.section.header.opts.hl = "Include"
+-- dashboard.section.footer.opts.hl = "Keyword"
 
 -- Send config to alpha
 alpha.setup(dashboard.opts)

@@ -19,26 +19,38 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- Packer can manage itself
 
 	-- Colorschemes
+
+	--Zenburn
 	use({
 		"phha/zenburn.nvim",
-		event = "BufWinEnter",
 		config = function()
 			require("zenburn").setup()
 		end,
 		disable = true,
 	})
 
+	-- Gruvbox
 	use({
-		"navarasu/onedark.nvim",
-		-- event = "BufWinEnter",
+		"luisiacc/gruvbox-baby",
 		config = function()
-			-- require("caed.onedark-config")
-			require("caed.onedark-config")
-			-- require("onedark").load()
+			require("caed.gruvbox-baby-config")
+			vim.cmd([[colorscheme gruvbox-baby]])
 		end,
 		disable = false,
 	})
-	use({ "jacoborus/tender.vim", event = "BufWinEnter", config = "vim.cmd('colorscheme tender')", disable = true })
+
+	-- One Dark
+	use({
+		"navarasu/onedark.nvim",
+		config = function()
+			require("caed.onedark-config")
+			require("onedark").load()
+		end,
+		disable = true,
+	})
+
+	-- Tender
+	use({ "jacoborus/tender.vim", config = "vim.cmd('colorscheme tender')", disable = true })
 
 	-- Vimwiki
 	use({ "vimwiki/vimwiki", cmd = { "VimwikiIndex", "cd $HOME/vimwiki" } })
@@ -54,7 +66,9 @@ return require("packer").startup(function(use)
 	})
 
 	-- Telescope Zoxide
-	use({ "jvgrootveld/telescope-zoxide" })
+	use({
+		"jvgrootveld/telescope-zoxide",
+	})
 
 	-- Telescope Bookmarks
 	use({
@@ -68,29 +82,28 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = "TSUpdate",
-		event = "BufRead",
 		config = "require('caed.treesitter-config')",
 	})
 
 	-- Indent blankline
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		event = "BufRead",
 		config = "require('caed.indent-blankline-config')",
 	})
 
 	-- Comment
 	use({
 		"numToStr/Comment.nvim",
+		keys = { "gc", "gcc", "gbc" },
 		config = function()
 			require("Comment").setup()
 		end,
-		after = "nvim-treesitter",
 	})
 
 	-- nvim autopairs
 	use({
 		"windwp/nvim-autopairs",
+		event = "InsertEnter",
 		config = function()
 			require("caed.nvim-autopairs-config")
 		end,
@@ -118,9 +131,10 @@ return require("packer").startup(function(use)
 	})
 
 	-- COC
-	use({ "neoclide/coc.nvim", branch = "release", config = "require('caed.coc-config')", event = "BufWinEnter" })
+	use({ "neoclide/coc.nvim", branch = "release", config = "require('caed.coc-config')" })
 
 	--  vim-Snippets for COC
+	--  TODO
 	use({
 		"honza/vim-snippets",
 		-- event = "InsertEnter",
@@ -131,7 +145,6 @@ return require("packer").startup(function(use)
 	})
 
 	-- Which Key
-	-- TODO: Lazy load
 	use({
 		"folke/which-key.nvim",
 		config = function()
@@ -140,7 +153,6 @@ return require("packer").startup(function(use)
 	})
 
 	-- Coc Current Word
-	-- TODO: Test Lazy Load
 	use({
 		"IngoMeyer441/coc_current_word",
 		config = function()
@@ -148,7 +160,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Alpha Dashboard -- TODO Lazy Load
+	-- Alpha Dashboard
 	use({
 		"goolord/alpha-nvim",
 		config = function()
@@ -156,17 +168,27 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- MORETODO
+	-- Lightspeed
 	use({
 		"ggandor/lightspeed.nvim",
+		keys = { "<leader>j" },
 		config = function()
 			require("caed.lightspeed-config")
 		end,
 	})
-	use({ "tpope/vim-surround" })
 
-	-- Another test
-	use({ "moll/vim-bbye" })
+	-- use({ "tpope/vim-surround" })
+
+	use({
+		"machakann/vim-sandwich",
+		keys = { "sa", "sd", "sr" },
+	})
+
+	-- Vim Bbye
+	use({
+		"moll/vim-bbye",
+		cmd = { "Bdelete", "Bwipeout" },
+	})
 
 	-- BufferLine
 	use({
@@ -189,10 +211,7 @@ return require("packer").startup(function(use)
 	-- Lazy Git
 	use({
 		"kdheepak/lazygit.nvim",
-		-- requires = { "kyazdani42/nvim-web-devicons", opt = true, "neoclide/coc.nvim" },
-		-- config = function()
-		-- 	require("caed.lualine-config")
-		-- end,
+		cmd = "LazyGit",
 	})
 
 	-- END

@@ -41,3 +41,6 @@ vc("set iskeyword+=-")
 -- Scroll off
 vo.scrolloff = 8
 vo.sidescrolloff = 8
+
+-- Lightspeed disabled default maps
+vim.g.lightspeed_no_default_keymaps = 0

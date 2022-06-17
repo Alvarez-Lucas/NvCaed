@@ -1,18 +1,24 @@
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = "auto",
+		-- theme = "auto",
+		theme = "gruvbox-baby",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = {},
+		disabled_filetypes = { "alpha", "NvimTree", "packer", "TelescopePrompt" },
 		always_divide_middle = true,
 		globalstatus = true,
 	},
 	sections = {
-		lualine_a = { "mode" },
+		lualine_a = {
+			"mode",
+		},
+
 		lualine_b = { "branch", "diff", "diagnostics" },
 
-		lualine_c = { "filename" },
+		lualine_c = {
+			"filename",
+		},
 		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
