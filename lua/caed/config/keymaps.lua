@@ -62,7 +62,7 @@ vc(":vnoremap > >gv")
 
 -- Telescope
 km("n", "<leader>f", "<cmd>Telescope find_files<cr>", defaultOpts)
--- km("n", "<leader>b", "<cmd>Telescope bookmarks theme=dropdown<cr>", defaultOpts)
+km("n", "<leader>b", "<cmd>Telescope bookmarks theme=dropdown<cr>", defaultOpts)
 -- km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
 km("n", "<leader>h", "<cmd>Telescope help_tags<cr>", defaultOpts)
 km("n", "<leader>z", "<cmd>Telescope zoxide list theme=dropdown<cr>", defaultOpts)
