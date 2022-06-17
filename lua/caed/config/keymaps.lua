@@ -119,9 +119,11 @@ nnoremap <A-Down> :silent! let &guifont = substitute(
 km("n", "<F11>", ":let g:neovide_fullscreen=v:", defaultOpts)
 
 -- Packer
-km("n", "<leader>pc", "<cmd>PackerCompile<cr>", defaultOpts)
+km("n", "<leader>pc", "<cmd>PackerCompile profile=true<cr>", defaultOpts)
 km("n", "<leader>ps", "<cmd>PackerSync<cr>", defaultOpts)
-km("n", "<leader>pi", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>", defaultOpts)
+km("n", "<leader>pS", "<cmd>PackerStatus<cr>", defaultOpts)
+km("n", "<leader>pp", "<cmd>PackerProfile<cr>", defaultOpts)
+-- km("n", "<leader>pi", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>", defaultOpts)
 
 -- Lazy Git
 km("n", "<leader>lg", "<cmd>LazyGit<cr>", defaultOpts)
