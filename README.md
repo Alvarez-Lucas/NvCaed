@@ -61,3 +61,32 @@ Fast and configurable. This is my refined attempt at making my end game neovim c
 ### Version Control
 
 - [lazygit.nvim](https://github.comkdheepak/lazygit.nvim/)
+
+## Potential Changes
+
+- Add mini plugins
+- switch Highlighting with mini highlight to maintain colors and highlight
+with underline (cursor word)
+- https://github.com/yamatsum/nvim-cursorline
+- indent scope to select around code blocks more easily
+- switch vim surround with minisurround - uses lua
+- maybe mini.bufremove
+- maybe https://github.com/chentoast/marks.nvim
+- toggle term
+- https://github.com/jghauser/mkdir.nvim
+- https://github.com/rktjmp/paperplanes.nvim
+- https://github.com/rcarriga/nvim-notify
+- https://github.com/stevearc/dressing.nvim
+- https://github.com/axieax/urlview.nvim
+- https://github.com/lewis6991/spellsitter.nvim is this nec?
+- https://github.com/SmiteshP/nvim-gps
+- https://github.com/jbyuki/instant.nvim
+- https://github.com/kevinhwang91/nvim-hlslens
+- https://github.com/folke/zen-mode.nvim
+  or https://github.com/Pocco81/TrueZen.nvim
+- https://github.com/anuvyklack/pretty-fold.nvim
+- https://github.com/xeluxee/competitest.nvim
+- or https://github.com/rcarriga/vim-ultest
+- https://github.com/sindrets/winshift.nvim
+- and or https://github.com/beauwilliams/focus.nvim#readme
+- https://github.com/gelguy/wilder.nvim
