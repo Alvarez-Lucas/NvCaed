@@ -72,7 +72,6 @@ Fast and configurable. This is my refined attempt at making my end game neovim c
 - maybe mini.bufremove
 - maybe https://github.com/chentoast/marks.nvim
 - toggle term
-- https://github.com/jghauser/mkdir.nvim
 - https://github.com/rktjmp/paperplanes.nvim
 - https://github.com/rcarriga/nvim-notify
 - https://github.com/stevearc/dressing.nvim
