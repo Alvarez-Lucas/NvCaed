@@ -2,7 +2,9 @@ require("lualine").setup({
 	options = {
 		icons_enabled = true,
 		-- theme = "auto",
-		theme = "gruvbox-baby",
+
+		theme = "onedark",
+		-- theme = "gruvbox-baby",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "NvimTree", "packer", "TelescopePrompt" },

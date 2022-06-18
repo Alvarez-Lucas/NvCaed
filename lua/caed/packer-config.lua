@@ -36,7 +36,7 @@ return require("packer").startup(function(use)
 			require("caed.gruvbox-baby-config")
 			vim.cmd([[colorscheme gruvbox-baby]])
 		end,
-		disable = false,
+		disable = true,
 	})
 
 	-- One Dark
@@ -46,7 +46,7 @@ return require("packer").startup(function(use)
 			require("caed.onedark-config")
 			require("onedark").load()
 		end,
-		disable = true,
+		disable = false,
 	})
 
 	-- Tender
