@@ -152,14 +152,6 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Coc Current Word
-	use({
-		"IngoMeyer441/coc_current_word",
-		config = function()
-			require("caed.coc_current_word-config")
-		end,
-	})
-
 	-- Alpha Dashboard
 	use({
 		"goolord/alpha-nvim",
@@ -212,6 +204,28 @@ return require("packer").startup(function(use)
 	use({
 		"kdheepak/lazygit.nvim",
 		cmd = "LazyGit",
+	})
+
+	-- Cursor line
+	use({
+		"yamatsum/nvim-cursorline",
+		config = function()
+			require("caed.nvim-cursorline-config")
+		end,
+	})
+
+	-- TS Rainbow
+	use({
+		"p00f/nvim-ts-rainbow",
+		config = function()
+			require("caed.nvim-ts-rainbow-config")
+		end,
+	})
+
+	-- mkdir
+	use({
+		"jghauser/mkdir.nvim",
+		event = "BufWritePre",
 	})
 
 	-- END

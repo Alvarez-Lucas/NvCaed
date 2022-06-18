@@ -2,9 +2,10 @@
   "stylua.styluaPath": "C:\\Users\\lucas\\.cargo\\bin\\stylua.exe",
   "python.formatting.provider": "black",
   "diagnostic.checkCurrentLine": true,
+  "coc.preferences.colorSupport": true,
   "suggest.noselect": false,
 
-  "diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
   "diagnostic.virtualTextCurrentLineOnly": false,
 
   "git.addedSign.text": "▎",

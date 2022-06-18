@@ -41,15 +41,17 @@ Fast and configurable. This is my refined attempt at making my end game neovim c
 - [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - [lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim)
 - [vim-bbye](https://github.com/moll/vim-bbye)
+- [jghauser/mkdir.nvim](https://github.com/jghauser/mkdir.nvim)
 
 ### Code Actions and Highlighting
 
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
-  - [coc_current_word](https://github.com/IngoMeyer441/coc_current_word)
   - [vim-snippets](https://github.com/honza/vim-snippets)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+  - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
   - [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
   - [Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- [nvim-cursorline](https://github.com/yamatsum/nvim-cursorline)
 - [code_runner.nvim](https://github.com/CRAG666/code_runner.nvim)
 - [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [vim-surround](https://github.com/tpope/vim-surround)
@@ -64,10 +66,6 @@ Fast and configurable. This is my refined attempt at making my end game neovim c
 
 ## Potential Changes
 
-- Add mini plugins
-- switch Highlighting with mini highlight to maintain colors and highlight
-with underline (cursor word)
-- https://github.com/yamatsum/nvim-cursorline
 - indent scope to select around code blocks more easily
 - switch vim surround with minisurround - uses lua
 - maybe mini.bufremove
