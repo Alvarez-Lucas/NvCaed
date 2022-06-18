@@ -42,6 +42,12 @@ require("impatient")
 vim.g.lightspeed_no_default_keymaps = 0
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+-- vim.g.coc_status_warning_sign = ""
+-- vim.g.coc_status_error_sign = ""
+-- { name = "DiagnosticSignError", text = "" },
+-- { name = "DiagnosticSignWarn", text = "" },
+-- { name = "DiagnosticSignHint", text = "" },
+-- { name = "DiagnosticSignInfo", text = "" },
 
 require("caed.packer-config")
 require("caed.config.keymaps")

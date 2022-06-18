@@ -84,9 +84,10 @@ km("n", "<leader>d", "<cmd>Bdelete<cr>", defaultOpts)
 -- Copy into system clipboard
 vc("set clipboard+=unnamedplus")
 
--- Save File and Code Runner and Mark down previewer
+-- Save File and Code Runner and Mark down previewer and Markmap
 km("n", "<leader>r", "<cmd>w<cr><cmd>RunCode<cr>", defaultOpts)
 vc("autocmd FileType markdown nmap <buffer><leader>r <cmd>CocCommand markdown-preview-enhanced.openPreview<cr>")
+km("n", "<leader>m", "<cmd>CocCommand markmap.create<cr>", defaultOpts)
 
 -- Save File
 km("n", "<C-s>", "<cmd>w<cr>", defaultOpts)

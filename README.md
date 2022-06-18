@@ -9,7 +9,7 @@ A Neovim config.
 <!-- code_chunk_output -->
 
 - [NvCaed](#nvcaed)
-- [Table of Contents](#table-of-contents)
+  - [Table of Contents](#table-of-contents)
   - [Why NvCaed](#why-nvcaed)
   - [Plugins](#plugins)
     - [Making things faster](#making-things-faster)
@@ -28,6 +28,10 @@ A Neovim config.
 ## Why NvCaed
 
 Fast and configurable. This is my refined attempt at making my end game neovim config.
+
+## Showcase
+
+TODO
 
 ## Plugins
 
