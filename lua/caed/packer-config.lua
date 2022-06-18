@@ -228,6 +228,16 @@ return require("packer").startup(function(use)
 		event = "BufWritePre",
 	})
 
+	use({
+		"ghillb/cybu.nvim",
+		branch = "v1.x", -- won't receive breaking changes
+		-- branch = "main", -- timely updates
+		requires = { "kyazdani42/nvim-web-devicons" }, --optional
+		config = function()
+			require("caed.cybu-config")
+		end,
+	})
+
 	-- END
 	if packer_bootstrap then
 		require("packer").sync()

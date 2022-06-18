@@ -22,10 +22,10 @@ km("v", "p", '"_dP', defaultOpts)
 -- vim.api.nvim_set_keymap("n", "<leader>j", "<Plug>Lightspeed_omni_s", { noremap = false })
 
 -- Navigate Buffer
-km("n", "<S-l>", ":bnext<CR>", defaultOpts)
-km("n", "<S-h>", ":bprevious<CR>", defaultOpts)
-km("n", "<A-l>", ":BufferLineMoveNext<CR>", defaultOpts)
-km("n", "<A-h>", ":BufferLineMovePrev<CR>", defaultOpts)
+-- km("n", "<S-l>", ":bnext<CR>", defaultOpts)
+-- km("n", "<S-h>", ":bprevious<CR>", defaultOpts)
+-- km("n", "<A-l>", ":BufferLineMoveNext<CR>", defaultOpts)
+-- km("n", "<A-h>", ":BufferLineMovePrev<CR>", defaultOpts)
 
 -- BufferLine
 km("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", defaultOpts)

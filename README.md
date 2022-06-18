@@ -32,11 +32,12 @@ Fast and configurable. This is my refined attempt at making my end game neovim c
 - [vimwiki](https://github.com/vimwiki/vimwiki)
 - [telescope-bookmarks.nvim](https://github.com/dhruvmanila/telescope-bookmarks.nvim)
 
-### File Navigation
+### File and Buffer Navigation
 
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
   - [telescope-zoxide](https://github.com/jvgrootveld/telescope-zoxide)
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+- [cybu.nvim](https://github.com/ghillb/cybu.nvim)
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - [lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim)
