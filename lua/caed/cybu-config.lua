@@ -13,7 +13,7 @@ cybu.setup({
 		padding = 5,
 	},
 })
-vim.keymap.set("n", "K", "<Plug>(CybuPrev)")
+-- vim.keymap.set("n", "K", "<Plug>(CybuPrev)")
 vim.keymap.set("n", "H", "<Plug>(CybuPrev)")
-vim.keymap.set("n", "J", "<Plug>(CybuNext)")
+-- vim.keymap.set("n", "J", "<Plug>(CybuNext)")
 vim.keymap.set("n", "L", "<Plug>(CybuNext)")

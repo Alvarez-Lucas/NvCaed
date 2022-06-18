@@ -228,6 +228,7 @@ return require("packer").startup(function(use)
 		event = "BufWritePre",
 	})
 
+	-- cybu buffer switcher
 	use({
 		"ghillb/cybu.nvim",
 		branch = "v1.x", -- won't receive breaking changes
@@ -237,6 +238,8 @@ return require("packer").startup(function(use)
 			require("caed.cybu-config")
 		end,
 	})
+
+	use({ "lmburns/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 
 	-- END
 	if packer_bootstrap then
