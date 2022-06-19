@@ -31,7 +31,6 @@ require("lualine").setup({
 			"filename",
 			"%=",
 			"diagnostics",
-			"%",
 		},
 
 		-- lualine_c = {
