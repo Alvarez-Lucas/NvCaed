@@ -33,7 +33,7 @@ vo.signcolumn = "yes"
 vo.termguicolors = true
 
 -- Column Marker
-vc("set colorcolumn=80")
+-- vc("set colorcolumn=80")
 
 -- Make Keywords include "-"
 vc("set iskeyword+=-")
