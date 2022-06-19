@@ -2,11 +2,13 @@ require("lualine").setup({
 	options = {
 		icons_enabled = true,
 		-- theme = "auto",
-
-		theme = "onedark",
+		theme = "moonfly",
+		-- theme = "onedark",
 		-- theme = "gruvbox-baby",
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
+		-- component_separators = { left = "", right = "" },
+		-- section_separators = { left = "", right = "" },
+		component_separators = { "" },
+		section_separators = { "" },
 		disabled_filetypes = { "alpha", "NvimTree", "packer", "TelescopePrompt" },
 		always_divide_middle = true,
 		globalstatus = true,
@@ -16,14 +18,31 @@ require("lualine").setup({
 			"mode",
 		},
 
-		lualine_b = { "branch", "diff", "diagnostics" },
-
+		lualine_b = { "branch" },
+		-- lualine_c = {
+		-- 	"filename",
+		-- 	"%=",
+		-- 	"diff",
+		-- 	"%\\|",
+		-- 	"diagnostics",
+		-- 	"%\\",
+		-- },
 		lualine_c = {
 			"filename",
+			"%=",
+			"diagnostics",
+			"%",
 		},
-		lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
+
+		-- lualine_c = {
+		-- 	"filename",
+		-- 	"%=",
+		-- 	"diagnostics",
+		-- 	"%\\",
+		-- },
+		lualine_x = {},
+		lualine_y = { "diff", "filetype" },
+		lualine_z = { "%3.4l / %-3.4L" },
 	},
 	inactive_sections = {
 		lualine_a = {},

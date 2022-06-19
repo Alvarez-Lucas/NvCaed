@@ -20,7 +20,17 @@ return require("packer").startup(function(use)
 
 	-- Colorschemes
 
-	--Zenburn
+	-- Moonfly
+	use({
+		"bluz71/vim-moonfly-colors",
+		config = function()
+			require("caed.vim-moonfly-colors-config")
+			vim.cmd([[colorscheme moonfly]])
+		end,
+		disable = false,
+	})
+
+	-- Zenburn
 	use({
 		"phha/zenburn.nvim",
 		config = function()
@@ -46,7 +56,7 @@ return require("packer").startup(function(use)
 			require("caed.onedark-config")
 			require("onedark").load()
 		end,
-		disable = false,
+		disable = true,
 	})
 
 	-- Tender
