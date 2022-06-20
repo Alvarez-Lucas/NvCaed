@@ -12,7 +12,7 @@ vo.number = true
 vo.relativenumber = true
 
 -- Cursor Line
-vo.cursorline = false
+vo.cursorline = true
 
 -- Indentation
 vo.shiftwidth = 2
