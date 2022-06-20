@@ -1,3 +1,5 @@
+<!-- markdownlint-disable-file -->
+<!-- markdownlint-disable-file -->
 # NvCaed
 
 A Neovim config.
@@ -106,6 +108,9 @@ Focused on minor improvements right now. Switching off of coc will be a later go
 ### High Priority
 
 - [ ] Add Toggle term and configure it to powershell
+- [ ] Configure coc keybinds with telescope where appropriate
+- [ ] text objects and line objects(copy line without end of line char)
+- [ ] Neo Clip
 
 ### Low Priority
 
@@ -136,6 +141,8 @@ Focused on minor improvements right now. Switching off of coc will be a later go
 - <https://github.com/sindrets/winshift.nvim>
 - and or <https://github.com/beauwilliams/focus.nvim#readme>
 - <https://github.com/gelguy/wilder.nvim>
+- <https://github.com/nvim-treesitter/nvim-treesitter-textobjects>
+- <https://github.com/AckslD/nvim-neoclip.lua>
 
 ## Bugs
 
@@ -145,3 +152,4 @@ Focused on minor improvements right now. Switching off of coc will be a later go
   - enter to autocomplete on vimwiki does not work,
     probably cause binded to enter into page
     <https://github.com/vimwiki/vimwiki/issues/283>
+

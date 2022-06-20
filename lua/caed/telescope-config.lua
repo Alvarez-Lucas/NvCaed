@@ -4,6 +4,8 @@ require("telescope").load_extension("zoxide")
 
 require("telescope").load_extension("bookmarks")
 
+require("telescope").load_extension("coc")
+
 require("telescope").setup({
 	defaults = {
 		-- Default configuration for telescope goes here:
