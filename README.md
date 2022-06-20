@@ -11,17 +11,22 @@ A Neovim config.
 - [NvCaed](#nvcaed)
   - [Table of Contents](#table-of-contents)
   - [Why NvCaed](#why-nvcaed)
+  - [Showcase](#showcase)
   - [Plugins](#plugins)
     - [Making things faster](#making-things-faster)
     - [Plugin Manager](#plugin-manager)
-    - [Themes](#themes)
+    - [Colorschemes](#colorschemes)
     - [Dashboard](#dashboard)
     - [Notes](#notes)
     - [File and Buffer Navigation](#file-and-buffer-navigation)
     - [Code Actions and Highlighting](#code-actions-and-highlighting)
     - [Help](#help)
     - [Version Control](#version-control)
+  - [Road Map](#road-map)
+    - [High Priority](#high-priority)
+    - [Low Priority](#low-priority)
   - [Potential Changes](#potential-changes)
+  - [Bugs](#bugs)
 
 <!-- /code_chunk_output -->
 
@@ -44,9 +49,11 @@ TODO
 
 - [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
-### Themes
+### Colorschemes
 
+- [vim-moonfly-colors](https://github.com/bluz71/vim-moonfly-colors)
 - [zenburn.nvim](https://github.com/phha/zenburn.nvim)
+- [gruvbox-baby](https://github.com/luisiacc/gruvbox-baby)
 - [onedark.nvim](https://github.com/navarasu/onedark.nvim)
 - [tender.vim](https://github.com/jacoborus/tender.vim)
 
@@ -92,6 +99,20 @@ TODO
 
 - [lazygit.nvim](https://github.comkdheepak/lazygit.nvim/)
 
+## Road Map
+
+Focused on minor improvements right now. Switching off of coc will be a later goal.
+
+### High Priority
+
+- [ ] Add Toggle term and configure it to powershell
+
+### Low Priority
+
+- [ ] Switch to native LSP
+  - [ ] nvim-cmp vs coq?
+- [ ] Find lua alternatives to coc extensions
+
 ## Potential Changes
 
 - indent scope to select around code blocks more easily
@@ -116,3 +137,10 @@ TODO
 - and or <https://github.com/beauwilliams/focus.nvim#readme>
 - <https://github.com/gelguy/wilder.nvim>
 
+## Bugs
+
+- Vimwiki
+  - ctrl + space bind does not work on windows terminal,
+    probably a null character difference
+  - enter to autocomplete on vimwiki does not work,
+    probably cause binded to enter into page
