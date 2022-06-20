@@ -118,7 +118,8 @@ return require("packer").startup(function(use)
 	-- Comment
 	use({
 		"numToStr/Comment.nvim",
-		keys = { "gc", "gcc", "gbc" },
+		-- results in slow block comments on first load
+		-- keys = { "gc", "gcc", "gbc" },
 		config = function()
 			require("Comment").setup()
 		end,
@@ -268,7 +269,26 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	use({ "lmburns/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	-- TODO Remove and check readme
+	-- use({ "lmburns/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
+
+	-- TODO
+	use({
+		"fannheyward/telescope-coc.nvim",
+		-- config = function()
+		-- 	require("caed.cybu-config")
+		-- end,
+	})
+
+	-- Tree sitter text objects
+
+	-- TODO vil and val
+	-- use({
+	-- 	"kana/vim-textobj-line",
+	-- 	-- config = function()
+	-- 	-- 	require("caed.cybu-config")
+	-- 	-- end,
+	-- })
 
 	-- END
 	if packer_bootstrap then
