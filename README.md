@@ -111,6 +111,8 @@ Focused on minor improvements right now. Switching off of coc will be a later go
 - [ ] Configure coc keybinds with telescope where appropriate
 - [ ] text objects and line objects(copy line without end of line char)
 - [ ] Neo Clip
+- [ ] Implement wilder with command palette theme?
+- [ ] Implement dressing?
 
 ### Low Priority
 
