@@ -39,7 +39,7 @@ end
 require("impatient")
 
 -- Lightspeed disabled default maps
-vim.g.lightspeed_no_default_keymaps = 0
+-- vim.g.lightspeed_no_default_keymaps = 0
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 -- vim.g.coc_status_warning_sign = ""
@@ -49,16 +49,13 @@ vim.g.maplocalleader = " "
 -- { name = "DiagnosticSignHint", text = "" },
 -- { name = "DiagnosticSignInfo", text = "" },
 
--- VimWiki global before initializing
-vim.cmd("let g:vimwiki_global_ext = 0")
-vim.cmd("let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}")
-vim.cmd(
-	"let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/', 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md', 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown', 'template_ext': '.tpl'}]"
-)
-
-require("caed.packer-config")
-require("caed.config.keymaps")
+-- require("caed.packer-config")
+-- require("caed.config.keymaps")
+-- require("caed.config.options")
+-- require("caed.config.neovide")
 require("caed.config.options")
+require("caed.config.keymaps")
+require("caed.packer-config")
 require("caed.config.neovide")
 
 vim.opt.shadafile = ""

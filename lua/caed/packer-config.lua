@@ -1,6 +1,14 @@
 -- api shorteners
 local fn = vim.fn
 
+-- PackerCompile on update
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost packer-config.lua source <afile> | PackerCompile
+  augroup end
+]])
+
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap = fn.system({
@@ -66,6 +74,9 @@ return require("packer").startup(function(use)
 	use({
 		"vimwiki/vimwiki",
 		cmd = { "Vimwiki", "VimwikiIndex" },
+		setup = function()
+			require("caed.vimwiki-setup")
+		end,
 	})
 
 	-- Telescope
@@ -180,10 +191,14 @@ return require("packer").startup(function(use)
 		config = function()
 			require("caed.lightspeed-config")
 		end,
+		setup = function()
+			vim.g.lightspeed_no_default_keymaps = 0
+		end,
 	})
 
 	-- use({ "tpope/vim-surround" })
 
+	-- Vim Sandwich
 	use({
 		"machakann/vim-sandwich",
 		keys = { "sa", "sd", "sr" },
