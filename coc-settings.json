@@ -7,10 +7,6 @@
   "diagnostic.virtualText": false,
   "diagnostic.virtualTextCurrentLineOnly": false,
 
-  "git.addedSign.text": "▎",
-  "git.changedSign.text": "▎",
-  "git.removedSign.text": "契",
-
   "coc.preferences.formatOnSaveFiletypes": [
     "lua",
     "python",
