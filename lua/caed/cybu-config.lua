@@ -6,11 +6,25 @@ cybu.setup({
 	position = {
 		relative_to = "editor",
 		anchor = "center",
+		max_win_height = 30,
 	},
 
 	style = {
 		path = "tail", -- absolute, relative, tail (filename only)
 		padding = 5,
+		border = "rounded",
+	},
+	behavior = { -- set behavior for different modes
+		mode = {
+			default = {
+				switch = "immediate", -- immediate, on_close
+				view = "paging", -- paging, rolling
+			},
+			last_used = {
+				switch = "on_close", -- immediate, on_close
+				view = "paging", -- paging, rolling
+			},
+		},
 	},
 })
 -- vim.keymap.set("n", "K", "<Plug>(CybuPrev)")
