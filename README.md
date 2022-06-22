@@ -1,5 +1,3 @@
-<!-- markdownlint-disable-file -->
-<!-- markdownlint-disable-file -->
 # NvCaed
 
 A Neovim config.
@@ -154,4 +152,3 @@ Focused on minor improvements right now. Switching off of coc will be a later go
   - enter to autocomplete on vimwiki does not work,
     probably cause binded to enter into page
     <https://github.com/vimwiki/vimwiki/issues/283>
-
