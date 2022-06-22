@@ -19,4 +19,5 @@ vim.opt.fillchars = { -- makes it thicker but not as thick as disable thing abov
 	vertleft = "┫",
 	vertright = "┣",
 	verthoriz = "╋",
+	eob = " ",
 }
