@@ -149,6 +149,3 @@ Focused on minor improvements right now. Switching off of coc will be a later go
 - Vimwiki
   - ctrl + space bind does not work on windows terminal,
     probably a null character difference
-  - enter to autocomplete on vimwiki does not work,
-    probably cause binded to enter into page
-    <https://github.com/vimwiki/vimwiki/issues/283>
