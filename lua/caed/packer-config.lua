@@ -280,6 +280,14 @@ return require("packer").startup(function(use)
 		-- end,
 	})
 
+	use({
+		"m-demare/hlargs.nvim",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("hlargs").setup()
+		end,
+	})
+
 	-- Tree sitter text objects
 
 	-- TODO vil and val
