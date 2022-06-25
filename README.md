@@ -105,6 +105,7 @@ Focused on minor improvements right now. Switching off of coc will be a later go
 
 ### High Priority
 
+- [ ] Add python debugger
 - [ ] Add Toggle term and configure it to powershell
 - [ ] Configure coc keybinds with telescope where appropriate
 - [ ] text objects and line objects(copy line without end of line char)

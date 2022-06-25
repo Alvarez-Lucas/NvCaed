@@ -284,7 +284,9 @@ return require("packer").startup(function(use)
 		"m-demare/hlargs.nvim",
 		requires = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
-			require("hlargs").setup()
+			require("hlargs").setup({
+				color = "#85dc85", -- moonfly colors
+			})
 		end,
 	})
 
