@@ -102,6 +102,20 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Telescope NeoClip
+	use({
+		"AckslD/nvim-neoclip.lua",
+		requires = {
+			{ "tami5/sqlite.lua", module = "sqlite" },
+			-- you'll need at least one of these
+			-- {'nvim-telescope/telescope.nvim'},
+			-- {'ibhagwan/fzf-lua'},
+		},
+		config = function()
+			require("neoclip").setup({ default_register = "+" })
+		end,
+	})
+
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -290,6 +304,14 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use({
+		"numToStr/FTerm.nvim",
+		-- keys = { "<A-i>", "<A-\\>", "<A-i>", "<A-\\>" },
+		cmd = "FTermToggle",
+		config = function()
+			require("caed.fterm-nvim-config")
+		end,
+	})
 	-- Tree sitter text objects
 
 	-- TODO vil and val

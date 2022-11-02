@@ -41,7 +41,7 @@ require("lualine").setup({
 		-- },
 		lualine_x = {},
 		lualine_y = { "diff", "filetype" },
-		lualine_z = { "%3.4l / %-3.4L" },
+		lualine_z = { "%3.4l:%-2.3c / %-3.4L" },
 	},
 	inactive_sections = {
 		lualine_a = {},

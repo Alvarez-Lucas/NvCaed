@@ -6,6 +6,8 @@ require("telescope").load_extension("bookmarks")
 
 require("telescope").load_extension("coc")
 
+require("telescope").load_extension("neoclip")
+
 require("telescope").setup({
 	defaults = {
 		-- Default configuration for telescope goes here:

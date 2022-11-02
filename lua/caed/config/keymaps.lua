@@ -45,10 +45,12 @@ km("n", "<C-k>", "<C-w>k", defaultOpts)
 km("n", "<C-l>", "<C-w>l", defaultOpts)
 
 -- Better Terminal Navigation
-km("t", "<C-h>", "<C-\\><C-N><C-w>h", defaultOpts)
-km("t", "<C-j>", "<C-\\><C-N><C-w>j", defaultOpts)
-km("t", "<C-k>", "<C-\\><C-N><C-w>k", defaultOpts)
-km("t", "<C-l>", "<C-\\><C-N><C-w>l", defaultOpts)
+-- km("t", "<C-h>", "<C-\\><C-N><C-w>h", defaultOpts)
+-- km("t", "<C-j>", "<C-\\><C-N><C-w>j", defaultOpts)
+-- km("t", "<C-k>", "<C-\\><C-N><C-w>k", defaultOpts)
+-- km("t", "<C-l>", "<C-\\><C-N><C-w>l", defaultOpts)
+km("t", "<A-j>", "<C-\\><C-N>j", defaultOpts)
+km("t", "<A-k>", "<C-\\><C-N>k", defaultOpts)
 
 -- Move Text
 km("x", "J", ":move '>+1<CR>gv-gv", defaultOpts)
@@ -74,6 +76,7 @@ km("n", "<leader>F", "<cmd>Telescope current_buffer_fuzzy_find<cr>", defaultOpts
 -- Vimwiki
 km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)
 km("n", "<leader>wf", "<cmd>cd $HOME/vimwiki<cr><cmd>Telescope find_files<cr>", defaultOpts)
+km("n", "<leader>o", "<cmd>VimwikiToggleListItem<cr>", defaultOpts)
 
 -- Nvim Tree
 km("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", defaultOpts)
@@ -130,3 +133,9 @@ km("n", "<leader>pp", "<cmd>PackerProfile<cr>", defaultOpts)
 
 -- Lazy Git
 km("n", "<leader>lg", "<cmd>LazyGit<cr>", defaultOpts)
+
+-- Toggle Term
+vim.keymap.set("n", "<A-i>", "<CMD>FTermToggle<CR>")
+vim.keymap.set("n", "<A-\\>", "<CMD>FTermToggle<CR>")
+vim.keymap.set("t", "<A-i>", "<C-\\><C-n><CMD>FTermToggle<CR>")
+vim.keymap.set("t", "<A-\\>", "<C-\\><C-n><CMD>FTermToggle<CR>")

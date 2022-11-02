@@ -2,10 +2,10 @@ require("telescope").setup({
 	extensions = {
 		bookmarks = {
 			-- Available: 'brave', 'buku', 'chrome', 'chrome_beta', 'edge', 'safari', 'firefox', 'vivaldi'
-			selected_browser = "brave",
+			selected_browser = "chrome",
 
 			-- Either provide a shell command to open the URL
-			url_open_command = "brave",
+			url_open_command = "chrome",
 
 			-- Or provide the plugin name which is already installed
 			-- Available: 'vim_external', 'open_browser'

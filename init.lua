@@ -48,7 +48,7 @@ vim.g.maplocalleader = " "
 -- { name = "DiagnosticSignWarn", text = "" },
 -- { name = "DiagnosticSignHint", text = "" },
 -- { name = "DiagnosticSignInfo", text = "" },
-
+vim.g.SHELL = "let g:SHELL=C:UserslucasAppDataLocalMicrosoftWindowsAppsMicrosoft.PowerShell_8wekyb3d8bbwepwsh.exe"
 -- require("caed.packer-config")
 -- require("caed.config.keymaps")
 -- require("caed.config.options")
