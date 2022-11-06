@@ -22,62 +22,34 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require("packer").startup(function(use)
-	use("lewis6991/impatient.nvim")
-	use("nathom/filetype.nvim")
+	-- use("lewis6991/impatient.nvim")
+	-- use("nathom/filetype.nvim")
 	use("wbthomason/packer.nvim") -- Packer can manage itself
 
 	-- Colorschemes
 
-	-- Moonfly
-	use({
-		"bluz71/vim-moonfly-colors",
-		config = function()
-			require("caed.vim-moonfly-colors-config")
-			vim.cmd([[colorscheme moonfly]])
-		end,
-		disable = false,
-	})
-
-	-- Zenburn
-	use({
-		"phha/zenburn.nvim",
-		config = function()
-			require("zenburn").setup()
-		end,
-		disable = true,
-	})
-
-	-- Gruvbox
-	use({
-		"luisiacc/gruvbox-baby",
-		config = function()
-			require("caed.gruvbox-baby-config")
-			vim.cmd([[colorscheme gruvbox-baby]])
-		end,
-		disable = true,
-	})
-
 	-- One Dark
 	use({
-		"navarasu/onedark.nvim",
-		config = function()
-			require("caed.onedark-config")
-			require("onedark").load()
-		end,
-		disable = true,
-	})
-
-	-- Tender
-	use({ "jacoborus/tender.vim", config = "vim.cmd('colorscheme tender')", disable = true })
-
-	-- Vimwiki
-	use({
-		"vimwiki/vimwiki",
-		cmd = { "Vimwiki", "VimwikiIndex" },
+		"NTBBloodbath/doom-one.nvim",
 		setup = function()
-			require("caed.vimwiki-setup")
+			require("caed.doom-one-config")
 		end,
+		config = function()
+        vim.cmd("colorscheme doom-one")
+    end,
 	})
+
+	-- -- Tender
+	-- use({ "jacoborus/tender.vim", config = "vim.cmd('colorscheme tender')", disable = true })
+
+	-- -- Vimwiki
+	-- use({
+		-- "vimwiki/vimwiki",
+		-- cmd = { "Vimwiki", "VimwikiIndex" },
+		-- setup = function()
+			-- require("caed.vimwiki-setup")
+		-- end,
+	-- })
 
 	-- Telescope
 	use({
@@ -89,18 +61,18 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Telescope Zoxide
-	use({
-		"jvgrootveld/telescope-zoxide",
-	})
+	-- -- Telescope Zoxide
+	-- use({
+		-- "jvgrootveld/telescope-zoxide",
+	-- })
 
-	-- Telescope Bookmarks
-	use({
-		"dhruvmanila/telescope-bookmarks.nvim",
-		config = function()
-			require("caed.telecope-bookmarks-config")
-		end,
-	})
+	-- -- Telescope Bookmarks
+	-- use({
+		-- "dhruvmanila/telescope-bookmarks.nvim",
+		-- config = function()
+			-- require("caed.telecope-bookmarks-config")
+		-- end,
+	-- })
 
 	-- Treesitter
 	use({
@@ -109,31 +81,31 @@ return require("packer").startup(function(use)
 		config = "require('caed.treesitter-config')",
 	})
 
-	-- Indent blankline
-	use({
-		"lukas-reineke/indent-blankline.nvim",
-		config = "require('caed.indent-blankline-config')",
-	})
-
-	-- Comment
-	use({
-		"numToStr/Comment.nvim",
-		-- results in slow block comments on first load
-		-- keys = { "gc", "gcc", "gbc" },
-		config = function()
-			require("Comment").setup()
-		end,
-	})
 
 	-- nvim autopairs
 	use({
 		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = function()
-			require("caed.nvim-autopairs-config")
-		end,
-		after = "nvim-treesitter",
+		config = function() 
+			require("nvim-autopairs").setup {} 
+		end	
 	})
+
+	-- -- Indent blankline
+	-- use({
+		-- "lukas-reineke/indent-blankline.nvim",
+		-- config = "require('caed.indent-blankline-config')",
+	-- })
+
+	-- -- Comment
+	-- use({
+		-- "numToStr/Comment.nvim",
+		-- -- results in slow block comments on first load
+		-- -- keys = { "gc", "gcc", "gbc" },
+		-- config = function()
+			-- require("Comment").setup()
+		-- end,
+	-- })
+
 
 	-- NvimTree
 	use({
@@ -147,157 +119,158 @@ return require("packer").startup(function(use)
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
 
-	-- Code Runner
+
 	use({
-		"CRAG666/code_runner.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		cmd = "RunCode",
-		config = "require('caed.code_runner-config')",
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      local saga = require("lspsaga")
+      saga.init_lsp_saga({
+        -- keybinds for navigation in lspsaga window
+        move_in_saga = { prev = "<C-k>", next = "<C-j>" },
+        -- use enter to open file with finder
+        finder_action_keys = {
+          open = "<CR>",
+        },
+        -- use enter to open file with definition preview
+        definition_action_keys = {
+          edit = "<CR>",
+        },
+      })
+    end
 	})
 
-	-- COC
-	use({ "neoclide/coc.nvim", branch = "release", config = "require('caed.coc-config')" })
-
-	--  vim-Snippets for COC
-	--  TODO
+	-- COQ
+	-- autocomplete
 	use({
-		"honza/vim-snippets",
-		-- event = "InsertEnter",
-		config = function()
-			vim.cmd("let g:coc_snippet_next = '<tab>'")
-			vim.cmd("let g:coc_snippet_prev = '<S-tab>'")
-		end,
-	})
-
-	-- Which Key
-	use({
-		"folke/which-key.nvim",
-		config = function()
-			require("caed.which-key-config")
-		end,
-	})
-
-	-- Alpha Dashboard
-	use({
-		"goolord/alpha-nvim",
-		config = function()
-			require("caed.alpha-nvim-config")
-		end,
-	})
-
-	-- Lightspeed
-	use({
-		"ggandor/lightspeed.nvim",
-		keys = { "<leader>j" },
-		config = function()
-			require("caed.lightspeed-config")
-		end,
+		"ms-jpq/coq_nvim",
+	 	branch = 'coq',
+	 	commit = '84ec5faf2aaf49819e626f64dd94f4e71cf575bc',
 		setup = function()
-			vim.g.lightspeed_no_default_keymaps = 0
+			vim.g.coq_settings = {
+  			auto_start = "shut-up",
+  			keymap = {
+  				recommended = false
+  			},
+			}
 		end,
-	})
-
-	-- use({ "tpope/vim-surround" })
-
-	-- Vim Sandwich
-	use({
-		"machakann/vim-sandwich",
-		keys = { "sa", "sd", "sr" },
-	})
-
-	-- Vim Bbye
-	use({
-		"moll/vim-bbye",
-		cmd = { "Bdelete", "Bwipeout" },
-	})
-
-	-- BufferLine
-	use({
-		"akinsho/bufferline.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", "neoclide/coc.nvim" },
 		config = function()
-			require("caed.bufferline-config")
+			vim.cmd(
+				[[
+" Keybindings
+ino <silent><expr> <Esc>   pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
+ino <silent><expr> <C-c>   pumvisible() ? "\<C-e><C-c>" : "\<C-c>"
+ino <silent><expr> <BS>    pumvisible() ? "\<C-e><BS>"  : "\<BS>"
+ino <silent><expr> <CR>    pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<CR>"
+ino <silent><expr> <C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
+ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
+				]])
 		end,
-		disable = true,
 	})
 
-	-- lualine
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true, "neoclide/coc.nvim" },
+	-- snippets for autocomplete
+	use ({
+		"ms-jpq/coq.artifacts",
+		branch = "artifacts",
+	})
+
+	-- mason lsp installer
+	use ({ "williamboman/mason.nvim",
 		config = function()
-			require("caed.lualine-config")
-		end,
+	 		require("mason").setup()
+		end
+	 })
+
+	-- mason connect to lsp
+	use ({
+	 "williamboman/mason-lspconfig.nvim",
+	 config = function()
+		require("mason-lspconfig").setup({
+			ensure_installed = {
+				 "pyright",
+				 "sumneko_lua"
+			}
+		})
+	 end
 	})
 
-	-- Lazy Git
-	use({
-		"kdheepak/lazygit.nvim",
-		cmd = "LazyGit",
-	})
-
-	-- Cursor line
-	use({
-		"yamatsum/nvim-cursorline",
+	-- connect lsp with nvim
+	use ({
+		"neovim/nvim-lspconfig",
 		config = function()
-			require("caed.nvim-cursorline-config")
-		end,
+			require("caed.lsp.lspconfig-config")
+		end
+
 	})
 
-	-- TS Rainbow
-	use({
-		"p00f/nvim-ts-rainbow",
-		config = function()
-			require("caed.nvim-ts-rainbow-config")
-		end,
-	})
 
-	-- mkdir
-	use({
-		"jghauser/mkdir.nvim",
-		event = "BufWritePre",
-	})
-
-	-- cybu buffer switcher
-	use({
-		"ghillb/cybu.nvim",
-		branch = "v1.x", -- won't receive breaking changes
-		-- branch = "main", -- timely updates
-		requires = { "kyazdani42/nvim-web-devicons" }, --optional
-		config = function()
-			require("caed.cybu-config")
-		end,
-	})
-
-	-- TODO Remove and check readme
-	-- use({ "lmburns/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
-
-	-- TODO
-	use({
-		"fannheyward/telescope-coc.nvim",
-		-- config = function()
-		-- 	require("caed.cybu-config")
-		-- end,
-	})
-
-	use({
-		"m-demare/hlargs.nvim",
-		requires = { "nvim-treesitter/nvim-treesitter" },
-		config = function()
-			require("hlargs").setup({
-				color = "#85dc85", -- moonfly colors
-			})
-		end,
-	})
-
-	-- Tree sitter text objects
-
-	-- TODO vil and val
+	-- -- Code Runner
 	-- use({
-	-- 	"kana/vim-textobj-line",
-	-- 	-- config = function()
-	-- 	-- 	require("caed.cybu-config")
-	-- 	-- end,
+		-- "CRAG666/code_runner.nvim",
+		-- requires = "nvim-lua/plenary.nvim",
+		-- cmd = "RunCode",
+		-- config = "require('caed.code_runner-config')",
+	-- })
+
+	-- -- Alpha Dashboard
+	-- use({
+		-- "goolord/alpha-nvim",
+		-- config = function()
+			-- require("caed.alpha-nvim-config")
+		-- end,
+	-- })
+
+	-- -- Vim Bbye
+	-- use({
+		-- "moll/vim-bbye",
+		-- cmd = { "Bdelete", "Bwipeout" },
+	-- })
+
+	-- -- BufferLine
+	-- use({
+		-- "akinsho/bufferline.nvim",
+		-- requires = { "kyazdani42/nvim-web-devicons", "neoclide/coc.nvim" },
+		-- config = function()
+			-- require("caed.bufferline-config")
+		-- end,
+		-- disable = true,
+	-- })
+
+	-- -- lualine
+	-- use({
+		-- "nvim-lualine/lualine.nvim",
+		-- requires = { "kyazdani42/nvim-web-devicons", opt = true, "neoclide/coc.nvim" },
+		-- config = function()
+			-- require("caed.lualine-config")
+		-- end,
+	-- })
+
+	-- -- Lazy Git
+	-- use({
+		-- "kdheepak/lazygit.nvim",
+		-- cmd = "LazyGit",
+	-- })
+
+	-- -- Cursor line
+	-- use({
+		-- "yamatsum/nvim-cursorline",
+		-- config = function()
+			-- require("caed.nvim-cursorline-config")
+		-- end,
+	-- })
+
+	-- -- TS Rainbow
+	-- use({
+		-- "p00f/nvim-ts-rainbow",
+		-- config = function()
+			-- require("caed.nvim-ts-rainbow-config")
+		-- end,
+	-- })
+
+	-- -- mkdir
+	-- use({
+		-- "jghauser/mkdir.nvim",
+		-- event = "BufWritePre",
 	-- })
 
 	-- END

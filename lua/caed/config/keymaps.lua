@@ -3,7 +3,11 @@ local defaultOpts = { noremap = true, silent = true }
 local km = vim.api.nvim_set_keymap
 local vc = vim.cmd
 
--- Leader Key
+-- Local leaders
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- TODO: Leader Key might not need
 -- km("", "<Space>", "Nop", defaultOpts)
 
 -- Normal Mode Keymaps --
@@ -27,16 +31,16 @@ km("v", "p", '"_dP', defaultOpts)
 -- km("n", "<A-l>", ":BufferLineMoveNext<CR>", defaultOpts)
 -- km("n", "<A-h>", ":BufferLineMovePrev<CR>", defaultOpts)
 
--- BufferLine
-km("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", defaultOpts)
-km("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", defaultOpts)
-km("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", defaultOpts)
-km("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", defaultOpts)
-km("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", defaultOpts)
-km("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", defaultOpts)
-km("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", defaultOpts)
-km("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", defaultOpts)
-km("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", defaultOpts)
+-- BufferLine TODO: readd if adding bufferline back
+-- km("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", defaultOpts)
+-- km("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", defaultOpts)
+-- km("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", defaultOpts)
+-- km("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", defaultOpts)
+-- km("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", defaultOpts)
+-- km("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", defaultOpts)
+-- km("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", defaultOpts)
+-- km("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", defaultOpts)
+-- km("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", defaultOpts)
 
 -- Shorten Window Navigation
 km("n", "<C-h>", "<C-w>h", defaultOpts)
@@ -62,64 +66,68 @@ vc(":vnoremap > >gv")
 
 -- Telescope
 km("n", "<leader>f", "<cmd>Telescope find_files<cr>", defaultOpts)
-km("n", "<leader>b", "<cmd>Telescope bookmarks theme=dropdown<cr>", defaultOpts)
+-- TODO: Readd if doing bookmarks
+-- km("n", "<leader>b", "<cmd>Telescope bookmarks theme=dropdown<cr>", defaultOpts)
+-- TODO: This was already commented unsure
 -- km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
 km("n", "<leader>h", "<cmd>Telescope help_tags<cr>", defaultOpts)
-km("n", "<leader>z", "<cmd>Telescope zoxide list theme=dropdown<cr>", defaultOpts)
+-- TODO: Readd
+-- km("n", "<leader>z", "<cmd>Telescope zoxide list theme=dropdown<cr>", defaultOpts)
 km("n", "<leader><tab>", "<cmd>Telescope buffers<cr>", defaultOpts)
 km("n", "<leader>g", "<cmd>Telescope live_grep<cr>", defaultOpts)
 km("n", "<C-p>", "<cmd>Telescope commands theme=dropdown<cr>", defaultOpts)
 km("n", "<leader>F", "<cmd>Telescope current_buffer_fuzzy_find<cr>", defaultOpts)
 
--- Vimwiki
-km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)
-km("n", "<leader>wf", "<cmd>cd $HOME/vimwiki<cr><cmd>Telescope find_files<cr>", defaultOpts)
+-- Vimwiki TODO: Readd
+-- km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)
+-- km("n", "<leader>wf", "<cmd>cd $HOME/vimwiki<cr><cmd>Telescope find_files<cr>", defaultOpts)
 
 -- Nvim Tree
 km("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", defaultOpts)
 
 -- TODO: Close Buffer, w/ save ?
-km("n", "<leader>d", "<cmd>Bdelete<cr>", defaultOpts)
+-- TODO: Readd
+-- km("n", "<leader>d", "<cmd>Bdelete<cr>", defaultOpts)
 
 -- Copy into system clipboard
 vc("set clipboard+=unnamedplus")
 
 -- Save File and Code Runner and Mark down previewer and Markmap
-km("n", "<leader>r", "<cmd>w<cr><cmd>RunCode<cr>", defaultOpts)
-vc("autocmd FileType markdown nmap <buffer><leader>r <cmd>CocCommand markdown-preview-enhanced.openPreview<cr>")
-vc("autocmd FileType vimwiki nmap <buffer><leader>r <cmd>CocCommand markdown-preview-enhanced.openPreview<cr>")
-km("n", "<leader>m", "<cmd>CocCommand markmap.create<cr>", defaultOpts)
+-- TODO Readd, might not need the same thing for mark down previewer if using LSP for it
+-- km("n", "<leader>r", "<cmd>w<cr><cmd>RunCode<cr>", defaultOpts)
+-- vc("autocmd FileType markdown nmap <buffer><leader>r <cmd>CocCommand markdown-preview-enhanced.openPreview<cr>")
+-- vc("autocmd FileType vimwiki nmap <buffer><leader>r <cmd>CocCommand markdown-preview-enhanced.openPreview<cr>")
+-- km("n", "<leader>m", "<cmd>CocCommand markmap.create<cr>", defaultOpts)
 
 -- Save File
 km("n", "<C-s>", "<cmd>w<cr>", defaultOpts)
 km("n", "<leader>s", "<cmd>w<cr>", defaultOpts)
 
 -- CocCurrentWordToggle
-km("n", "<leader>ch", "<cmd>CocCurrentWordToggle<cr>", defaultOpts)
+-- Replace with LSP Equivalent
+-- km("n", "<leader>ch", "<cmd>CocCurrentWordToggle<cr>", defaultOpts)
 
 -- Clear Highlights
 km("n", "<Esc>", "<cmd>nohlsearch<cr>", defaultOpts)
 
--- Neovide
-
+-- Neovide TODO: Read if considering neovide
 -- Change Font Size
-km("n", "<A-left>", ":set guifont=JetBrainsMono\\ NF:h15<cr>", defaultOpts)
-vc([[
-nnoremap <A-Up> :silent! let &guifont = substitute(
- \ &guifont,
- \ ':h\zs\d\+',
- \ '\=eval(submatch(0)+1)',
- \ '')<CR>
-
-nnoremap <A-Down> :silent! let &guifont = substitute(
- \ &guifont,
- \ ':h\zs\d\+',
- \ '\=eval(submatch(0)-1)',
- \ '')<CR>
-]])
-
--- Toggle Full Screen
-km("n", "<F11>", ":let g:neovide_fullscreen=v:", defaultOpts)
+-- km("n", "<A-left>", ":set guifont=JetBrainsMono\\ NF:h15<cr>", defaultOpts)
+-- vc([[
+-- nnoremap <A-Up> :silent! let &guifont = substitute(
+ -- \ &guifont,
+ -- \ ':h\zs\d\+',
+ -- \ '\=eval(submatch(0)+1)',
+ -- \ '')<CR>
+-- 
+-- nnoremap <A-Down> :silent! let &guifont = substitute(
+ -- \ &guifont,
+ -- \ ':h\zs\d\+',
+ -- \ '\=eval(submatch(0)-1)',
+ -- \ '')<CR>
+-- ]])
+-- -- Toggle Full Screen
+-- km("n", "<F11>", ":let g:neovide_fullscreen=v:", defaultOpts)
 
 -- Packer
 km("n", "<leader>pc", "<cmd>PackerCompile profile=true<cr>", defaultOpts)
@@ -128,5 +136,5 @@ km("n", "<leader>pS", "<cmd>PackerStatus<cr>", defaultOpts)
 km("n", "<leader>pp", "<cmd>PackerProfile<cr>", defaultOpts)
 -- km("n", "<leader>pi", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>", defaultOpts)
 
--- Lazy Git
-km("n", "<leader>lg", "<cmd>LazyGit<cr>", defaultOpts)
+-- Lazy Git TODO: Readd
+-- km("n", "<leader>lg", "<cmd>LazyGit<cr>", defaultOpts)

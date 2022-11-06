@@ -1,10 +1,10 @@
 local actions = require("telescope.actions")
 
-require("telescope").load_extension("zoxide")
+-- require("telescope").load_extension("zoxide")
 
-require("telescope").load_extension("bookmarks")
+-- require("telescope").load_extension("bookmarks")
 
-require("telescope").load_extension("coc")
+-- require("telescope").load_extension("coc")
 
 require("telescope").setup({
 	defaults = {

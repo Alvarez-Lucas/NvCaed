@@ -1,4 +1,7 @@
-vim.opt.shadafile = "NONE"
+-- TODO: Figure out what this does before adding it back
+-- vim.opt.shadafile = "NONE"
+
+-- TODO: Figure out what this does before adding it back
 -- _G.__luacache_config = {
 -- 	chunks = {
 -- 		enable = true,
@@ -11,7 +14,6 @@ vim.opt.shadafile = "NONE"
 -- }
 
 -- Disable some builtin vim plugins
-
 local disabled_built_ins = {
 	-- "netrw",
 	-- "netrwPlugin",
@@ -31,31 +33,18 @@ local disabled_built_ins = {
 	"rrhelper",
 	"spellfile_plugin",
 }
-
 for _, plugin in pairs(disabled_built_ins) do
 	vim.g["loaded_" .. plugin] = 1
 end
 
-require("impatient")
+-- TODO: Add this back after minimal config when ready for speed optimization
+-- require("impatient")
 
--- Lightspeed disabled default maps
--- vim.g.lightspeed_no_default_keymaps = 0
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
--- vim.g.coc_status_warning_sign = ""
--- vim.g.coc_status_error_sign = ""
--- { name = "DiagnosticSignError", text = "" },
--- { name = "DiagnosticSignWarn", text = "" },
--- { name = "DiagnosticSignHint", text = "" },
--- { name = "DiagnosticSignInfo", text = "" },
+-- vim.cmd("let g.coq_settings = { 'auto_start' : v:true }")
 
--- require("caed.packer-config")
--- require("caed.config.keymaps")
--- require("caed.config.options")
--- require("caed.config.neovide")
 require("caed.config.options")
 require("caed.config.keymaps")
 require("caed.packer-config")
-require("caed.config.neovide")
+-- require("caed.config.neovide")
 
 vim.opt.shadafile = ""
