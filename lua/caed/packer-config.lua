@@ -96,15 +96,15 @@ return require("packer").startup(function(use)
 		-- config = "require('caed.indent-blankline-config')",
 	-- })
 
-	-- -- Comment
-	-- use({
-		-- "numToStr/Comment.nvim",
-		-- -- results in slow block comments on first load
-		-- -- keys = { "gc", "gcc", "gbc" },
-		-- config = function()
-			-- require("Comment").setup()
-		-- end,
-	-- })
+	-- Comment
+	use({
+		"numToStr/Comment.nvim",
+		-- results in slow block comments on first load
+		-- keys = { "gc", "gcc", "gbc" },
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 
 
 	-- NvimTree

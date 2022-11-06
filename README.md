@@ -14,7 +14,7 @@ alternatives or usefulness before implementation.
 - [x] nvim tree - file explorer
 - [x] Treesitter
   - [x] Auto pairs
-  - [ ] Comments
+  - [x] Comments
   - [ ] rainbow
 - [ ] Alpha nvim - dashboard
 - [ ] Vimwiki - notes
