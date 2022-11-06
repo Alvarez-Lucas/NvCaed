@@ -66,14 +66,6 @@ return require("packer").startup(function(use)
 		-- "jvgrootveld/telescope-zoxide",
 	-- })
 
-	-- -- Telescope Bookmarks
-	-- use({
-		-- "dhruvmanila/telescope-bookmarks.nvim",
-		-- config = function()
-			-- require("caed.telecope-bookmarks-config")
-		-- end,
-	-- })
-
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -81,13 +73,12 @@ return require("packer").startup(function(use)
 		config = "require('caed.treesitter-config')",
 	})
 
-
 	-- nvim autopairs
 	use({
 		"windwp/nvim-autopairs",
-		config = function() 
-			require("nvim-autopairs").setup {} 
-		end	
+		config = function()
+			require("nvim-autopairs").setup{}
+    end
 	})
 
 	-- -- Indent blankline
@@ -120,6 +111,7 @@ return require("packer").startup(function(use)
 	})
 
 
+  -- lspsaga
 	use({
     "glepnir/lspsaga.nvim",
     branch = "main",
