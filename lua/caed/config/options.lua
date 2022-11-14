@@ -33,7 +33,7 @@ vo.signcolumn = "yes"
 vo.termguicolors = true
 
 -- Column Marker
-vc("set colorcolumn=80")
+-- vc("set colorcolumn=80")
 
 -- Make Keywords include "-"
 vc("set iskeyword+=-")
@@ -45,3 +45,10 @@ vo.sidescrolloff = 8
 -- Lightspeed disabled default maps
 -- TODO: readd if using lightspeed
 -- vim.g.lightspeed_no_default_keymaps = 0
+
+-- Disable Mouse Input
+vc("set mouse=")
+
+-- GUI Font
+-- vc([[set guifont=JetBrainsMono\ NFM:h15]])
+vc([[set guifont=Hack\ NFM:h15]])

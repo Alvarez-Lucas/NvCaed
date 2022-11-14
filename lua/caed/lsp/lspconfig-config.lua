@@ -1,5 +1,5 @@
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = true,
   signs = true,
   underline = true,
   update_in_insert = true,
@@ -39,6 +39,10 @@ for type, icon in pairs(signs) do
 end
 
 require('lspconfig')["pyright"].setup({
+	on_attach = on_attach
+})
+
+require('lspconfig')["remark_ls"].setup({
 	on_attach = on_attach
 })
 

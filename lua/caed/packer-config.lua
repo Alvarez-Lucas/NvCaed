@@ -37,8 +37,72 @@ return require("packer").startup(function(use)
 		config = function()
         vim.cmd("colorscheme doom-one")
     end,
+    disable = true
 	})
 
+
+	-- Mellow
+	use({
+		"kvrohit/mellow.nvim",
+		config = function()
+        vim.cmd("colorscheme mellow")
+    end,
+    disable = true
+	})
+
+	-- Mellow
+	use({
+		"cpea2506/one_monokai.nvim",
+		config = function()
+        vim.cmd("colorscheme one_monokai")
+    end,
+    disable = true
+	})
+
+	-- onigiri for mariana
+	use({
+		"kaiuri/onigiri.nvim",
+    setup = function()
+
+      vim.g.onigiri = {
+          theme = {
+              Background = {
+                  -- default  = '#303841',
+                  -- emphasis = '#2e353e',
+                  muted    = '#3b454e'
+              },
+              Colors = {
+                  Accent    = '#95B2D6',
+                  Caution   = '#f9ae58',
+                  Danger    = '#f97b58',
+                  Error     = '#ec5f66',
+                  Hint      = '#5fb4b4',
+                  Important = '#fac761',
+                  Info      = '#99c794',
+                  Note      = '#5c99d6',
+                  Trace     = '#cc8ec6',
+                  Warn      = '#ee932b'
+              },
+              Foreground = {
+                  default  = '#d8dee9',
+                  emphasis = '#f7f7f7',
+                  muted    = '#a6acb8',
+                  surface  = '#46525c'
+              },
+              Shade = {
+                  -- default  = '#2f373f',
+                  -- emphasis = '#2e363e'
+              }
+          }
+      }
+
+    end,
+		config = function()
+        -- local mariana = require 'onigiri'.presets['mariana']
+        vim.cmd("colorscheme onigiri")
+    end,
+    disable = false
+	})
 	-- -- Tender
 	-- use({ "jacoborus/tender.vim", config = "vim.cmd('colorscheme tender')", disable = true })
 
@@ -60,6 +124,9 @@ return require("packer").startup(function(use)
 			require("caed.telescope-config")
 		end,
 	})
+
+  -- zf for Telescope
+  use "natecraddock/telescope-zf-native.nvim"
 
 	-- -- Telescope Zoxide
 	-- use({
@@ -180,7 +247,8 @@ ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				 "pyright",
-				 "sumneko_lua"
+				 "sumneko_lua",
+         "remark_ls"
 			}
 		})
 	 end
@@ -195,6 +263,22 @@ ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
 
 	})
 
+  -- firenvim
+  use {
+    'glacambre/firenvim',
+    run = function()
+      vim.fn['firenvim#install'](0)
+    end,
+    config = function()
+      vim.cmd([[
+      if exists('g:started_by_firenvim')
+        au BufEnter leetcode.com_*.txt set filetype=python
+        " au TextChanged * ++nested write
+        " au TextChangedI * ++nested write
+      end
+      ]])
+    end
+  }
 
 	-- -- Code Runner
 	-- use({
@@ -251,13 +335,13 @@ ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
 		-- end,
 	-- })
 
-	-- -- TS Rainbow
-	-- use({
-		-- "p00f/nvim-ts-rainbow",
-		-- config = function()
-			-- require("caed.nvim-ts-rainbow-config")
-		-- end,
-	-- })
+	-- TS Rainbow
+	use({
+		"p00f/nvim-ts-rainbow",
+		config = function()
+			require("caed.nvim-ts-rainbow-config")
+		end,
+	})
 
 	-- -- mkdir
 	-- use({

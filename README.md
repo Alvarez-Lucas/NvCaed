@@ -11,12 +11,14 @@ alternatives or usefulness before implementation.
 
 - [x] Packer - package manager
 - [x] Telescope - file picker
+  - [x] zf - fuzzy finder
 - [x] nvim tree - file explorer
 - [x] Treesitter
   - [x] Auto pairs
   - [x] Comments
   - [ ] rainbow
 - [ ] Alpha nvim - dashboard
+- [x] firenvim - run in chrome
 - [ ] Vimwiki - notes
 - [ ] null ls - formatters
 - [ ] impatient
