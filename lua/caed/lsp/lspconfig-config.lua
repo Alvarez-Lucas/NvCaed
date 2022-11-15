@@ -6,7 +6,7 @@ vim.diagnostic.config({
   severity_sort = false,
 })
 
-
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 local keymap = vim.keymap -- for conciseness
 local on_attach = function(client, bufnr)
@@ -28,7 +28,8 @@ local on_attach = function(client, bufnr)
   keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
 end
 
-local coq = require("coq")
+-- used to enable autocompletion (assign to every lsp server config)
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Change the Diagnostic symbols in the sign column (gutter)
 -- (not in youtube nvim video)
@@ -39,14 +40,17 @@ for type, icon in pairs(signs) do
 end
 
 require('lspconfig')["pyright"].setup({
+  capabilities = capabilities,
 	on_attach = on_attach
 })
 
 require('lspconfig')["remark_ls"].setup({
+  capabilities = capabilities,
 	on_attach = on_attach
 })
 
 require('lspconfig')["sumneko_lua"].setup({
+  capabilities = capabilities,
     on_attach = on_attach,
     settings = {
       Lua = {

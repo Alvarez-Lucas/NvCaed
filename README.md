@@ -16,15 +16,17 @@ alternatives or usefulness before implementation.
 - [x] Treesitter
   - [x] Auto pairs
   - [x] Comments
-  - [ ] rainbow
-- [ ] Alpha nvim - dashboard
+  - [x] rainbow
 - [x] firenvim - run in chrome
+- [x] vim illuminate - highlight word under cursor using lsp, Treesitter, and regex
+- [ ] Alpha nvim - dashboard
+- [x] cmp - completion engine
 - [ ] Vimwiki - notes
-- [ ] null ls - formatters
+- [x] null ls - formatters
 - [ ] impatient
 - [ ] filetype
 - [ ] mkdir nvim?
-- [ ] Code runner
+- [x] Code runner
 - [ ] Indent blankline - ingentation guides
 - [ ] Lualine - status bar?
 
@@ -35,4 +37,3 @@ alternatives or usefulness before implementation.
   - [ ] yaml
 - [ ] Clean up vesitgial codes fragments
 - [ ] Lazy load where possible after installing everything
-- [ ] Make click not move cursor position

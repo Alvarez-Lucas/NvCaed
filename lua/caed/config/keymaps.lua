@@ -79,6 +79,7 @@ km("n", "<C-p>", "<cmd>Telescope commands theme=dropdown<cr>", defaultOpts)
 km("n", "<leader>F", "<cmd>Telescope current_buffer_fuzzy_find<cr>", defaultOpts)
 
 -- Vimwiki TODO: Readd
+km("n", "<leader>ww", "<cmd>VimwikiIndex<cr>", defaultOpts)
 -- km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)
 -- km("n", "<leader>wf", "<cmd>cd $HOME/vimwiki<cr><cmd>Telescope find_files<cr>", defaultOpts)
 
@@ -94,7 +95,7 @@ vc("set clipboard+=unnamedplus")
 
 -- Save File and Code Runner and Mark down previewer and Markmap
 -- TODO Readd, might not need the same thing for mark down previewer if using LSP for it
--- km("n", "<leader>r", "<cmd>w<cr><cmd>RunCode<cr>", defaultOpts)
+km("n", "<leader>r", "<cmd>w<cr><cmd>RunCode<cr>", defaultOpts)
 -- vc("autocmd FileType markdown nmap <buffer><leader>r <cmd>CocCommand markdown-preview-enhanced.openPreview<cr>")
 -- vc("autocmd FileType vimwiki nmap <buffer><leader>r <cmd>CocCommand markdown-preview-enhanced.openPreview<cr>")
 -- km("n", "<leader>m", "<cmd>CocCommand markmap.create<cr>", defaultOpts)
@@ -115,16 +116,16 @@ km("n", "<Esc>", "<cmd>nohlsearch<cr>", defaultOpts)
 -- km("n", "<A-left>", ":set guifont=JetBrainsMono\\ NF:h15<cr>", defaultOpts)
 -- vc([[
 -- nnoremap <A-Up> :silent! let &guifont = substitute(
- -- \ &guifont,
- -- \ ':h\zs\d\+',
- -- \ '\=eval(submatch(0)+1)',
- -- \ '')<CR>
--- 
+-- \ &guifont,
+-- \ ':h\zs\d\+',
+-- \ '\=eval(submatch(0)+1)',
+-- \ '')<CR>
+--
 -- nnoremap <A-Down> :silent! let &guifont = substitute(
- -- \ &guifont,
- -- \ ':h\zs\d\+',
- -- \ '\=eval(submatch(0)-1)',
- -- \ '')<CR>
+-- \ &guifont,
+-- \ ':h\zs\d\+',
+-- \ '\=eval(submatch(0)-1)',
+-- \ '')<CR>
 -- ]])
 -- -- Toggle Full Screen
 -- km("n", "<F11>", ":let g:neovide_fullscreen=v:", defaultOpts)
