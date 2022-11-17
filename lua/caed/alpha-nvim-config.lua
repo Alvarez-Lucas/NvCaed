@@ -21,7 +21,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("n", "  > New file", ":ene <BAR> startinsert <CR>"),
 	-- dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
 	dashboard.button("w", "  > Open Vim Wiki", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>"),
-	dashboard.button("b", "  > Open Bookmarks", ":Telescope bookmarks theme=dropdown<CR>"),
+	-- dashboard.button("b", "  > Open Bookmarks", ":Telescope bookmarks theme=dropdown<CR>"),
 	dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
 	dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
 }
@@ -37,7 +37,6 @@ dashboard.section.footer.val = {
 
 -- Send config to alpha
 alpha.setup(dashboard.opts)
-
 
 -- -- Disable folding on alpha buffer
 -- vim.cmd([[

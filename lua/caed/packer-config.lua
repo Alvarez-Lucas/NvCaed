@@ -3,8 +3,7 @@ local fn = vim.fn
 
 -- PackerCompile on update
 vim.cmd([[
-  augroup packer_user_config
-    autocmd!
+  augroup packer_user_config autocmd!
     autocmd BufWritePost packer-config.lua source <afile> | PackerCompile
   augroup end
 ]])
@@ -26,7 +25,7 @@ return require("packer").startup(function(use)
 	-- use("nathom/filetype.nvim")
 	use("wbthomason/packer.nvim") -- Packer can manage itself
 
-	-- Colorschemes
+	-- Start Colorschemes
 
 	-- One Dark
 	-- colorscheme
@@ -96,7 +95,10 @@ return require("packer").startup(function(use)
 		disable = false,
 	})
 
+	-- End Colorschemes
+
 	-- Vimwiki
+	-- wiki for personal notes
 	use({
 		"vimwiki/vimwiki",
 		cmd = { "Vimwiki", "VimwikiIndex" },
@@ -117,12 +119,13 @@ return require("packer").startup(function(use)
 	})
 
 	-- zf for Telescope
+	-- adds better fuzzy searching by prioritizing file names
 	use("natecraddock/telescope-zf-native.nvim")
 
-	-- -- Telescope Zoxide
-	-- use({
-	-- "jvgrootveld/telescope-zoxide",
-	-- })
+	-- Telescope Zoxide
+	use({
+		"jvgrootveld/telescope-zoxide",
+	})
 
 	-- Treesitter
 	-- adds syntax highlighting
@@ -160,10 +163,10 @@ return require("packer").startup(function(use)
 	})
 
 	-- -- Indent blankline
-	-- use({
-	-- "lukas-reineke/indent-blankline.nvim",
-	-- config = "require('caed.indent-blankline-config')",
-	-- })
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = "require('caed.indent-blankline-config')",
+	})
 
 	-- Comment
 	-- adds commands to comment blocks of code
@@ -209,42 +212,6 @@ return require("packer").startup(function(use)
 				},
 			})
 		end,
-	})
-
-	-- COQ
-	-- autocomplete engine thats really fast
-	use({
-		"ms-jpq/coq_nvim",
-		branch = "coq",
-		commit = "84ec5faf2aaf49819e626f64dd94f4e71cf575bc",
-		setup = function()
-			vim.g.coq_settings = {
-				auto_start = "shut-up",
-				keymap = {
-					recommended = false,
-				},
-			}
-		end,
-		config = function()
-			vim.cmd([[
-" Keybindings
-ino <silent><expr> <Esc>   pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
-ino <silent><expr> <C-c>   pumvisible() ? "\<C-e><C-c>" : "\<C-c>"
-ino <silent><expr> <BS>    pumvisible() ? "\<C-e><BS>"  : "\<BS>"
-ino <silent><expr> <CR>    pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<CR>"
-ino <silent><expr> <C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
-ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
-				]])
-		end,
-		disable = true, -- while switching to cmpe
-	})
-
-	-- coq artifacts
-	-- snippets for autocomplete
-	use({
-		"ms-jpq/coq.artifacts",
-		branch = "artifacts",
-		disable = true, -- while switching to cmpe
 	})
 
 	-- Lua Snip
@@ -314,11 +281,15 @@ ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
+
 				ensure_installed = {
+					"taplo",
 					"pyright",
 					"sumneko_lua",
 					"remark_ls",
+					"powershell_es",
 				},
+				automatic_installation = true,
 			})
 		end,
 	})
@@ -332,6 +303,7 @@ ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
 				ensure_installed = {
 					"stylua",
 					"black",
+					"prettier",
 				},
 			})
 		end,
@@ -356,6 +328,7 @@ ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
 	})
 
 	-- firenvim
+	-- use neovim in web browser
 	use({
 		"glacambre/firenvim",
 		run = function()
@@ -373,6 +346,7 @@ ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
 	})
 
 	-- Code Runner
+	-- run code
 	use({
 		"CRAG666/code_runner.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -380,13 +354,14 @@ ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
 		config = "require('caed.code_runner-config')",
 	})
 
-	-- -- Alpha Dashboard
-	-- use({
-	-- "goolord/alpha-nvim",
-	-- config = function()
-	-- require("caed.alpha-nvim-config")
-	-- end,
-	-- })
+	-- Alpha Dashboard
+	use({
+		"goolord/alpha-nvim",
+		config = function()
+			require("caed.alpha-nvim-config")
+		end,
+		disable = false,
+	})
 
 	-- -- Vim Bbye
 	-- use({
@@ -404,14 +379,296 @@ ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
 	-- disable = true,
 	-- })
 
-	-- -- lualine
-	-- use({
-	-- "nvim-lualine/lualine.nvim",
-	-- requires = { "kyazdani42/nvim-web-devicons", opt = true, "neoclide/coc.nvim" },
-	-- config = function()
-	-- require("caed.lualine-config")
-	-- end,
-	-- })
+	-- lualine
+	-- The OG status line
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = function()
+			require("caed.lualine-config")
+		end,
+		disable = false,
+	})
+
+	-- staline
+	-- a very simple status line
+	use({
+		"tamton-aquib/staline.nvim",
+		config = function()
+			-- require("caed.lualine-config")
+			require("staline").setup({
+				sections = {
+					left = { "  ", "mode", " ", "branch", " ", "lsp" },
+					mid = {},
+					right = { "file_name", "line_column" },
+				},
+				mode_colors = {
+					i = "#d08f70",
+					n = "#88c0d0",
+					c = "#a3be8c",
+					v = "#b988b0",
+				},
+				defaults = {
+					true_colors = true,
+					line_column = " [%l/%L] :%c  ",
+					branch_symbol = " ",
+				},
+			})
+		end,
+		disable = true,
+	})
+
+	-- Feline
+	-- second most popular status bar, we will see
+	use({
+		"feline-nvim/feline.nvim",
+		config = function()
+			local line_ok, feline = pcall(require, "feline")
+			if not line_ok then
+				return
+			end
+
+			local one_monokai = {
+				fg = "#abb2bf",
+				bg = "#1e2024",
+				green = "#98c379",
+				yellow = "#e5c07b",
+				purple = "#c678dd",
+				orange = "#d19a66",
+				peanut = "#f6d5a4",
+				red = "#e06c75",
+				aqua = "#61afef",
+				darkblue = "#282c34",
+				dark_red = "#f75f5f",
+			}
+
+			local vi_mode_colors = {
+				NORMAL = "green",
+				OP = "green",
+				INSERT = "yellow",
+				VISUAL = "purple",
+				LINES = "orange",
+				BLOCK = "dark_red",
+				REPLACE = "red",
+				COMMAND = "aqua",
+			}
+
+			local c = {
+				vim_mode = {
+					provider = {
+						name = "vi_mode",
+						opts = {
+							show_mode_name = true,
+							-- padding = "center", -- Uncomment for extra padding.
+						},
+					},
+					hl = function()
+						return {
+							fg = require("feline.providers.vi_mode").get_mode_color(),
+							bg = "darkblue",
+							style = "bold",
+							name = "NeovimModeHLColor",
+						}
+					end,
+					left_sep = "block",
+					right_sep = "block",
+				},
+				gitBranch = {
+					provider = "git_branch",
+					hl = {
+						fg = "peanut",
+						bg = "darkblue",
+						style = "bold",
+					},
+					left_sep = "block",
+					right_sep = "block",
+				},
+				gitDiffAdded = {
+					provider = "git_diff_added",
+					hl = {
+						fg = "green",
+						bg = "darkblue",
+					},
+					left_sep = "block",
+					right_sep = "block",
+				},
+				gitDiffRemoved = {
+					provider = "git_diff_removed",
+					hl = {
+						fg = "red",
+						bg = "darkblue",
+					},
+					left_sep = "block",
+					right_sep = "block",
+				},
+				gitDiffChanged = {
+					provider = "git_diff_changed",
+					hl = {
+						fg = "fg",
+						bg = "darkblue",
+					},
+					left_sep = "block",
+					right_sep = "right_filled",
+				},
+				separator = {
+					provider = "",
+				},
+				fileinfo = {
+					provider = {
+						name = "file_info",
+						opts = {
+							type = "relative-short",
+						},
+					},
+					hl = {
+						style = "bold",
+					},
+					left_sep = " ",
+					right_sep = " ",
+				},
+				diagnostic_errors = {
+					provider = "diagnostic_errors",
+					hl = {
+						fg = "red",
+					},
+				},
+				diagnostic_warnings = {
+					provider = "diagnostic_warnings",
+					hl = {
+						fg = "yellow",
+					},
+				},
+				diagnostic_hints = {
+					provider = "diagnostic_hints",
+					hl = {
+						fg = "aqua",
+					},
+				},
+				diagnostic_info = {
+					provider = "diagnostic_info",
+				},
+				lsp_client_names = {
+					provider = "lsp_client_names",
+					hl = {
+						fg = "purple",
+						bg = "darkblue",
+						style = "bold",
+					},
+					left_sep = "left_filled",
+					right_sep = "block",
+				},
+				file_type = {
+					provider = {
+						name = "file_type",
+						opts = {
+							filetype_icon = true,
+							case = "titlecase",
+						},
+					},
+					hl = {
+						fg = "red",
+						bg = "darkblue",
+						style = "bold",
+					},
+					left_sep = "block",
+					right_sep = "block",
+				},
+				file_encoding = {
+					provider = "file_encoding",
+					hl = {
+						fg = "orange",
+						bg = "darkblue",
+						style = "italic",
+					},
+					left_sep = "block",
+					right_sep = "block",
+				},
+				position = {
+					provider = "position",
+					hl = {
+						fg = "green",
+						bg = "darkblue",
+						style = "bold",
+					},
+					left_sep = "block",
+					right_sep = "block",
+				},
+				line_percentage = {
+					provider = "line_percentage",
+					hl = {
+						fg = "aqua",
+						bg = "darkblue",
+						style = "bold",
+					},
+					left_sep = "block",
+					right_sep = "block",
+				},
+				scroll_bar = {
+					provider = "scroll_bar",
+					hl = {
+						fg = "yellow",
+						style = "bold",
+					},
+				},
+			}
+
+			local left = {
+				c.vim_mode,
+				c.gitBranch,
+				c.gitDiffAdded,
+				c.gitDiffRemoved,
+				c.gitDiffChanged,
+				c.separator,
+			}
+
+			local middle = {
+				c.fileinfo,
+				c.diagnostic_errors,
+				c.diagnostic_warnings,
+				c.diagnostic_info,
+				c.diagnostic_hints,
+			}
+
+			local right = {
+				c.lsp_client_names,
+				c.file_type,
+				c.file_encoding,
+				c.position,
+				c.line_percentage,
+				c.scroll_bar,
+			}
+
+			local components = {
+				active = {
+					left,
+					middle,
+					right,
+				},
+				inactive = {
+					left,
+					middle,
+					right,
+				},
+			}
+
+			feline.setup({
+				components = components,
+				theme = one_monokai,
+				vi_mode_colors = vi_mode_colors,
+			})
+			-- require("feline").setup()
+		end,
+		disable = true,
+	})
+
+	-- colorizer
+	use({
+		"NvChad/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+		disable = false,
+	})
 
 	-- -- Lazy Git
 	-- use({

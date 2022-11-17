@@ -114,19 +114,19 @@ km("n", "<Esc>", "<cmd>nohlsearch<cr>", defaultOpts)
 -- Neovide TODO: Read if considering neovide
 -- Change Font Size
 -- km("n", "<A-left>", ":set guifont=JetBrainsMono\\ NF:h15<cr>", defaultOpts)
--- vc([[
--- nnoremap <A-Up> :silent! let &guifont = substitute(
--- \ &guifont,
--- \ ':h\zs\d\+',
--- \ '\=eval(submatch(0)+1)',
--- \ '')<CR>
---
--- nnoremap <A-Down> :silent! let &guifont = substitute(
--- \ &guifont,
--- \ ':h\zs\d\+',
--- \ '\=eval(submatch(0)-1)',
--- \ '')<CR>
--- ]])
+vc([[
+nnoremap <A-Up> :silent! let &guifont = substitute(
+\ &guifont,
+\ ':h\zs\d\+',
+\ '\=eval(submatch(0)+1)',
+\ '')<CR>
+
+nnoremap <A-Down> :silent! let &guifont = substitute(
+\ &guifont,
+\ ':h\zs\d\+',
+\ '\=eval(submatch(0)-1)',
+\ '')<CR>
+]])
 -- -- Toggle Full Screen
 -- km("n", "<F11>", ":let g:neovide_fullscreen=v:", defaultOpts)
 

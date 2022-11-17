@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "prettier": "^2.7.1",
     "remark": "^14.0.2"
   }
 }

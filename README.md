@@ -4,7 +4,7 @@ A Neovim config.
 
 ## Roadmap
 
-A checklist of progress. Question marks indicate an opportunity to consider 
+A checklist of progress. Question marks indicate an opportunity to consider
 alternatives or usefulness before implementation.
 
 ### Plugins
@@ -18,10 +18,11 @@ alternatives or usefulness before implementation.
   - [x] Comments
   - [x] rainbow
 - [x] firenvim - run in chrome
-- [x] vim illuminate - highlight word under cursor using lsp, Treesitter, and regex
-- [ ] Alpha nvim - dashboard
+- [x] vim illuminate - highlight word under cursor using lsp, Treesitter, and
+      regex
+- [x] Alpha nvim - dashboard
 - [x] cmp - completion engine
-- [ ] Vimwiki - notes
+- [x] Vimwiki - notes
 - [x] null ls - formatters
 - [ ] impatient
 - [ ] filetype
@@ -36,4 +37,8 @@ alternatives or usefulness before implementation.
   - [ ] javascript / typescript
   - [ ] yaml
 - [ ] Clean up vesitgial codes fragments
+- [ ] Benchmark startup time before and after lazy loading, then after
+      impatient and filetype
 - [ ] Lazy load where possible after installing everything
+  - [ ] cmp after event = InsertEnter
+    - [ ] have to figure out depencies and order for lazy loading them

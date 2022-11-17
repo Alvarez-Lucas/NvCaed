@@ -1,7 +1,6 @@
 local actions = require("telescope.actions")
 
--- require("telescope").load_extension("zoxide")
-
+require("telescope").load_extension("zoxide")
 require("telescope").load_extension("zf-native")
 
 require("telescope").setup({
@@ -35,7 +34,5 @@ require("telescope").setup({
 			previewer = false,
 		},
 	},
-	extensions = {
-
-	},
+	extensions = {},
 })

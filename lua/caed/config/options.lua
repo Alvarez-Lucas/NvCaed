@@ -52,3 +52,6 @@ vc("set mouse=")
 -- GUI Font
 -- vc([[set guifont=JetBrainsMono\ NFM:h15]])
 vc([[set guifont=Hack\ NFM:h15]])
+
+-- Global Status Line
+vo.laststatus = 3
