@@ -43,6 +43,7 @@ local disabled_built_ins = {
 require("caed.config.options")
 require("caed.config.keymaps")
 require("caed.packer-config")
+
 -- require("caed.config.neovide")
 
 vim.opt.shadafile = ""

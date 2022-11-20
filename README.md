@@ -1,6 +1,8 @@
 # NvCaed
 
-A Neovim config.
+# snoyhjrt
+
+3
 
 ## Roadmap
 
@@ -28,8 +30,8 @@ alternatives or usefulness before implementation.
 - [ ] filetype
 - [ ] mkdir nvim?
 - [x] Code runner
-- [ ] Indent blankline - ingentation guides
-- [ ] Lualine - status bar?
+- [x] Indent blankline - ingentation guides
+- [x] Lualine - status bar
 
 ### General Todos
 
@@ -42,3 +44,10 @@ alternatives or usefulness before implementation.
 - [ ] Lazy load where possible after installing everything
   - [ ] cmp after event = InsertEnter
     - [ ] have to figure out depencies and order for lazy loading them
+- [ ] consider other snippet engine
+- [ ] super tab function not working with snippets in cmp
+- [ ] black formatter only works if no warnings, is it possible to overide this? maybe not, look more into the inconsistencies of formatting
+- [ ]
+- [ ]
+- [ ]
+- [ ]

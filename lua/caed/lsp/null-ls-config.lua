@@ -15,6 +15,8 @@ null_ls.setup({
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
+		-- print("filetype fingers crossed x2")
+		-- print(vim.bo.filetype)
 		if current_client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 			vim.api.nvim_create_autocmd("BufWritePre", {
@@ -24,6 +26,9 @@ null_ls.setup({
 					vim.lsp.buf.format({
 						filter = function(client)
 							--  only use null-ls for formatting instead of lsp server
+							-- if vim.bo.filetype == "powershell" then
+							-- 	print("we in here bitches")
+							-- end
 							return client.name == "null-ls"
 						end,
 						bufnr = bufnr,

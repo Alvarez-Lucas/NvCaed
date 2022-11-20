@@ -85,6 +85,7 @@ km("n", "<leader>ww", "<cmd>VimwikiIndex<cr>", defaultOpts)
 
 -- Nvim Tree
 km("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", defaultOpts)
+-- km("n", "<leader>e", "<cmd>Fcarbon<cr>", defaultOpts)
 
 -- TODO: Close Buffer, w/ save ?
 -- TODO: Readd

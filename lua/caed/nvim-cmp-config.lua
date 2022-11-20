@@ -1,6 +1,7 @@
 -- Imports
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+--.filetype_extend("vimwiki", { "markdown" })
 local lspkind = require("lspkind")
 
 -- load vs-code like snippets from plugins (e.g. friendly-snippets)

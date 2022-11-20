@@ -44,18 +44,70 @@ require("lspconfig")["pyright"].setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig")["remark_ls"].setup({
+require("lspconfig")["marksman"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
+-- require("lspconfig")["remark_ls"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- 	--use remark-preset-link-markdown-style-guide
+-- 	settings = {
+-- 		["filetye"] = { "markdown", "vimwiki" },
+-- 	},
+-- 	-- , "--use", "remark-preset-link-markdown-style-guide" },
+-- 	----use remark-preset-lint-markdown-style-guide
+-- 	cmd = { "remark-language-server", "--stdio" },
+-- })
+
 require("lspconfig")["powershell_es"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
+	on_attach = function(client, bufnr)
+		print("in on attach for pses")
+		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.buf.format({
+					filter = function(client)
+						print("attempting return ")
+						return client.name == "powershell_es"
+					end,
+					bufnr = bufnr,
+				})
+			end,
+		})
+
+		-- keybind options
+		local opts = { noremap = true, silent = true, buffer = bufnr }
+
+		-- set keybinds
+		keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
+		keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
+		keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
+		keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
+		keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
+		keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
+		keymap.set("n", "K", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
+		-- keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
+		keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
+		keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
+		keymap.set("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+		keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
+	end,
 	bundle_path = "c:/PowerShellEditorServices",
 })
 
 require("lspconfig")["taplo"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+require("lspconfig")["yamlls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
