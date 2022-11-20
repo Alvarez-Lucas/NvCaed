@@ -73,7 +73,7 @@ km("n", "<leader>f", "<cmd>Telescope find_files<cr>", defaultOpts)
 km("n", "<leader>h", "<cmd>Telescope help_tags<cr>", defaultOpts)
 -- TODO: Readd
 -- km("n", "<leader>z", "<cmd>Telescope zoxide list theme=dropdown<cr>", defaultOpts)
-km("n", "<leader><tab>", "<cmd>Telescope buffers<cr>", defaultOpts)
+km("n", "<leader>t", "<cmd>Telescope buffers<cr>", defaultOpts)
 km("n", "<leader>g", "<cmd>Telescope live_grep<cr>", defaultOpts)
 km("n", "<C-p>", "<cmd>Telescope commands theme=dropdown<cr>", defaultOpts)
 km("n", "<leader>F", "<cmd>Telescope current_buffer_fuzzy_find<cr>", defaultOpts)
