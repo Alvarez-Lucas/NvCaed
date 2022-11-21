@@ -64,7 +64,7 @@ require("lspconfig")["marksman"].setup({
 require("lspconfig")["powershell_es"].setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
-		print("in on attach for pses")
+		-- print("in on attach for pses")
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
