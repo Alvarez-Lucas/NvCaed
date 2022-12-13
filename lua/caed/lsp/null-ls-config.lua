@@ -8,10 +8,13 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
 	sources = {
-		formatting.prettier.with({ extra_filetypes = { "vimwiki" } }),
+		formatting.prettier.with({ extra_filetypes = { "vimwiki", "svelte" } }),
 		formatting.stylua,
 		formatting.black,
 		formatting.taplo,
+		formatting.rustfmt,
+		diagnostics.eslint_d,
+		null_ls.builtins.code_actions.eslint_d,
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)

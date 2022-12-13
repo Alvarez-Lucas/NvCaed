@@ -22,14 +22,21 @@ dashboard.section.buttons.val = {
 	-- dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
 	dashboard.button("w", "  > Open Vim Wiki", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>"),
 	-- dashboard.button("b", "  > Open Bookmarks", ":Telescope bookmarks theme=dropdown<CR>"),
-	dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+	-- dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+	dashboard.button(
+		"s",
+		"  > Settings",
+		-- ":cd C:\\Users\\lucas\\AppData\\Local\\nvim<CR> | :Alpha<CR> | :NvimTreeOpen<CR>"
+		"<cmd>cd C:\\Users\\lucas\\AppData\\Local\\nvim<CR><cmd>Alpha<CR><cmd>NvimTreeOpen<CR>"
+	),
 	dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
 }
 
 dashboard.section.footer.val = {
 	-- "Lucas Alvarez | Software Engineer",
 	-- "Hard work often pays off after time,","  but laziness always pays off now.",
-	"WORKING TOMORROW FOR A BETTER TODAY",
+	-- "WORKING TOMORROW FOR A BETTER TODAY",
+	"Put that vote in.",
 }
 
 -- dashboard.section.header.opts.hl = "Include"

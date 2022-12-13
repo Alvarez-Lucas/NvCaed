@@ -1,7 +1,5 @@
 local actions = require("telescope.actions")
-
-require("telescope").load_extension("zoxide")
-require("telescope").load_extension("zf-native")
+local z_utils = require("telescope._extensions.zoxide.utils")
 
 require("telescope").setup({
 	defaults = {
@@ -34,5 +32,23 @@ require("telescope").setup({
 			previewer = false,
 		},
 	},
-	extensions = {},
+	extensions = {
+		zoxide = {
+			prompt_title = "Directory Jumper",
+
+			-- Zoxide list command with score
+			list_command = "zoxide query -ls",
+			mappings = {
+				default = {
+					action = z_utils.create_basic_command("edit"),
+				},
+				["<C-s>"] = { action = z_utils.create_basic_command("split") },
+				["<C-v>"] = { action = z_utils.create_basic_command("vsplit") },
+				["<C-e>"] = { action = z_utils.create_basic_command("edit") },
+			},
+		},
+	},
 })
+
+require("telescope").load_extension("zf-native")
+require("telescope").load_extension("zoxide")

@@ -47,7 +47,4 @@ alternatives or usefulness before implementation.
 - [ ] consider other snippet engine
 - [ ] super tab function not working with snippets in cmp
 - [ ] black formatter only works if no warnings, is it possible to overide this? maybe not, look more into the inconsistencies of formatting
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+- [ ] understand how to change directories with nvim tree

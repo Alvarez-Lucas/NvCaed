@@ -16,6 +16,9 @@ local has_words_before = function()
 end
 
 cmp.setup({
+	view = {
+		entries = { name = "custom", selection_order = "near_cursor" },
+	},
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -54,10 +57,12 @@ cmp.setup({
 
 	-- sources for autocompletion
 	sources = cmp.config.sources({
-		{ name = "luasnip" }, -- snippets
 		{ name = "nvim_lsp" }, -- lsp
+		{ name = "luasnip" }, -- snippets
 		{ name = "buffer" }, -- text within current buffer
 		{ name = "path" }, -- file system paths
+		{ name = "nvim_lsp_signature_help" }, -- paramter helper
+		{ name = "crates" },
 	}),
 
 	-- configure lspkind for vs-code like icons

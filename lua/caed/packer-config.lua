@@ -21,8 +21,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require("packer").startup(function(use)
-	-- use("lewis6991/impatient.nvim")
-	-- use("nathom/filetype.nvim")
+	use("lewis6991/impatient.nvim")
+	use("nathom/filetype.nvim")
 	use("wbthomason/packer.nvim") -- Packer can manage itself
 
 	-- Start Colorschemes
@@ -101,7 +101,7 @@ return require("packer").startup(function(use)
 	-- wiki for personal notes
 	use({
 		"vimwiki/vimwiki",
-		-- cmd = { "Vimwiki", "VimwikiIndex" },
+		cmd = { "Vimwiki", "VimwikiIndex" },
 		setup = function()
 			require("caed.vimwiki-setup")
 		end,
@@ -111,20 +111,23 @@ return require("packer").startup(function(use)
 	-- fuzzy file finder
 	use({
 		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
+    -- we also got zf-native
+		requires = { "nvim-lua/plenary.nvim" },
 		cmd = "Telescope",
+		module = "telescope",
 		config = function()
 			require("caed.telescope-config")
 		end,
 	})
 
-	-- zf for Telescope
-	-- adds better fuzzy searching by prioritizing file names
-	use("natecraddock/telescope-zf-native.nvim")
+  use({"natecraddock/telescope-zf-native.nvim"})
+
 
 	-- Telescope Zoxide
 	use({
 		"jvgrootveld/telescope-zoxide",
+		opt = true,
+		module = "telescope",
 	})
 
 	-- Treesitter
@@ -245,6 +248,17 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- crates.nvim
+	-- adds rust crates as a source for auto completion
+	use({
+		"saecki/crates.nvim",
+		event = { "BufRead Cargo.toml" },
+		requires = { { "nvim-lua/plenary.nvim" } },
+		config = function()
+			require("crates").setup()
+		end,
+	})
+
 	-- cmp buffer
 	-- adds buffer as a source for auto completion
 	use({
@@ -269,6 +283,12 @@ return require("packer").startup(function(use)
 		"hrsh7th/cmp-nvim-lsp",
 	})
 
+	-- cmp-nvim-lsp-signature-help
+	-- displaying function signatures with the current parameter emphasized
+	use({
+		"hrsh7th/cmp-nvim-lsp-signature-help",
+	})
+
 	-- friendly snippets
 	-- adds snippets to luasnip
 	use({
@@ -282,6 +302,7 @@ return require("packer").startup(function(use)
 		config = function()
 			require("mason").setup()
 		end,
+		disable = true,
 	})
 
 	-- mason lspconfig
@@ -290,7 +311,6 @@ return require("packer").startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-
 				ensure_installed = {
 					"taplo",
 					"pyright",
@@ -299,10 +319,12 @@ return require("packer").startup(function(use)
 					"powershell_es",
 					"yamlls",
 					"marksman",
+					"rust_analyzer",
 				},
 				automatic_installation = true,
 			})
 		end,
+		disable = true,
 	})
 
 	-- mason null ls
@@ -318,6 +340,7 @@ return require("packer").startup(function(use)
 				},
 			})
 		end,
+		disable = true,
 	})
 
 	-- lspconfig
@@ -338,9 +361,19 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- rust-tools
+	-- an alternative to rust_analyzer
+	use("simrat39/rust-tools.nvim")
+
+	-- Debugging for rust_analyzer
+	use({ "mfussenegger/nvim-dap", requires = { "nvim-lua/plenary.nvim" } })
+
 	-- firenvim
 	-- use neovim in web browser
 	use({
+		cond = function()
+			return vim.g.started_by_firenvim ~= nil
+		end,
 		"glacambre/firenvim",
 		run = function()
 			vim.fn["firenvim#install"](0)
@@ -398,278 +431,6 @@ return require("packer").startup(function(use)
 		config = function()
 			require("caed.lualine-config")
 		end,
-		disable = false,
-	})
-
-	-- staline
-	-- a very simple status line
-	use({
-		"tamton-aquib/staline.nvim",
-		config = function()
-			-- require("caed.lualine-config")
-			require("staline").setup({
-				sections = {
-					left = { "  ", "mode", " ", "branch", " ", "lsp" },
-					mid = {},
-					right = { "file_name", "line_column" },
-				},
-				mode_colors = {
-					i = "#d08f70",
-					n = "#88c0d0",
-					c = "#a3be8c",
-					v = "#b988b0",
-				},
-				defaults = {
-					true_colors = true,
-					line_column = " [%l/%L] :%c  ",
-					branch_symbol = " ",
-				},
-			})
-		end,
-		disable = true,
-	})
-
-	-- Feline
-	-- second most popular status bar, we will see
-	use({
-		"feline-nvim/feline.nvim",
-		config = function()
-			local line_ok, feline = pcall(require, "feline")
-			if not line_ok then
-				return
-			end
-
-			local one_monokai = {
-				fg = "#abb2bf",
-				bg = "#1e2024",
-				green = "#98c379",
-				yellow = "#e5c07b",
-				purple = "#c678dd",
-				orange = "#d19a66",
-				peanut = "#f6d5a4",
-				red = "#e06c75",
-				aqua = "#61afef",
-				darkblue = "#282c34",
-				dark_red = "#f75f5f",
-			}
-
-			local vi_mode_colors = {
-				NORMAL = "green",
-				OP = "green",
-				INSERT = "yellow",
-				VISUAL = "purple",
-				LINES = "orange",
-				BLOCK = "dark_red",
-				REPLACE = "red",
-				COMMAND = "aqua",
-			}
-
-			local c = {
-				vim_mode = {
-					provider = {
-						name = "vi_mode",
-						opts = {
-							show_mode_name = true,
-							-- padding = "center", -- Uncomment for extra padding.
-						},
-					},
-					hl = function()
-						return {
-							fg = require("feline.providers.vi_mode").get_mode_color(),
-							bg = "darkblue",
-							style = "bold",
-							name = "NeovimModeHLColor",
-						}
-					end,
-					left_sep = "block",
-					right_sep = "block",
-				},
-				gitBranch = {
-					provider = "git_branch",
-					hl = {
-						fg = "peanut",
-						bg = "darkblue",
-						style = "bold",
-					},
-					left_sep = "block",
-					right_sep = "block",
-				},
-				gitDiffAdded = {
-					provider = "git_diff_added",
-					hl = {
-						fg = "green",
-						bg = "darkblue",
-					},
-					left_sep = "block",
-					right_sep = "block",
-				},
-				gitDiffRemoved = {
-					provider = "git_diff_removed",
-					hl = {
-						fg = "red",
-						bg = "darkblue",
-					},
-					left_sep = "block",
-					right_sep = "block",
-				},
-				gitDiffChanged = {
-					provider = "git_diff_changed",
-					hl = {
-						fg = "fg",
-						bg = "darkblue",
-					},
-					left_sep = "block",
-					right_sep = "right_filled",
-				},
-				separator = {
-					provider = "",
-				},
-				fileinfo = {
-					provider = {
-						name = "file_info",
-						opts = {
-							type = "relative-short",
-						},
-					},
-					hl = {
-						style = "bold",
-					},
-					left_sep = " ",
-					right_sep = " ",
-				},
-				diagnostic_errors = {
-					provider = "diagnostic_errors",
-					hl = {
-						fg = "red",
-					},
-				},
-				diagnostic_warnings = {
-					provider = "diagnostic_warnings",
-					hl = {
-						fg = "yellow",
-					},
-				},
-				diagnostic_hints = {
-					provider = "diagnostic_hints",
-					hl = {
-						fg = "aqua",
-					},
-				},
-				diagnostic_info = {
-					provider = "diagnostic_info",
-				},
-				lsp_client_names = {
-					provider = "lsp_client_names",
-					hl = {
-						fg = "purple",
-						bg = "darkblue",
-						style = "bold",
-					},
-					left_sep = "left_filled",
-					right_sep = "block",
-				},
-				file_type = {
-					provider = {
-						name = "file_type",
-						opts = {
-							filetype_icon = true,
-							case = "titlecase",
-						},
-					},
-					hl = {
-						fg = "red",
-						bg = "darkblue",
-						style = "bold",
-					},
-					left_sep = "block",
-					right_sep = "block",
-				},
-				file_encoding = {
-					provider = "file_encoding",
-					hl = {
-						fg = "orange",
-						bg = "darkblue",
-						style = "italic",
-					},
-					left_sep = "block",
-					right_sep = "block",
-				},
-				position = {
-					provider = "position",
-					hl = {
-						fg = "green",
-						bg = "darkblue",
-						style = "bold",
-					},
-					left_sep = "block",
-					right_sep = "block",
-				},
-				line_percentage = {
-					provider = "line_percentage",
-					hl = {
-						fg = "aqua",
-						bg = "darkblue",
-						style = "bold",
-					},
-					left_sep = "block",
-					right_sep = "block",
-				},
-				scroll_bar = {
-					provider = "scroll_bar",
-					hl = {
-						fg = "yellow",
-						style = "bold",
-					},
-				},
-			}
-
-			local left = {
-				c.vim_mode,
-				c.gitBranch,
-				c.gitDiffAdded,
-				c.gitDiffRemoved,
-				c.gitDiffChanged,
-				c.separator,
-			}
-
-			local middle = {
-				c.fileinfo,
-				c.diagnostic_errors,
-				c.diagnostic_warnings,
-				c.diagnostic_info,
-				c.diagnostic_hints,
-			}
-
-			local right = {
-				c.lsp_client_names,
-				c.file_type,
-				c.file_encoding,
-				c.position,
-				c.line_percentage,
-				c.scroll_bar,
-			}
-
-			local components = {
-				active = {
-					left,
-					middle,
-					right,
-				},
-				inactive = {
-					left,
-					middle,
-					right,
-				},
-			}
-
-			feline.setup({
-				components = components,
-				theme = one_monokai,
-				vi_mode_colors = vi_mode_colors,
-			})
-			-- require("feline").setup()
-		end,
-		disable = true,
 	})
 
 	-- colorizer
@@ -724,8 +485,6 @@ return require("packer").startup(function(use)
 		disable = true,
 	})
 
-	--
-
 	-- colorizer
 	use({
 		"SidOfc/carbon.nvim",
@@ -736,6 +495,18 @@ return require("packer").startup(function(use)
 		end,
 		disable = true,
 	})
+
+	-- nushell support
+	-- i think only for treesitter
+	use({
+		"LhKipp/nvim-nu",
+		ft = { "nu" },
+		config = function()
+			require("nu").setup({})
+		end,
+		disable = false,
+	})
+
 	-- -- Lazy Git
 	-- use({
 	-- "kdheepak/lazygit.nvim",
