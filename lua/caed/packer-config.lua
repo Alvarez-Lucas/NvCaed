@@ -111,23 +111,22 @@ return require("packer").startup(function(use)
 	-- fuzzy file finder
 	use({
 		"nvim-telescope/telescope.nvim",
-    -- we also got zf-native
+		-- we also got zf-native
 		requires = { "nvim-lua/plenary.nvim" },
-		cmd = "Telescope",
-		module = "telescope",
+		-- cmd = "Telescope",
+		-- module = "telescope",
 		config = function()
 			require("caed.telescope-config")
 		end,
 	})
 
-  use({"natecraddock/telescope-zf-native.nvim"})
-
+	use({ "natecraddock/telescope-zf-native.nvim" })
 
 	-- Telescope Zoxide
 	use({
 		"jvgrootveld/telescope-zoxide",
-		opt = true,
-		module = "telescope",
+		-- opt = true,
+		-- module = "telescope",
 	})
 
 	-- Treesitter
@@ -136,6 +135,7 @@ return require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = "TSUpdate",
 		config = "require('caed.treesitter-config')",
+		-- disable = true,
 	})
 
 	-- nvim autopairs
@@ -211,7 +211,7 @@ return require("packer").startup(function(use)
 		branch = "main",
 		config = function()
 			local saga = require("lspsaga")
-			saga.init_lsp_saga({
+			saga.setup({
 				-- keybinds for navigation in lspsaga window
 				move_in_saga = { prev = "<C-k>", next = "<C-j>" },
 				-- use enter to open file with finder

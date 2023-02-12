@@ -136,7 +136,7 @@ rt.setup({
 	},
 })
 
-require("lspconfig")["sumneko_lua"].setup({
+require("lspconfig")["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
