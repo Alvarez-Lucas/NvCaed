@@ -3,6 +3,7 @@ local z_utils = require("telescope._extensions.zoxide.utils")
 
 require("telescope").setup({
 	defaults = {
+		borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
 		-- Default configuration for telescope goes here:
 		-- config_key = value,
 		mappings = {

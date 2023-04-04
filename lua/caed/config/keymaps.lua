@@ -16,6 +16,10 @@ km("n", "<C-Down>", ":resize +2<CR>", defaultOpts)
 km("n", "<C-Left>", ":vertical resize -2<CR>", defaultOpts)
 km("n", "<C-Right>", ":vertical resize +2<CR>", defaultOpts)
 
+-- veritcal and horizontal split
+km("n", "<leader>|", ":vsplit<CR><C-w>l", defaultOpts)
+km("n", "<leader>-", ":split<CR><C-w>j", defaultOpts)
+
 -- Keep Buffer After Paste
 km("v", "p", '"_dP', defaultOpts)
 
@@ -53,6 +57,9 @@ km("t", "<C-h>", "<C-\\><C-N><C-w>h", defaultOpts)
 km("t", "<C-j>", "<C-\\><C-N><C-w>j", defaultOpts)
 km("t", "<C-k>", "<C-\\><C-N><C-w>k", defaultOpts)
 km("t", "<C-l>", "<C-\\><C-N><C-w>l", defaultOpts)
+
+-- leave terminal mode
+km("t", "<Esc>", "<C-\\><C-N>", defaultOpts)
 
 -- Move Text
 km("x", "J", ":move '>+1<CR>gv-gv", defaultOpts)
@@ -140,3 +147,14 @@ km("n", "<leader>pp", "<cmd>PackerProfile<cr>", defaultOpts)
 
 -- Lazy Git TODO: Readd
 -- km("n", "<leader>lg", "<cmd>LazyGit<cr>", defaultOpts)
+--
+vim.cmd([[
+function Neovide_fullscreen()
+    if g:neovide_fullscreen == v:true
+        let g:neovide_fullscreen=v:false
+    else
+        let g:neovide_fullscreen=v:true
+    endif
+endfunction
+map <F11> :call Neovide_fullscreen()<cr>
+]])

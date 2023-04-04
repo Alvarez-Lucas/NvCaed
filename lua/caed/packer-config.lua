@@ -26,6 +26,69 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- Packer can manage itself
 
 	-- Start Colorschemes
+	--
+	use({
+		"sainnhe/edge",
+		setup = function()
+			if vim.g.neovide or vim.g.started_by_firenvim then
+				vim.g.edge_transparent_background = "0"
+			else
+				vim.g.edge_transparent_background = "1"
+			end
+			vim.g.edge_dim_foreground = "1"
+			vim.g.edge_disable_italic_comment = "1"
+			vim.g.edge_show_eob = "0"
+			vim.g.edge_diagnostic_virtual_text = "colored"
+			vim.g.edge_current_word = "underline"
+			vim.g.edge_better_performance = "1"
+			vim.g.edge_enable_italic = "0"
+		end,
+		config = function()
+			vim.cmd("colorscheme edge")
+		end,
+		disable = false,
+	})
+
+	-- Monokai Pro
+	use({
+		"loctvl842/monokai-pro.nvim",
+		config = function()
+			require("monokai-pro").setup({
+				transparent_background = false,
+				terminal_colors = true,
+				devicons = true, -- highlight the icons of `nvim-web-devicons`
+				italic_comments = false,
+				filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+				-- Enable this will disable filter option
+				day_night = {
+					enable = false, -- turn off by default
+					day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+					night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+				},
+				inc_search = "underline", -- underline | background
+				background_clear = {
+					-- "float_win",
+					-- "toggleterm",
+					"telescope",
+					-- "which-key",
+					-- "renamer",
+				}, -- "float_win", "toggleterm", "telescope", "which-key", "renamer"
+				-- plugins = {
+				-- 	-- bufferline = {
+				-- 	-- 	underline_selected = false,
+				-- 	-- 	underline_visible = false,
+				-- 	-- },
+				-- 	indent_blankline = {
+				-- 		context_highlight = "pro", -- default | pro
+				-- 		context_start_underline = true,
+				-- 	},
+				-- },
+			})
+			vim.cmd("set background=dark")
+			vim.cmd("colorscheme monokai-pro")
+		end,
+		disable = true,
+	})
 
 	-- One Dark
 	-- colorscheme
@@ -92,7 +155,7 @@ return require("packer").startup(function(use)
 			require("caed.onenord-nvim-config")
 			vim.cmd("colorscheme onenord")
 		end,
-		disable = false,
+		disable = true,
 	})
 
 	-- End Colorschemes
@@ -163,6 +226,7 @@ return require("packer").startup(function(use)
 	-- adds highling for word under curosr
 	use({
 		"RRethy/vim-illuminate",
+		disable = false,
 	})
 
 	-- -- Indent blankline
@@ -212,6 +276,16 @@ return require("packer").startup(function(use)
 		config = function()
 			local saga = require("lspsaga")
 			saga.setup({
+				symbol_in_winbar = {
+					enable = true,
+					-- separator = "",
+					separator = "  ",
+					hide_keyword = true,
+					show_file = false,
+					folder_level = 2,
+					respect_root = false,
+					color_mode = true,
+				},
 				-- keybinds for navigation in lspsaga window
 				move_in_saga = { prev = "<C-k>", next = "<C-j>" },
 				-- use enter to open file with finder
@@ -221,6 +295,24 @@ return require("packer").startup(function(use)
 				-- use enter to open file with definition preview
 				definition_action_keys = {
 					edit = "<CR>",
+				},
+				ui = {
+					-- Currently, only the round theme exists
+					theme = "round",
+					-- This option only works in Neovim 0.9
+					title = true,
+					-- Border type can be single, double, rounded, solid, shadow.
+					border = "rounded",
+					winblend = 0,
+					expand = "",
+					collapse = "",
+					preview = " ",
+					code_action = "💡",
+					diagnostic = "🐞",
+					incoming = " ",
+					outgoing = " ",
+					hover = " ",
+					kind = {},
 				},
 			})
 		end,

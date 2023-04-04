@@ -2,12 +2,17 @@
 -- maybe figure out how to make the entire thing transparent?
 -- local custom = require("lualine.themes.nord")
 -- custom.normal.c.bg = "#FFFFFF00"
-
+-- local function stuff()
+-- 	-- return require("lspsaga.symbolwinbar").get_winbar()
+-- 	return "hellow"
+-- end
 require("lualine").setup({
 
 	options = {
 		icons_enabled = true,
-		theme = "auto",
+		-- theme = "auto",
+		-- theme = "monokai-pro",
+		theme = "edge",
 		-- theme = custom,
 		-- component_separators = "▊",
 		component_separators = "|",
@@ -29,6 +34,7 @@ require("lualine").setup({
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = { "filename" },
+		-- lualine_c = { "require('lspsaga.symbolwinbar'):get_winbar()" },
 		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
