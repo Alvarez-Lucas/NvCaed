@@ -21,21 +21,25 @@ return {
 	-- lspconfig
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"coq_nvim",
+		},
 		config = function()
 			-- Setup language servers.
 			local lspconfig = require("lspconfig")
+			local coq = require("coq")
 
 			-- Python
 			lspconfig.pyright.setup({})
 
 			-- Lua
-			lspconfig.lua_ls.setup({
+			lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({
 				settings = {
 					Lua = {
 						diagnostics = { globals = { "vim" } },
 					},
 				},
-			})
+			}))
 
 			-- Typescript
 			lspconfig.tsserver.setup({})
@@ -70,7 +74,9 @@ return {
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-					vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+					-- TODO find a new keybind for vim.lsp.buf.signature_help
+					-- the one commented below interferes with coq selecting
+					-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 					vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
 					vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
 					vim.keymap.set("n", "<space>wl", function()
