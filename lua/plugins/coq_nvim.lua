@@ -5,6 +5,8 @@ return {
 		build = ":COQdeps",
 		init = function()
 			vim.g.coq_settings = {
+				["display.icons.mode"] = "short",
+				["display.icons.spacing"] = 2,
 				["display.preview.border"] = "single",
 				["display.ghost_text.enabled"] = false,
 				["keymap.bigger_preview"] = "null",
