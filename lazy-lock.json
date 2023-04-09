@@ -1,4 +1,5 @@
 {
+  "chadtree": { "branch": "chad", "commit": "f7d98de1e1c22b057248981bf531e8fa6132e225" },
   "coq.artifacts": { "branch": "artifacts", "commit": "82e29fb9443f41573483fa83e39490d7a6324c8c" },
   "coq_nvim": { "branch": "coq", "commit": "45137deb2a34a8b1482fa0f49927e171223a9173" },
   "lazy.nvim": { "branch": "main", "commit": "57cce98dfdb2f2dd05a0567d89811e6d0505e13b" },
@@ -6,6 +7,7 @@
   "mason-null-ls.nvim": { "branch": "main", "commit": "a991e7697514f30126fac7c07a11c488c553e94f" },
   "mason.nvim": { "branch": "main", "commit": "b54d4e3171cc9735de915dbb97e987fb1f05dad9" },
   "null-ls.nvim": { "branch": "main", "commit": "5855128178fa78293acdfb5b4e41ef046779240b" },
+  "nvim-colorizer.lua": { "branch": "master", "commit": "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6" },
   "nvim-lspconfig": { "branch": "master", "commit": "e683951a35ade60f9e1768ef770bb42ffcc1d2b7" },
   "nvim-treesitter": { "branch": "master", "commit": "c85d059c462ae7de0aa2a6ed0589f0b223e0e6a9" },
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },

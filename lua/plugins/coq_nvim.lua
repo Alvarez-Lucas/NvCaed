@@ -5,6 +5,7 @@ return {
 		build = ":COQdeps",
 		init = function()
 			vim.g.coq_settings = {
+				["keymap.jump_to_mark"] = "<C-b>",
 				["display.icons.mode"] = "short",
 				["display.icons.spacing"] = 2,
 				["display.preview.border"] = "single",
