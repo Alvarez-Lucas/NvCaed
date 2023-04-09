@@ -61,4 +61,3 @@ vo.laststatus = 3
 vc([[
 set directory=$HOME/.vim/tmp
 ]])
-
