@@ -7,6 +7,7 @@ return {
 			require("mason").setup()
 		end,
 	},
+
 	-- mason lspconfig
 	{
 		"williamboman/mason-lspconfig.nvim",
@@ -16,6 +17,7 @@ return {
 			})
 		end,
 	},
+
 	-- lspconfig
 	{
 		"neovim/nvim-lspconfig",
@@ -86,6 +88,7 @@ return {
 		end,
 	},
 
+	-- null-ls
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		dependencies = {
