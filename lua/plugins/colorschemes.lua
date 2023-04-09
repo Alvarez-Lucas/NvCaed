@@ -1,5 +1,6 @@
 return {
 	{
+		cond = false,
 		"Mofiqul/vscode.nvim",
 		lazy = false,
 		priority = 1000,
