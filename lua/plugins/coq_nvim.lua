@@ -11,7 +11,7 @@ return {
 				["display.ghost_text.enabled"] = false,
 				["keymap.bigger_preview"] = "null",
 				["keymap.recommended"] = false,
-				["keymap.pre_select"] = true,
+				["keymap.pre_select"] = false,
 				auto_start = "shut-up",
 			}
 			vim.cmd([[
@@ -22,7 +22,8 @@ ino <silent><expr> <BS>    pumvisible() ? "\<C-e><BS>"  : "\<BS>"
 ino <silent><expr> <CR>    pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<CR>"
 ino <silent><expr> <C-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
 ino <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<BS>"
-
+ino <silent><expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+ino <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<BS>"
       ]])
 			-- vim.g.coq_settings = { auto_start = "shut-up" }
 		end,
