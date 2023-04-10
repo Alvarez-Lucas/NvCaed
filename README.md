@@ -1,0 +1,2 @@
+# NvCaed
+A Neovim config.
