@@ -4,7 +4,9 @@ return {
 		"williamboman/mason.nvim",
 		build = ":MasonUpdate",
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+				-- PATH = "prepend",
+			})
 		end,
 	},
 
@@ -13,7 +15,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls" },
+				ensure_installed = { "lua_ls", "ruff_lsp", "pyright" },
 			})
 		end,
 	},
@@ -30,7 +32,10 @@ return {
 			local coq = require("coq")
 
 			-- Python
-			lspconfig.pyright.setup({})
+			lspconfig.pyright.setup({ coq.lsp_ensure_capabilities({}) })
+
+			-- python TODO: figure out why this does not work
+			-- lspconfig.ruff_lsp.setup(coq.lsp_ensure_capabilities({}))
 
 			-- Lua
 			lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({
