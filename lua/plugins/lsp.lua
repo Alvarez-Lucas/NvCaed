@@ -29,22 +29,21 @@ return {
 		config = function()
 			-- Setup language servers.
 			local lspconfig = require("lspconfig")
-			local coq = require("coq")
 
 			-- Python
-			lspconfig.pyright.setup({ coq.lsp_ensure_capabilities({}) })
+			lspconfig.pyright.setup({})
 
 			-- python TODO: figure out why this does not work
-			-- lspconfig.ruff_lsp.setup(coq.lsp_ensure_capabilities({}))
+			-- lspconfig.ruff_lsp.setup(({}))
 
 			-- Lua
-			lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({
+			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {
 						diagnostics = { globals = { "vim" } },
 					},
 				},
-			}))
+			})
 
 			-- Typescript
 			lspconfig.tsserver.setup({})

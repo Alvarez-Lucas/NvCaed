@@ -1,5 +1,6 @@
 return {
 	{
+		enabled = false,
 		"ms-jpq/coq_nvim",
 		branch = "coq",
 		build = ":COQdeps",
