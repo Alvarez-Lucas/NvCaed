@@ -4,7 +4,9 @@ return {
 		"williamboman/mason.nvim",
 		build = ":MasonUpdate",
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+				-- PATH = "prepend",
+			})
 		end,
 	},
 
@@ -13,7 +15,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls" },
+				ensure_installed = { "lua_ls", "ruff_lsp", "pyright" },
 			})
 		end,
 	},
@@ -21,15 +23,30 @@ return {
 	-- lspconfig
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"nvim-cmp",
+		},
 		config = function()
 			-- Setup language servers.
 			local lspconfig = require("lspconfig")
+			-- Set up lspconfig.
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+			-- require("lspconfig")["<YOUR_LSP_SERVER>"].setup({
+			-- capabilities = capabilities,
+			-- })
 
 			-- Python
-			lspconfig.pyright.setup({})
+			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
+
+			-- python TODO: figure out why this does not work
+			-- lspconfig.ruff_lsp.setup(({}))
 
 			-- Lua
 			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
 				settings = {
 					Lua = {
 						diagnostics = { globals = { "vim" } },
@@ -50,7 +67,7 @@ return {
 
 			-- Global mappings.
 			-- See `:help vim.diagnostic.*` for documentation on any of the below functions
-			vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+			-- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 			vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
@@ -70,7 +87,9 @@ return {
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-					vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+					-- TODO find a new keybind for vim.lsp.buf.signature_help
+					-- the one commented below interferes with coq selecting
+					-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 					vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
 					vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
 					vim.keymap.set("n", "<space>wl", function()
@@ -80,9 +99,10 @@ return {
 					vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
 					vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-					vim.keymap.set("n", "<space>f", function()
-						vim.lsp.buf.format({ async = true })
-					end, opts)
+					-- TODO make a keybind for this that doesn't interfere with telescope
+					-- vim.keymap.set("n", "<space>f", function()
+					--vim.lsp.buf.format({ async = true })
+					--end, opts)
 				end,
 			})
 		end,
