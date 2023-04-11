@@ -6,6 +6,10 @@ A Neovim config.
 
 ### Telescope
 
+A fuzzy file picker.
+
+![Telescope](https://i.imgur.com/pyMOfLp.png) 
+
 ### Nvim CMP
 
 ### CHADTree
@@ -14,14 +18,12 @@ A file manager.
 
 https://github.com/ms-jpq/chadtree
 
-![CHADTree](https://i.imgur.com/pyMOfLp.png) 
-
 
 ## Keybinds
 
 | Action | Keybind |
 |--------------- | --------------- |
-| Open Telescope Find Files | <leader>f |
-| Save File and Format | <leader>s |
-| Toggle CHADTree | <leader>e |
+| Open Telescope Find Files | `<leader>f` |
+| Save File and Format | `<leader>s` |
+| Toggle CHADTree | `<leader>e` |
 
