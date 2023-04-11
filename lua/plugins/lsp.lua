@@ -116,33 +116,16 @@ return {
 		},
 		config = function()
 			local null_ls = require("null-ls")
-			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+			-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.black,
+					null_ls.builtins.formatting.prettier,
 					-- null_ls.builtins.diagnostics.eslint,
 					-- null_ls.builtins.completion.spell,
 				},
-				on_attach = function(client, bufnr)
-					if client.supports_method("textDocument/formatting") then
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = bufnr,
-							callback = function()
-								-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-								vim.lsp.buf.format({
-									filter = function(client)
-										-- apply whatever logic you want (in this example, we'll only use null-ls)
-										return client.name == "null-ls"
-									end,
-									bufnr = bufnr,
-								})
-							end,
-						})
-					end
-				end,
 			})
 		end,
 	},
@@ -157,7 +140,29 @@ return {
 		},
 		config = function()
 			require("mason-null-ls").setup({
-				ensure_installed = { "stylua" },
+				ensure_installed = { "stylua", "black", "prettier" },
+			})
+		end,
+	},
+	{
+		"https://git.sr.ht/~nedia/auto-format.nvim",
+		event = "BufWinEnter",
+		config = function()
+			require("auto-format").setup({
+				-- The name of the augroup.
+				augroup_name = "AutoFormat",
+
+				-- If formatting takes longer than this amount of time, it will fail. Having no
+				-- timeout at all tends to be ugly - larger files, complex or poor formatters
+				-- will struggle to format within whatever the default timeout
+				-- `vim.lsp.buf.format` uses.
+				timeout = 2000,
+
+				-- These filetypes will not be formatted automatically.
+				exclude_ft = {},
+
+				-- Prefer formatting via LSP for these filetypes.
+				prefer_lsp = {},
 			})
 		end,
 	},
