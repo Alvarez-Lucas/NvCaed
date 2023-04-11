@@ -43,7 +43,7 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 			end
 
-			-- border
+			-- border TODO: remove after installing lspsaga
 			local border = {
 				{ "🭽", "FloatBorder" },
 				{ "▔", "FloatBorder" },
@@ -54,7 +54,7 @@ return {
 				{ "🭼", "FloatBorder" },
 				{ "▏", "FloatBorder" },
 			}
-			-- To instead override globally
+			-- To instead override globally TODO: remove after installing lspsaga
 			local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 			function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 				opts = opts or {}
