@@ -24,20 +24,29 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"coq_nvim",
+			"nvim-cmp",
 		},
 		config = function()
 			-- Setup language servers.
 			local lspconfig = require("lspconfig")
+			-- Set up lspconfig.
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+			-- require("lspconfig")["<YOUR_LSP_SERVER>"].setup({
+			-- capabilities = capabilities,
+			-- })
 
 			-- Python
-			lspconfig.pyright.setup({})
+			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
 
 			-- python TODO: figure out why this does not work
 			-- lspconfig.ruff_lsp.setup(({}))
 
 			-- Lua
 			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
 				settings = {
 					Lua = {
 						diagnostics = { globals = { "vim" } },
