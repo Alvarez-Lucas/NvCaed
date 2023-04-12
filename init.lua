@@ -1,13 +1,5 @@
 require("config.keymaps")
 require("config.options")
-vim.cmd([[
-packadd! dracula_pro
-
-syntax enable
-
-let g:dracula_colorterm = 0
-
-colorscheme dracula_pro]])
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -22,4 +14,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
+-- require("lazy").setup({ import = "plugins" }, { import = "plugins/colorschemes" })
+require("lazy").setup({ {import = "plugins"}, { import = "plugins.colorschemes" } })
