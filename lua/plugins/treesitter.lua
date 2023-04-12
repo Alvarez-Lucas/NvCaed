@@ -1,14 +1,17 @@
 return {
 	{
+		enabled = true,
 		"nvim-treesitter/nvim-treesitter",
 		build = "TSUpdate",
 		config = function()
+			require("nvim-treesitter.install").compilers = { "clang" }
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = "all",
 			})
 		end,
 	},
 	{
+		enabled = false,
 		"HiPhish/nvim-ts-rainbow2",
 		config = function()
 			require("nvim-treesitter.configs").setup({
