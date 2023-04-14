@@ -1,9 +1,9 @@
 return {
 	{
 		enabled = false,
-		"tomasiser/vim-code-dark",
+		"jacoborus/tender.vim",
 		config = function()
-			vim.cmd("colorscheme codedark")
+			vim.cmd("colorscheme tender")
 		end,
 	},
 }
