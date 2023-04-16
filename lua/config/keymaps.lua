@@ -95,7 +95,7 @@ km("n", "<leader>ww", "<cmd>VimwikiIndex<cr>", defaultOpts)
 -- km("n", "<leader>e", "<cmd>Fcarbon<cr>", defaultOpts)
 --
 -- Chad Tree
-km("n", "<leader>e", ":CHADopen<cr>", defaultOpts)
+-- km("n", "<leader>e", ":CHADopen<cr>", defaultOpts)
 
 -- TODO: Close Buffer, w/ save ?
 -- TODO: Readd
