@@ -55,7 +55,7 @@ return {
 				use_default_mappings = true,
 				-- source_selector provides clickable tabs to switch between sources.
 				source_selector = {
-					winbar = false, -- toggle to show selector on winbar
+					winbar = true, -- toggle to show selector on winbar
 					statusline = false, -- toggle to show selector on statusline
 					show_scrolled_off_parent_node = false, -- this will replace the tabs with the parent path
 					-- of the top visible node when scrolled down.
