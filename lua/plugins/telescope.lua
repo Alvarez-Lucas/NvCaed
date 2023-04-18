@@ -1,6 +1,15 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.1",
+	keys = {
+		-- Telescope
+		{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = "" },
+		{ "<leader>h", "<cmd>Telescope help_tags<cr>", desc = "" },
+		{ "<leader>t", "<cmd>Telescope buffers<cr>", desc = "" },
+		{ "<leader>g", "<cmd>Telescope live_grep<cr>", desc = "" },
+		{ "<C-p>", "<cmd>Telescope commands theme=dropdown<cr>", desc = "" },
+		{ "<leader>F", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "" },
+	},
 	config = function()
 		local actions = require("telescope.actions")
 		require("telescope").setup({

@@ -71,19 +71,19 @@ km("x", "<A-k>", ":move '<-2<CR>gv-gv", defaultOpts)
 vc(":vnoremap < <gv")
 vc(":vnoremap > >gv")
 
--- Telescope
-km("n", "<leader>f", "<cmd>Telescope find_files<cr>", defaultOpts)
--- TODO: Readd if doing bookmarks
--- km("n", "<leader>b", "<cmd>Telescope bookmarks theme=dropdown<cr>", defaultOpts)
--- TODO: This was already commented unsure
--- km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
-km("n", "<leader>h", "<cmd>Telescope help_tags<cr>", defaultOpts)
--- TODO: Readd
--- km("n", "<leader>z", "<cmd>Telescope zoxide list theme=dropdown<cr>", defaultOpts)
-km("n", "<leader>t", "<cmd>Telescope buffers<cr>", defaultOpts)
-km("n", "<leader>g", "<cmd>Telescope live_grep<cr>", defaultOpts)
-km("n", "<C-p>", "<cmd>Telescope commands theme=dropdown<cr>", defaultOpts)
-km("n", "<leader>F", "<cmd>Telescope current_buffer_fuzzy_find<cr>", defaultOpts)
+-- -- Telescope
+-- km("n", "<leader>f", "<cmd>Telescope find_files<cr>", defaultOpts)
+-- -- TODO: Readd if doing bookmarks
+-- -- km("n", "<leader>b", "<cmd>Telescope bookmarks theme=dropdown<cr>", defaultOpts)
+-- -- TODO: This was already commented unsure
+-- -- km("n", "<leader>fb", "<cmd>Telescope buffers<cr>", defaultOpts)
+-- km("n", "<leader>h", "<cmd>Telescope help_tags<cr>", defaultOpts)
+-- -- TODO: Readd
+-- -- km("n", "<leader>z", "<cmd>Telescope zoxide list theme=dropdown<cr>", defaultOpts)
+-- km("n", "<leader>t", "<cmd>Telescope buffers<cr>", defaultOpts)
+-- km("n", "<leader>g", "<cmd>Telescope live_grep<cr>", defaultOpts)
+-- km("n", "<C-p>", "<cmd>Telescope commands theme=dropdown<cr>", defaultOpts)
+-- km("n", "<leader>F", "<cmd>Telescope current_buffer_fuzzy_find<cr>", defaultOpts)
 
 -- Vimwiki TODO: Readd
 km("n", "<leader>ww", "<cmd>VimwikiIndex<cr>", defaultOpts)
@@ -137,18 +137,7 @@ nnoremap <A-Down> :silent! let &guifont = substitute(
 -- -- Toggle Full Screen
 -- km("n", "<F11>", ":let g:neovide_fullscreen=v:", defaultOpts)
 
--- Packer
-km("n", "<leader>pc", "<cmd>PackerCompile profile=true<cr>", defaultOpts)
-km("n", "<leader>ps", "<cmd>PackerSync<cr>", defaultOpts)
-km("n", "<leader>pS", "<cmd>PackerStatus<cr>", defaultOpts)
-km("n", "<leader>pp", "<cmd>PackerProfile<cr>", defaultOpts)
--- km("n", "<leader>pi", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>", defaultOpts)
-
--- Lazy Git TODO: Readd
--- km("n", "<leader>lg", "<cmd>LazyGit<cr>", defaultOpts)
-
 -- Neogit (version control)
-km("n", "<leader>v", "<cmd>Neogit<cr>", defaultOpts)
 
 vim.cmd([[
 function Neovide_fullscreen()
