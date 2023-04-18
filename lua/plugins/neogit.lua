@@ -2,6 +2,10 @@ return {
 	{
 		"TimUntersberger/neogit",
 		dependencies = "nvim-lua/plenary.nvim",
+		-- cmd = "Neogit",
+		keys = {
+			{ "<leader>v", "<cmd>Neogit<cr>", desc = "" },
+		},
 		config = function()
 			local neogit = require("neogit")
 
