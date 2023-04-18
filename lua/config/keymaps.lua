@@ -104,7 +104,6 @@ vc("set clipboard+=unnamedplus")
 
 -- Save File and Code Runner and Mark down previewer and Markmap
 -- TODO Readd, might not need the same thing for mark down previewer if using LSP for it
-km("n", "<leader>r", "<cmd>w<cr><cmd>RunCode<cr>", defaultOpts)
 -- vc("autocmd FileType markdown nmap <buffer><leader>r <cmd>CocCommand markdown-preview-enhanced.openPreview<cr>")
 -- vc("autocmd FileType vimwiki nmap <buffer><leader>r <cmd>CocCommand markdown-preview-enhanced.openPreview<cr>")
 -- km("n", "<leader>m", "<cmd>CocCommand markmap.create<cr>", defaultOpts)

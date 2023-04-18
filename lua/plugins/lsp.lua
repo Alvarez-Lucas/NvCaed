@@ -128,7 +128,8 @@ return {
 						print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 					end, opts)
 					vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-					vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+					-- vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+					vim.keymap.set("n", "<space>n", vim.lsp.buf.rename, opts)
 					vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 					-- TODO make a keybind for this that doesn't interfere with telescope

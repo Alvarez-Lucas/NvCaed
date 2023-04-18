@@ -1,5 +1,6 @@
 return {
 	{
+		-- cmd = "RunCode",
 		keys = {
 			{ "<leader>r", "<cmd>RunCode<cr>", desc = "Run Code" },
 		},
