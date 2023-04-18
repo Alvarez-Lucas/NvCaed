@@ -7,14 +7,6 @@ return {
 			require("nvim-treesitter.install").compilers = { "clang" }
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = "all",
-			})
-		end,
-	},
-	{
-		enabled = false,
-		"HiPhish/nvim-ts-rainbow2",
-		config = function()
-			require("nvim-treesitter.configs").setup({
 				rainbow = {
 					enable = true,
 					-- list of languages you want to disable the plugin for
@@ -26,5 +18,6 @@ return {
 				},
 			})
 		end,
+		dependencies = { "HiPhish/nvim-ts-rainbow2" },
 	},
 }
