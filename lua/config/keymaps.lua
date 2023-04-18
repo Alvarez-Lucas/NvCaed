@@ -146,7 +146,10 @@ km("n", "<leader>pp", "<cmd>PackerProfile<cr>", defaultOpts)
 
 -- Lazy Git TODO: Readd
 -- km("n", "<leader>lg", "<cmd>LazyGit<cr>", defaultOpts)
---
+
+-- Neogit (version control)
+km("n", "<leader>v", "<cmd>Neogit<cr>", defaultOpts)
+
 vim.cmd([[
 function Neovide_fullscreen()
     if g:neovide_fullscreen == v:true
