@@ -4,7 +4,7 @@ A Neovim config.
 
 ## Plugins
 
-### Nvim Tree ([nvim-tree/nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua))
+### NVim Tree ([nvim-tree/nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua))
 
 A file manager.
 
@@ -119,9 +119,8 @@ Highlights hex code with their color.
 A fuzzy file picker.
 
 | Keybind     | Action                              |
-| ----------- | ----------------------------------- | ------------------- | --- |
+| ----------- | ----------------------------------- |
 | `<leader>f` | Telescope find_files                |
-| <!--        | `<leader>h`                         | Telescope help_tags | --> |
 | `<leader>t` | Telescope buffers                   |
 | `<leader>g` | Telescope live_grep                 |
 | `<C-p>`     | Telescope commands theme=dropdown   |
@@ -129,7 +128,7 @@ A fuzzy file picker.
 
 ### Treesitter
 
-### Nvim Treesitter Text Subjects ([RRethy/nvim-treesitter-textsubjects](https://github.com/RRethy/nvim-treesitter-textsubjects) )
+### NVim Treesitter Text Subjects ([RRethy/nvim-treesitter-textsubjects](https://github.com/RRethy/nvim-treesitter-textsubjects) )
 
 | Keybind | Action (while in visual mode) |
 | ------- | ----------------------------- |
@@ -138,7 +137,7 @@ A fuzzy file picker.
 | `;`     | Expand to Inner Container     |
 | `i;`    | Expand to Outer Container     |
 
-### Nvim Autopairs ([windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) )
+### NVim Autopairs ([windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) )
 
 An Autopairs plugin.
 
