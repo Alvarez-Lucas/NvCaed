@@ -4,7 +4,7 @@ return {
 	keys = {
 		-- Telescope
 		{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = "" },
-		{ "<leader>h", "<cmd>Telescope help_tags<cr>", desc = "" },
+		-- { "<leader>h", "<cmd>Telescope help_tags<cr>", desc = "" },
 		{ "<leader>t", "<cmd>Telescope buffers<cr>", desc = "" },
 		{ "<leader>g", "<cmd>Telescope live_grep<cr>", desc = "" },
 		{ "<C-p>", "<cmd>Telescope commands theme=dropdown<cr>", desc = "" },
