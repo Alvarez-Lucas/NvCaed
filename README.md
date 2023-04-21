@@ -74,24 +74,54 @@ Highlights hex code with their color.
 
 ### Colorschemes
 
-### Comment
+### Comment ([numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim) )
+
+| Keybind             | Action                                 |
+| ------------------- | -------------------------------------- |
+| `gcc`               | Comment line                           |
+| `gbc`               | Comment block                          |
+| `gcO`               | Comment line above                     |
+| `gco`               | Comment line below                     |
+| `gcA`               | Add Comment to End of Line             |
+| `gc[count]{motion}` | Comment Motion Using Linewise Comment  |
+| `gb[count]{motion}` | Comment Motion Using Blockwise Comment |
 
 ### LSP
 
-### Mini-Surround (sp)
+### Mini-Surround ([echasnovski/mini.surround](https://github.com/echasnovski/mini.surround) )
 
-### Nvim Autopairs
+| Keybind      | Action                       |
+| ------------ | ---------------------------- |
+| `sa`         | Surround Arround (in visual) |
+| `sa{motion}` | Surround Arround             |
+| `sd`         | Surround Delete              |
+| `sr`         | Surround Replace             |
+| `sf`         | Surround Find Right          |
+| `sF`         | Surround Find Left           |
+| `sh`         | Highlight Surround           |
 
-### CMP LuaSnip
+### NVim cmp [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp) )
+
+| Keybind     | Action                                                   |
+| ----------- | -------------------------------------------------------- |
+| `<C-b>`     | Scroll Docs Up                                           |
+| `<C-f>`     | Scroll Docs Down                                         |
+| `<C-Space>` | Open Auto Complete                                       |
+| `<C-e>`     | Exit Auto Complete                                       |
+| `<CR>`      | Accept Currently Selected or First Item                  |
+| `<Tab>`     | Select Next Item or Move to Next Snippet Section         |
+| `<S-Tab>`   | Select Previous Item or Move to Previous Snippet Section |
+| `<C-j>`     | Select Next Item                                         |
+| `<C-j>`     | Select Previous Item                                     |
 
 ### Telescope ([nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim))
 
 A fuzzy file picker.
 
 | Keybind     | Action                              |
-| ----------- | ----------------------------------- |
+| ----------- | ----------------------------------- | ------------------- | --- |
 | `<leader>f` | Telescope find_files                |
-| `<leader>h` | Telescope help_tags                 |
+| <!--        | `<leader>h`                         | Telescope help_tags | --> |
 | `<leader>t` | Telescope buffers                   |
 | `<leader>g` | Telescope live_grep                 |
 | `<C-p>`     | Telescope commands theme=dropdown   |
@@ -99,34 +129,21 @@ A fuzzy file picker.
 
 ### Treesitter
 
-###
+### Nvim Treesitter Text Subjects ([RRethy/nvim-treesitter-textsubjects](https://github.com/RRethy/nvim-treesitter-textsubjects) )
 
-## Keybinds
+| Keybind | Action (while in visual mode) |
+| ------- | ----------------------------- |
+| `,`     | Previous Selection            |
+| `.`     | Expand to Outer Smart         |
+| `;`     | Expand to Inner Container     |
+| `i;`    | Expand to Outer Container     |
 
-### CHADTree
+### Nvim Autopairs ([windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) )
 
-A file manager.
+An Autopairs plugin.
 
-https://github.com/ms-jpq/chadtree
+| Keybind | Action                                                           |
+| ------- | ---------------------------------------------------------------- |
+| `<C-e>` | After Adding One Pair to the Start of Something, Add Ending Pair |
 
-| Action          | Keybind     |
-| --------------- | ----------- |
-| Toggle CHADTree | `<leader>e` |
-
-### Colorizer
-
-### Colorscheme
-
-### Comment
-
-### LSP
-
-| Action               | Keybind     |
-| -------------------- | ----------- |
-| Save File and Format | `<leader>s` |
-
-### Mini-Surround (sp)
-
-### Nvim Autopairs
-
-### CMP LuaSnip
+### Barbecue
