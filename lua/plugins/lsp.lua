@@ -82,6 +82,13 @@ return {
 				},
 			})
 
+			-- Taplo (toml)
+			-- Mason does not auto install on windows
+			-- need to manually install
+			require("lspconfig").taplo.setup({
+				capabilities = capabilities,
+			})
+
 			-- Typescript
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
