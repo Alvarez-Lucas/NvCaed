@@ -1,6 +1,6 @@
 return {
 	{
-		-- cmd = "RunCode",
+		cmd = "RunCode",
 		keys = {
 			{ "<leader>r", "<cmd>RunCode<cr>", desc = "Run Code" },
 		},
@@ -9,7 +9,8 @@ return {
 			require("code_runner").setup({
 				-- choose default mode (valid term, tab, float, toggle, buf)
 				-- mode = "term",
-				mode = "term",
+				-- mode = "term",
+				mode = "float",
 				-- Focus on runner window(only works on toggle, term and tab mode)
 				focus = true,
 				-- startinsert (see ':h inserting-ex')
@@ -33,7 +34,7 @@ return {
 					-- • "solid": Adds padding by a single whitespace cell.
 					-- • "shadow": A drop shadow effect by blending with the
 					--   background.
-					-- border = "shadow",
+					border = "rounded",
 
 					-- Num from `0 - 1` for measurements
 					height = 0.8,
