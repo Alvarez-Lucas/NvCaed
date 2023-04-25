@@ -174,7 +174,7 @@ return {
 					preserve_window_proportions = false,
 					number = true, -- default: false
 					relativenumber = true, -- default: false
-					signcolumn = "yes",
+					signcolumn = "no", -- default: yes???
 					mappings = {
 						custom_only = false,
 						list = {
@@ -216,7 +216,7 @@ return {
 					},
 					icons = {
 						webdev_colors = true,
-						git_placement = "after", -- default: before
+						git_placement = "before", -- default: before
 						modified_placement = "after",
 						padding = " ",
 						symlink_arrow = " ➛ ",
@@ -399,6 +399,7 @@ return {
 					},
 				},
 			}) -- END_DEFAULT_OPTS
+			vim.cmd([[hi NvimTreeNormal guibg=NONE ctermbg=NONE]])
 		end,
 	},
 }
