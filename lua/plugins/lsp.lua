@@ -41,36 +41,49 @@ return {
 			end
 
 			-- border TODO: remove after installing lspsaga
-			local border = {
-				{ "🭽", "FloatBorder" },
-				{ "▔", "FloatBorder" },
-				{ "🭾", "FloatBorder" },
-				{ "▕", "FloatBorder" },
-				{ "🭿", "FloatBorder" },
-				{ "▁", "FloatBorder" },
-				{ "🭼", "FloatBorder" },
-				{ "▏", "FloatBorder" },
-			}
+			-- local border = {
+			-- 	{ "🭽", "FloatBorder" },
+			-- 	{ "▔", "FloatBorder" },
+			-- 	{ "🭾", "FloatBorder" },
+			-- 	{ "▕", "FloatBorder" },
+			-- 	{ "🭿", "FloatBorder" },
+			-- 	{ "▁", "FloatBorder" },
+			-- 	{ "🭼", "FloatBorder" },
+			-- 	{ "▏", "FloatBorder" },
+			-- }
 			-- To instead override globally TODO: remove after installing lspsaga
 			local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 			function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 				opts = opts or {}
-				opts.border = opts.border or border
+				-- opts.border = opts.border or border
 				return orig_util_open_floating_preview(contents, syntax, opts, ...)
 			end
 
+			-- moonfly border around floats
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				border = "single",
+			})
+			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signatureHelp, {
+				border = "single",
+			})
+			vim.diagnostic.config({ float = { border = "single" } })
+
 			-- Python
-			lspconfig.pyright.setup({
+			-- lspconfig.pyright.setup({
+			-- 	capabilities = capabilities,
+			-- })
+
+			-- python TODO: figure out why this does not work
+			-- lspconfig.ruff_lsp.setup(({}))
+			lspconfig.ruff_lsp.setup({
 				capabilities = capabilities,
+				-- cmd = "ruff_lsp"
 			})
 
 			-- Yaml
 			lspconfig.yamlls.setup({
 				capabilities = capabilities,
 			})
-
-			-- python TODO: figure out why this does not work
-			-- lspconfig.ruff_lsp.setup(({}))
 
 			-- Lua
 			lspconfig.lua_ls.setup({
