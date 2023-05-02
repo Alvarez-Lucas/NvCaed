@@ -73,7 +73,7 @@ return {
 						"-o $fileNameWithoutExt &&",
 						"$dir/$fileNameWithoutExt",
 					},
-					python = "python3 -u",
+					python = "python -u",
 					sh = "bash",
 					rust = {
 						"cd $dir &&",
