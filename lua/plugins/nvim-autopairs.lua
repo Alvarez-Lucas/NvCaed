@@ -3,7 +3,8 @@ return {
 	config = function()
 		require("nvim-autopairs").setup({
 			fast_wrap = {
-				map = "<C-e>",
+				-- TODO: Find a new bind for fast_wrap
+				-- map = "<C-e>",
 				chars = { "{", "[", "(", '"', "'" },
 				pattern = [=[[%'%"%>%]%)%}%,]]=],
 				end_key = "$",
