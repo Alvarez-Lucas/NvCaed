@@ -1,6 +1,8 @@
 return {
 	-- mason
 	{
+		lazy = false,
+		priority = 900,
 		"williamboman/mason.nvim",
 		build = ":MasonUpdate",
 		config = function()
@@ -12,6 +14,8 @@ return {
 
 	-- mason lspconfig
 	{
+		lazy = false,
+		priority = 800,
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
@@ -22,6 +26,8 @@ return {
 
 	-- lspconfig
 	{
+		lazy = false,
+		priority = 700,
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"nvim-cmp",
