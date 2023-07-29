@@ -7,7 +7,7 @@ return {
 		build = ":MasonUpdate",
 		config = function()
 			require("mason").setup({
-				-- PATH = "prepend",
+				PATH = "prepend",
 			})
 		end,
 	},
@@ -19,7 +19,18 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ruff_lsp", "pyright", "yamlls" },
+				ensure_installed = {
+					"lua_ls",
+					"pyright",
+					"yamlls",
+					"html",
+					"tsserver",
+					"taplo",
+					"rust_analyzer",
+					"powershell_es",
+					"emmet_ls",
+					"svelte",
+				},
 			})
 		end,
 	},
@@ -39,8 +50,8 @@ return {
 			-- Set up lspconfig.
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			-- LSP Signs in sign column
-			local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+			-- LSP Signs in sign column 󰌶
+			local signs = { Error = "󰅚 ", Warn = " ", Hint = "󰛩 ", Info = " " }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -74,52 +85,49 @@ return {
 			})
 			vim.diagnostic.config({ float = { border = "single" } })
 
+			--------------------------------	Servers --------------------------------
 			-- Python
-			-- lspconfig.pyright.setup({
-			-- 	capabilities = capabilities,
-			-- })
-
-			-- python TODO: figure out why this does not work
-			-- lspconfig.ruff_lsp.setup(({}))
-			lspconfig.ruff_lsp.setup({
-				capabilities = capabilities,
-				-- cmd = "ruff_lsp"
-			})
-
+			lspconfig.svelte.setup({ capabilities = capabilities })
+			-- Python
+			lspconfig.pyright.setup({ capabilities = capabilities })
 			-- Yaml
-			lspconfig.yamlls.setup({
+			lspconfig.yamlls.setup({ capabilities = capabilities })
+			-- Emmet_ls
+			lspconfig.emmet_ls.setup({
 				capabilities = capabilities,
+				filetypes = {
+					"css",
+					"eruby",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"less",
+					"sass",
+					"scss",
+					"svelte",
+					"pug",
+					"typescriptreact",
+					"vue",
+				},
 			})
-
+			-- Powershell
+			lspconfig.powershell_es.setup({
+				capabilities = capabilities,
+				-- bundle_path = "C:\\bin\\PowerShellEditorServices\\PowerShellEditorServices",
+				bundle_path = "C:\\bin\\PowerShellEditorServices",
+			})
+			-- Taplo (toml): Mason does not auto install
+			lspconfig.taplo.setup({ capabilities = capabilities })
+			-- Typescript - vscode-langservers-extracted
+			lspconfig.tsserver.setup({ capabilities = capabilities })
+			-- HTML
+			lspconfig.html.setup({ capabilities = capabilities, filetypes = { "html", "css" } })
+			-- Rust
+			lspconfig.rust_analyzer.setup({ capabilities = capabilities, settings = { ["rust-analyzer"] = {} } })
 			-- Lua
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
-				settings = {
-					Lua = {
-						diagnostics = { globals = { "vim" } },
-					},
-				},
-			})
-
-			-- Taplo (toml)
-			-- Mason does not auto install on windows
-			-- need to manually install
-			require("lspconfig").taplo.setup({
-				capabilities = capabilities,
-			})
-
-			-- Typescript
-			lspconfig.tsserver.setup({
-				capabilities = capabilities,
-			})
-
-			-- Rust
-			lspconfig.rust_analyzer.setup({
-				-- Server-specific settings. See `:help lspconfig-setup`
-				capabilities = capabilities,
-				settings = {
-					["rust-analyzer"] = {},
-				},
+				settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 			})
 
 			-- Global mappings.
@@ -143,7 +151,8 @@ return {
 					local opts = { buffer = ev.buf }
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+					-- TODO find a new keybind for this is you still want it
+					-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 					-- TODO find a new keybind for vim.lsp.buf.signature_help
 					-- the one commented below interferes with coq selecting
@@ -181,10 +190,12 @@ return {
 				sources = {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.black,
-					null_ls.builtins.formatting.prettier,
+					null_ls.builtins.formatting.prettier.with({ extra_filetypes = { "vimwiki", "html" } }),
+					null_ls.builtins.formatting.rustfmt,
 					null_ls.builtins.code_actions.gitsigns,
-					-- null_ls.builtins.diagnostics.eslint,
-					-- null_ls.builtins.completion.spell,
+					null_ls.builtins.diagnostics.eslint,
+					null_ls.builtins.code_actions.eslint,
+					null_ls.builtins.completion.spell,
 				},
 			})
 		end,
@@ -193,14 +204,14 @@ return {
 	-- null-ls and mason-null-ls
 	{
 		"jay-babu/mason-null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		-- event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"williamboman/mason.nvim",
 			"jose-elias-alvarez/null-ls.nvim",
 		},
 		config = function()
 			require("mason-null-ls").setup({
-				ensure_installed = { "stylua", "black", "prettier" },
+				ensure_installed = { "stylua", "black", "prettier", "rustfmt", "eslint" },
 			})
 		end,
 	},
@@ -216,7 +227,7 @@ return {
 				-- timeout at all tends to be ugly - larger files, complex or poor formatters
 				-- will struggle to format within whatever the default timeout
 				-- `vim.lsp.buf.format` uses.
-				timeout = 2000,
+				timeout = 6000,
 
 				-- These filetypes will not be formatted automatically.
 				exclude_ft = {},
