@@ -8,9 +8,8 @@ return {
 		config = function()
 			require("code_runner").setup({
 				-- choose default mode (valid term, tab, float, toggle, buf)
-				-- mode = "term",
-				-- mode = "term",
-				mode = "float",
+				mode = "term",
+				-- mode = "float",
 				-- Focus on runner window(only works on toggle, term and tab mode)
 				focus = true,
 				-- startinsert (see ':h inserting-ex')
@@ -76,9 +75,10 @@ return {
 					python = "python -u",
 					sh = "bash",
 					rust = {
-						"cd $dir &&",
-						"rustc $fileName &&",
-						"$dir$fileNameWithoutExt",
+						"cargo run",
+						-- "cd $dir &&",
+						-- "rustc $fileName &&",
+						-- "$dir$fileNameWithoutExt",
 					},
 				},
 				project_path = "", -- No default path defined
