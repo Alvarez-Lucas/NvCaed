@@ -109,6 +109,14 @@ return {
 					"typescriptreact",
 					"vue",
 				},
+				init_options = {
+					html = {
+						options = {
+							-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+							["jsx.enabled"] = true,
+						},
+					},
+				},
 			})
 			-- Powershell
 			lspconfig.powershell_es.setup({
