@@ -230,7 +230,7 @@ return {
 						glyphs = {
 							default = "",
 							symlink = "",
-							bookmark = "",
+							bookmark = "󰆤",
 							modified = "●",
 							folder = {
 								arrow_closed = "",
@@ -253,7 +253,8 @@ return {
 								-- renamed = "➜",
 								-- untracked = "★",
 								untracked = "U",
-								deleted = "",
+								deleted = "✗",
+								-- deleted = "",
 								-- deleted = "",
 								ignored = "◌",
 								-- ignored = "◌",
