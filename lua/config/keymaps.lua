@@ -88,7 +88,8 @@ vc(":vnoremap > >gv")
 km("n", "<leader>l", "<cmd>Lazy<cr>", defaultOpts)
 
 -- Vimwiki TODO: Readd
-km("n", "<leader>ww", "<cmd>VimwikiIndex<cr>", defaultOpts)
+km("n", ",", "<cmd>VimwikiToggleListItem<cr>", defaultOpts)
+km("v", ",", "<cmd>VimwikiToggleListItem<cr>", defaultOpts)
 -- km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)
 -- km("n", "<leader>wf", "<cmd>cd $HOME/vimwiki<cr><cmd>Telescope find_files<cr>", defaultOpts)
 
