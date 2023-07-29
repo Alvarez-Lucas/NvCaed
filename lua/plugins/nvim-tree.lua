@@ -345,7 +345,7 @@ return {
 							enable = true,
 							picker = "default",
 							-- chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-							chars = "asdfjkl;",
+							chars = "jkl;asdf",
 							exclude = {
 								filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
 								buftype = { "nofile", "terminal", "help" },
