@@ -57,13 +57,14 @@ return {
 				end,
 			},
 			-- window = {
-			-- 	-- completion = cmp.config.window.bordered(),
-			-- 	-- documentation = cmp.config.window.bordered(),
+			-- 	completion = cmp.config.window.bordered(),
+			-- 	documentation = cmp.config.window.bordered(),
 			-- },
-			window = {
-				completion = cmp.config.window.bordered(winhighlight),
-				documentation = cmp.config.window.bordered(winhighlight),
-			},
+
+			-- window = {
+			-- 	completion = cmp.config.window.bordered(winhighlight),
+			-- 	documentation = cmp.config.window.bordered(winhighlight),
+			-- },
 
 			-- formatting = {
 			-- 	format = lspkind.cmp_format({
