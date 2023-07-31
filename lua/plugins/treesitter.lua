@@ -3,6 +3,7 @@ return {
 		enabled = true,
 		"nvim-treesitter/nvim-treesitter",
 		build = "TSUpdate",
+		priority = 950,
 		config = function()
 			require("nvim-treesitter.install").compilers = { "clang" }
 			require("nvim-treesitter.configs").setup({
