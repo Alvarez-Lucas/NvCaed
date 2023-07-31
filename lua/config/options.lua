@@ -58,6 +58,13 @@ vc([[set guifont=Monaco\ NFM:h15]])
 -- Global Status Line
 vo.laststatus = 3
 
+-- Command Height
+vc([[set cmdheight=0]])
+
+-- Remove end of buffer character
+vim.opt.fillchars:append({ eob = " " })
+
+-- Temp Directory
 vc([[
 set directory=$HOME/.vim/tmp
 ]])
