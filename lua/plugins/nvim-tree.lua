@@ -287,10 +287,12 @@ return {
 						max = vim.diagnostic.severity.ERROR,
 					},
 					icons = {
-						hint = "",
+						-- hint = "",
+						hint = "",
 						info = "",
 						warning = "",
-						error = "",
+						-- error = "",
+						error = "󰅚 ",
 					},
 				},
 				filters = {
