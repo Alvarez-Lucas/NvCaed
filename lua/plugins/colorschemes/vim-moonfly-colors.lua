@@ -2,7 +2,7 @@ return {
 	{
 		lazy = false,
 		priority = 1000,
-		enabled = true,
+		enabled = false,
 		"bluz71/vim-moonfly-colors",
 		init = function()
 			vim.g.moonflyCursorColor = true -- default: false
