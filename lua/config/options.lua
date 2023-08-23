@@ -59,7 +59,7 @@ vc([[set guifont=Monaco\ NFM:h15]])
 vo.laststatus = 3
 
 -- Command Height
-vc([[set cmdheight=0]])
+vc([[set cmdheight=1]])
 
 -- Remove end of buffer character
 vim.opt.fillchars:append({ eob = " " })
