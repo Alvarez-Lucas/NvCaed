@@ -5,18 +5,18 @@ return {
 		config = function()
 			require("staline").setup({
 				sections = {
-					left = { "  ", "mode", " ", "branch", " ", "file_name", " " },
+					left = { "  ", "mode", " ", "file_name", " ", "lsp" },
 					mid = {},
 					-- mid = { "stalinegit" },
 					-- mid = { "file_name" },
 					-- right = { "file_name", "line_column" },
-					right = { "lsp", " ", "line_column" },
+					right = { "branch", " ", "line_column" },
 				},
 				mode_colors = {
-					i = "#d4be98",
-					n = "#84a598",
-					c = "#8fbf7f",
-					v = "#fc802d",
+					i = "#719e07",
+					n = "#268bd2",
+					c = "#2aa198",
+					v = "#b58900",
 				},
 
 				mode_icons = {
@@ -25,7 +25,6 @@ return {
 					c = " ",
 					v = " ", -- etc..
 					V = " ", -- etc..
-					cv = " ",
 				},
 
 				defaults = {
@@ -35,11 +34,16 @@ return {
 					mod_symbol = "  ",
 				},
 				lsp_symbols = {
-					Error = "󰅚 ",
+					-- Error = "󰅚 ",
 					-- Info = "󰋼 ",
-					Info = "",
+					-- Error = "■ ",
+					-- Error = "󰝤 ",
+
+					Error = "󰅚 ",
+					-- Error = " ",
+					Info = " ",
 					Warn = " ",
-					Hint = "",
+					Hint = " ",
 				},
 			})
 		end,
