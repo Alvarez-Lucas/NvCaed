@@ -51,7 +51,10 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			-- LSP Signs in sign column 󰌶
-			local signs = { Error = "󰅚 ", Warn = " ", Hint = "󰛩 ", Info = " " }
+			-- local signs = { Error = "󰅚 ", Warn = " ", Hint = "󰛩 ", Info = " " }
+			-- local signs = { Error = "■ ", Warn = " ", Hint = " ", Info = " " }
+			local signs = { Error = "󰝤 ", Warn = " ", Hint = " ", Info = " " }
+			-- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -77,13 +80,17 @@ return {
 			end
 
 			-- moonfly border around floats
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				border = "single",
+			-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+			-- 	border = "single",
+			-- })
+			-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signatureHelp, {
+			-- 	border = "single",
+			-- })
+			-- vim.diagnostic.config({ float = { border = "single" }, update_in_insert = true })
+			vim.diagnostic.config({
+				update_in_insert = true,
+				virtual_text = { severity = vim.diagnostic.severity.ERROR },
 			})
-			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signatureHelp, {
-				border = "single",
-			})
-			vim.diagnostic.config({ float = { border = "single" } })
 
 			--------------------------------	Servers --------------------------------
 			-- Python
@@ -92,32 +99,6 @@ return {
 			lspconfig.pyright.setup({ capabilities = capabilities })
 			-- Yaml
 			lspconfig.yamlls.setup({ capabilities = capabilities })
-			-- Emmet_ls
-			lspconfig.emmet_ls.setup({
-				capabilities = capabilities,
-				filetypes = {
-					"css",
-					"eruby",
-					"html",
-					"javascript",
-					"javascriptreact",
-					"less",
-					"sass",
-					"scss",
-					"svelte",
-					"pug",
-					"typescriptreact",
-					"vue",
-				},
-				init_options = {
-					html = {
-						options = {
-							-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-							["jsx.enabled"] = true,
-						},
-					},
-				},
-			})
 			-- Powershell
 			lspconfig.powershell_es.setup({
 				capabilities = capabilities,
@@ -136,6 +117,32 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				settings = { Lua = { diagnostics = { globals = { "vim" } } } },
+			})
+			-- Emmet_ls
+			lspconfig.emmet_ls.setup({
+				capabilities = capabilities,
+				filetypes = {
+					"css",
+					"eruby",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"less",
+					"sass",
+					"scss",
+					"svelte",
+					"pug",
+					"typescriptreact",
+					"vue",
+				},
+				-- init_options = {
+				-- 	html = {
+				-- 		options = {
+				-- 			-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+				-- 			-- ["jsx.enabled"] = true,
+				-- 		},
+				-- 	},
+				-- },
 			})
 
 			-- Global mappings.
@@ -203,7 +210,7 @@ return {
 					null_ls.builtins.code_actions.gitsigns,
 					null_ls.builtins.diagnostics.eslint,
 					null_ls.builtins.code_actions.eslint,
-					null_ls.builtins.completion.spell,
+					-- null_ls.builtins.completion.spell,
 				},
 			})
 		end,
