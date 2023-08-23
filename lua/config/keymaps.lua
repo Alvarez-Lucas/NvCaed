@@ -23,6 +23,16 @@ km("n", "<leader>-", ":split<CR><C-w>j", defaultOpts)
 -- Keep Buffer After Paste
 km("v", "p", '"_dP', defaultOpts)
 
+-- Jump to last visual selection
+-- km("n", "gV", "[v]", defaultOpts)
+
+-- rebind the command mode
+km("n", ";", ":", { noremap = true, silent = false })
+km("n", ":", ";", { noremap = true, silent = false })
+
+-- Make Y yank to end of line
+-- km("v", "Y", "y$", defaultOpts)
+
 -- Surround shortcut
 --km("v", "<leader>a", "S", defaultOptsj
 --
