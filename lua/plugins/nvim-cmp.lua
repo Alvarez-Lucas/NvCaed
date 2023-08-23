@@ -1,7 +1,25 @@
 return {
 	-- event = "InsertEnter",
 	"hrsh7th/nvim-cmp",
+
 	config = function()
+		-- gray
+		vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { bg = "NONE", strikethrough = true, fg = "#839496" })
+		-- blue
+		vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#2aa198" })
+		vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
+		-- light blue
+		vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#268bd2" })
+		vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
+		vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
+		-- pink
+		vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#719e07" })
+		vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "CmpItemKindFunction" })
+		-- front
+		vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#268bd2" })
+		vim.api.nvim_set_hl(0, "CmpItemKindProperty", { link = "CmpItemKindKeyword" })
+		vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })
+
 		local cmp = require("cmp")
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		local luasnip = require("luasnip")
@@ -22,32 +40,60 @@ return {
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		-- icons
+		-- local cmp_kinds = {
+		-- 	Text = "  ",
+		-- 	Method = "  ",
+		-- 	Function = "  ",
+		-- 	Constructor = "  ",
+		-- 	Field = "  ",
+		-- 	Variable = "  ",
+		-- 	Class = "  ",
+		-- 	Interface = "  ",
+		-- 	Module = "  ",
+		-- 	Property = "  ",
+		-- 	Unit = "  ",
+		-- 	Value = "  ",
+		-- 	Enum = "  ",
+		-- 	Keyword = "  ",
+		-- 	Snippet = "  ",
+		-- 	Color = "  ",
+		-- 	File = "  ",
+		-- 	Reference = "  ",
+		-- 	Folder = "  ",
+		-- 	EnumMember = "  ",
+		-- 	Constant = "  ",
+		-- 	Struct = "  ",
+		-- 	Event = "  ",
+		-- 	Operator = "  ",
+		-- 	TypeParameter = "  ",
+		-- }
+		--
 		local cmp_kinds = {
-			Text = "  ",
-			Method = "  ",
-			Function = "  ",
-			Constructor = "  ",
-			Field = "  ",
-			Variable = "  ",
-			Class = "  ",
-			Interface = "  ",
-			Module = "  ",
-			Property = "  ",
-			Unit = "  ",
-			Value = "  ",
-			Enum = "  ",
-			Keyword = "  ",
-			Snippet = "  ",
-			Color = "  ",
-			File = "  ",
-			Reference = "  ",
-			Folder = "  ",
-			EnumMember = "  ",
-			Constant = "  ",
-			Struct = "  ",
-			Event = "  ",
-			Operator = "  ",
-			TypeParameter = "  ",
+			Text = "",
+			Method = "",
+			Function = "󰡱",
+			Constructor = "󱁤",
+			Field = "󰽐",
+			Variable = "",
+			Class = "",
+			Interface = "",
+			Module = "",
+			Property = "",
+			Unit = "",
+			Value = "",
+			Enum = "",
+			Keyword = "",
+			Snippet = "",
+			Color = "",
+			File = "",
+			Reference = "",
+			Folder = "",
+			EnumMember = "",
+			Constant = "󰏿",
+			Struct = "",
+			Event = "",
+			Operator = "󰆕",
+			TypeParameter = "󰬛",
 		}
 
 		cmp.setup({
@@ -56,6 +102,13 @@ return {
 					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 				end,
 			},
+
+			-- window = {
+			-- 	completion = {
+			-- 		col_offset = -2,
+			-- 		side_padding = 1,
+			-- 	},
+			-- },
 			-- window = {
 			-- 	completion = cmp.config.window.bordered(),
 			-- 	documentation = cmp.config.window.bordered(),
@@ -93,21 +146,29 @@ return {
 			-- },
 			--
 
+			-- this is what we were on
+			-- formatting = {
+			-- 	format = function(_, vim_item)
+			-- 		vim_item.kind = (cmp_kinds[vim_item.kind] or "")
+			-- 		return vim_item
+			-- 	end,
+			-- },
+
 			formatting = {
-				format = function(_, vim_item)
-					vim_item.kind = (cmp_kinds[vim_item.kind] or "")
+				fields = { "abbr", "kind" },
+				format = function(entry, vim_item)
+					vim_item.kind = string.format("%s %s", cmp_kinds[vim_item.kind], vim_item.kind)
+					-- vim_item.menu = ({
+					-- 	buffer = "[Buffer]",
+					-- 	nvim_lsp = "[LSP]",
+					-- 	luasnip = "[LuaSnip]",
+					-- 	nvim_lua = "[Lua]",
+					-- 	latex_symbols = "[LaTeX]",
+					-- })[entry.source.name]
 					return vim_item
 				end,
 			},
 
-			-- formatting = {
-			-- 	fields = { "kind", "abbr" },
-			-- 	format = function(_, vim_item)
-			-- 		vim_item.kind = cmp_kinds[vim_item.kind] or ""
-			-- 		return vim_item
-			-- 	end,
-			-- },
-			--
 			view = {
 				entries = { name = "custom", selection_order = "near_cursor" },
 			},
@@ -165,13 +226,16 @@ return {
 					end
 				end, { "i", "s" }),
 			}),
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip users.
-				{ name = "buffer" },
-				-- }, {
-				-- 	{ name = "buffer" },
-			}),
+			sources = cmp.config.sources(
+				-- { { name = "luasnip" } }, -- For luasnip users.
+				-- { { name = "nvim_lsp" }, { name = "buffer" } }
+				{
+					-- { name = "nvim_lsp_signature_help" },
+					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "nvim_lsp" },
+					{ name = "buffer" },
+				}
+			),
 		})
 
 		-- Set configuration for specific filetype.
@@ -213,5 +277,6 @@ return {
 		{ "rafamadriz/friendly-snippets" },
 		{ "onsails/lspkind.nvim" },
 		{ "dmitmel/cmp-cmdline-history" },
+		-- { "hrsh7th/cmp-nvim-lsp-signature-help" },
 	},
 }
