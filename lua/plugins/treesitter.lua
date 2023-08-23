@@ -11,6 +11,9 @@ return {
 				highlight = {
 					enable = true,
 				},
+				context_commentstring = {
+					enable = true,
+				},
 			})
 		end,
 	},
