@@ -8,8 +8,9 @@ return {
 			vim.cmd.colorscheme("solarized")
 		end,
 	},
+	-- THE BEST ONE IS THE FOLLOWING
 	{
-		enabled = true,
+		enabled = false,
 		"svrana/neosolarized.nvim",
 		lazy = false,
 		priority = 1000,
