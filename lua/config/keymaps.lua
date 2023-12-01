@@ -27,8 +27,8 @@ km("v", "p", '"_dP', defaultOpts)
 -- km("n", "gV", "[v]", defaultOpts)
 
 -- rebind the command mode
-km("n", ";", ":", { noremap = true, silent = false })
-km("n", ":", ";", { noremap = true, silent = false })
+-- km("n", ";", ":", { noremap = true, silent = false })
+-- km("n", ":", ";", { noremap = true, silent = false })
 
 -- Make Y yank to end of line
 -- km("v", "Y", "y$", defaultOpts)
@@ -98,8 +98,8 @@ vc(":vnoremap > >gv")
 km("n", "<leader>l", "<cmd>Lazy<cr>", defaultOpts)
 
 -- Vimwiki TODO: Readd
-km("n", ",", "<cmd>VimwikiToggleListItem<cr>", defaultOpts)
-km("v", ",", "<cmd>VimwikiToggleListItem<cr>", defaultOpts)
+-- km("n", ",", "<cmd>VimwikiToggleListItem<cr>", defaultOpts)
+-- km("v", ",", "<cmd>VimwikiToggleListItem<cr>", defaultOpts)
 -- km("n", "<leader>ww", "<cmd>cd $HOME/vimwiki<cr><cmd>VimwikiIndex<cr>", defaultOpts)
 -- km("n", "<leader>wf", "<cmd>cd $HOME/vimwiki<cr><cmd>Telescope find_files<cr>", defaultOpts)
 
@@ -146,18 +146,9 @@ nnoremap <A-Down> :silent! let &guifont = substitute(
 \ '\=eval(submatch(0)-1)',
 \ '')<CR>
 ]])
--- -- Toggle Full Screen
--- km("n", "<F11>", ":let g:neovide_fullscreen=v:", defaultOpts)
+-- Toggle Full Screen
+km("n", "<F11>", "<cmd>NeovideToggleFullscreen<cr>", defaultOpts)
+vim.cmd([[command -nargs=0 NeovideToggleFullscreen :let g:neovide_fullscreen = !g:neovide_fullscreen]])
 
--- Neogit (version control)
-
-vim.cmd([[
-function Neovide_fullscreen()
-    if g:neovide_fullscreen == v:true
-        let g:neovide_fullscreen=v:false
-    else
-        let g:neovide_fullscreen=v:true
-    endif
-endfunction
-map <F11> :call Neovide_fullscreen()<cr>
-]])
+-- Change current working directory to file location
+km("n", "<leader>z", ":cd %:p:h<CR>:pwd<CR>", defaultOpts)

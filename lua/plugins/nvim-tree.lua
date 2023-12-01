@@ -161,7 +161,8 @@ return {
 				reload_on_bufenter = false,
 				respect_buf_cwd = false,
 				on_attach = on_attach, -- default: "default"
-				remove_keymaps = true, -- default: "false"
+				-- FIX: This setting used to work? now it does not?
+				-- remove_keymaps = true, -- default: "false"
 				select_prompts = false,
 				view = {
 					centralize_selection = false,
@@ -169,18 +170,18 @@ return {
 					debounce_delay = 15,
 					-- width = 30,
 					width = 40,
-					hide_root_folder = false,
+					-- hide_root_folder = false,
 					side = "left",
 					preserve_window_proportions = false,
 					number = true, -- default: false
 					relativenumber = true, -- default: false
 					signcolumn = "no", -- default: yes???
-					mappings = {
-						custom_only = false,
-						list = {
-							-- user mappings go here
-						},
-					},
+					-- mappings = {
+					-- 	custom_only = false,
+					-- 	list = {
+					-- 		-- user mappings go here
+					-- 	},
+					-- },
 					float = {
 						enable = false, -- default: false
 						quit_on_focus_loss = true,

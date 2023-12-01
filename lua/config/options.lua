@@ -68,3 +68,8 @@ vim.opt.fillchars:append({ eob = " " })
 vc([[
 set directory=$HOME/.vim/tmp
 ]])
+
+-- Neovide
+-- km("n", "<A-left>", ":set guifont=JetBrainsMono\\ NF:h15<cr>", defaultOpts)
+-- vc([[set guifont=JetBrainsMono\ NF:h16]])
+vc([[set guifont=FantasqueSansM\ Nerd\ Font:h20]])

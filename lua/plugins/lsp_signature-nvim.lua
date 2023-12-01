@@ -1,6 +1,7 @@
 return {
 	{
 		"ray-x/lsp_signature.nvim",
+		enabled = false,
 		event = "InsertEnter",
 		-- event = "VeryLazy",
 		config = function()
