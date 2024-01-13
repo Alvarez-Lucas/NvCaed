@@ -7,16 +7,16 @@ return {
 		config = function()
 			-- require("nvim-treesitter.install").compilers = { "clang" }
 			require("nvim-treesitter.install").compilers = { "gcc" }
-			-- require("nvim-treesitter.install").prefer_git = true
-			require("nvim-treesitter.install").prefer_git = false
+			require("nvim-treesitter.install").prefer_git = true
+			-- require("nvim-treesitter.install").prefer_git = false
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = "all",
 				highlight = {
 					enable = true,
 				},
-				context_commentstring = {
-					enable = true,
-				},
+				-- context_commentstring = {
+				-- 	enable = true,
+				-- },
 			})
 		end,
 	},

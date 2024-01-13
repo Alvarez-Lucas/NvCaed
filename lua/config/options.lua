@@ -12,7 +12,7 @@ vo.number = true
 vo.relativenumber = true
 
 -- Cursor Line
-vo.cursorline = false
+vo.cursorline = true
 
 -- Indentation
 vo.shiftwidth = 2
@@ -50,9 +50,10 @@ vo.sidescrolloff = 8
 vc("set mouse=")
 
 -- GUI Font
+-- vc([[set guifont=JetBrainsMono\ NFM:h18]])
+vc([[set guifont=JetBrainsMono\ Nerd\ Font:h28]])
 -- vc([[set guifont=JetBrainsMono\ NFM:h15]])
--- vc([[set guifont=JetBrainsMono\ NFM:h15]])
-vc([[set guifont=Monaco\ NFM:h15]])
+-- vc([[set guifont=Monaco\ NFM:h15]])
 -- vc([[set guifont=Hack\ NFM:h15]])
 
 -- Global Status Line
@@ -72,4 +73,4 @@ set directory=$HOME/.vim/tmp
 -- Neovide
 -- km("n", "<A-left>", ":set guifont=JetBrainsMono\\ NF:h15<cr>", defaultOpts)
 -- vc([[set guifont=JetBrainsMono\ NF:h16]])
-vc([[set guifont=FantasqueSansM\ Nerd\ Font:h20]])
+-- vc([[set guifont=FantasqueSansM\ Nerd\ Font:h20]])

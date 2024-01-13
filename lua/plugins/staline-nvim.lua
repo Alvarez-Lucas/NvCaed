@@ -13,10 +13,10 @@ return {
 					right = { "branch", " ", "line_column" },
 				},
 				mode_colors = {
-					i = "#719e07",
-					n = "#268bd2",
-					c = "#2aa198",
-					v = "#b58900",
+					i = "#008700",
+					n = "#27408B",
+					c = "#005F87",
+					v = "#AF5F00",
 				},
 
 				mode_icons = {

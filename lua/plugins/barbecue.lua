@@ -9,7 +9,7 @@ return {
 		},
 		config = function()
 			require("barbecue").setup({
-				context_follow_icon_color = true,
+				context_follow_icon_color = false,
 				kinds = {
 					-- File = "", -- from barbecue icons
 					File = "󰈙", -- from probably vscode like icons
