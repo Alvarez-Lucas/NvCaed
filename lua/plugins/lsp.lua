@@ -167,7 +167,7 @@ return {
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 					-- TODO find a new keybind for this is you still want it
-					-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 					-- TODO find a new keybind for vim.lsp.buf.signature_help
 					-- the one commented below interferes with coq selecting
@@ -193,7 +193,7 @@ return {
 
 	-- null-ls
 	{
-		"jose-elias-alvarez/null-ls.nvim",
+		"nvimtools/none-ls.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
