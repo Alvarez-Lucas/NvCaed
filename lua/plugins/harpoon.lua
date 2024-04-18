@@ -1,6 +1,6 @@
 return {
 	{
-
+		enabled = false,
 		"ThePrimeagen/harpoon",
 		config = function()
 			require("harpoon").setup({
