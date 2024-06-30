@@ -1,22 +1,31 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-lua/popup.nvim",
+			"natecraddock/telescope-zf-native.nvim",
+			"jvgrootveld/telescope-zoxide",
+		},
 		tag = "0.1.2",
 		cmd = "Telescope",
+		event = "VeryLazy",
 		keys = {
 			-- Telescope
 			{ "<leader>f", "<cmd>Telescope find_files theme=get_ivy<cr>", desc = "" },
 			{ "<leader>g", "<cmd>Telescope live_grep theme=get_ivy<cr>", desc = "" },
 			{ "<leader>F", "<cmd>Telescope current_buffer_fuzzy_find theme=get_ivy<cr>", desc = "" },
-			{ "<leader>d", "<cmd>Telescope lsp_document_symbols theme=get_ivy<cr>", desc = "" },
+			-- { "<leader>d", "<cmd>Telescope lsp_document_symbols theme=get_ivy<cr>", desc = "" },
 			{ "<leader>x", "<cmd>TodoTelescope theme=get_ivy<cr>", desc = "" },
+			{ "<leader>z", "<cmd>Telescope zoxide list theme=get_ivy<cr>", desc = "" },
+			-- { "<leader><Tab>", "<cmd>Telescope buffer theme=get_ivy<cr>", desc = "" },
+			{ "<leader>/", "<cmd>Telescope buffers theme=get_ivy<cr>", desc = "" },
 		},
 		config = function()
 			local actions = require("telescope.actions")
 			-- vim.cmd([[highlight TelescopeMatching       guifg=#719e07]])
 			-- vim.cmd([[highlight TelescopeMatching       guifg=#b58900]])
 			-- vim.cmd([[highlight TelescopeResultsNormal       guifg=#2aa198]])
-			--
 			local z_utils = require("telescope._extensions.zoxide.utils")
 			require("telescope").setup({
 				defaults = {
@@ -24,29 +33,21 @@ return {
 					mappings = {
 						i = {
 							["<esc>"] = actions.close,
-							["<C-u>"] = false,
 							["<C-j>"] = actions.move_selection_next,
 							["<C-k>"] = actions.move_selection_previous,
 						},
 					},
 				},
 				pickers = {
-					-- get_ivy = {
-					-- 	prompt_title = false,
-					-- },
-					-- 	find_files = {
-					-- 		-- previewer = false,
-					-- 		-- borderchars = {
-					-- 		-- 	{ "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-					-- 		-- 	prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
-					-- 		-- 	results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-					-- 		-- 	preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-					-- 		-- },
-					-- 		width = 0.8,
-					-- 		previewer = false,
-					-- 		prompt_title = false,
-					-- 	},
+					buffers = {
+						mappings = {
+							i = {
+								["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+							},
+						},
+					},
 				},
+
 				extensions = {
 					["zf-native"] = {
 						-- options for sorting file-like items
@@ -115,37 +116,8 @@ return {
 			})
 
 			require("telescope").load_extension("zf-native")
-			-- require("telescope").load_extension("harpoon")
-		end,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"natecraddock/telescope-zf-native.nvim",
-			"nvim-lua/popup.nvim",
-		},
-
-		-- {
-		-- 	"nvim-telescope/telescope-z.nvim",
-		-- 	-- keys = {
-		-- 	-- 	{ "<leader>t", "<cmd>lua require'telescope'.extensions.z.list{}<CR>", desc = "" },
-		-- 	-- },
-		-- 	dependencies = {
-		-- 		{ "nvim-lua/plenary.nvim" },
-		-- 		{ "nvim-lua/popup.nvim" },
-		-- 		{ "nvim-telescope/telescope.nvim" },
-		-- 	},
-		-- },
-	},
-	{
-		"jvgrootveld/telescope-zoxide",
-		keys = {
-			{ "<leader>t", "<cmd>Telescope zoxide list theme=get_ivy<cr>", desc = "" },
-		},
-		cmd = {
-
-			"Telescope zoxide list",
-		},
-		config = function()
 			require("telescope").load_extension("zoxide")
+			-- require("telescope").load_extension("harpoon")
 		end,
 	},
 }

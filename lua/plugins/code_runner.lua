@@ -1,6 +1,7 @@
 return {
 	{
 		cmd = "RunCode",
+		event = "VeryLazy",
 		keys = {
 			{ "<leader>r", "<cmd>RunCode<cr>", desc = "Run Code" },
 		},
@@ -55,7 +56,11 @@ return {
 				end,
 				filetype = {
 					javascript = "node",
-					typescript = "deno run",
+
+					ps1 = "pwsh.exe -File $fileName -ExecutionPolicy Bypass -NoProfile",
+					-- typescript = "deno run",
+					typescript = "bun run",
+					go = "go run .",
 					java = {
 						"cd $dir &&",
 						"javac $fileName &&",

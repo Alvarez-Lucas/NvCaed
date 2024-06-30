@@ -12,12 +12,13 @@ return {
 					-- right = { "file_name", "line_column" },
 					right = { "branch", " ", "line_column" },
 				},
-				mode_colors = {
-					i = "#008700",
-					n = "#27408B",
-					c = "#005F87",
-					v = "#AF5F00",
-				},
+				-- newspaper colorscheme
+				-- mode_colors = {
+				-- 	i = "#008700",
+				-- 	n = "#27408B",
+				-- 	c = "#005F87",
+				-- 	v = "#AF5F00",
+				-- },
 
 				mode_icons = {
 					n = " ",

@@ -4,7 +4,11 @@ return {
 		event = "VeryLazy",
 		-- enabled = false,
 		config = function()
-			require("hlslens").setup()
+			-- require("hlslens").setup()
+
+			require("scrollbar.handlers.search").setup({
+				-- hlslens config overrides
+			})
 
 			local kopts = { noremap = true, silent = true }
 

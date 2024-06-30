@@ -53,11 +53,35 @@ return {
 	},
 	{
 		enabled = false,
+		lazy = false,
+		priority = 1000,
 		-- "ianchanning/vim-selenized",
-		"jan-warchol/selenized",
+		-- "jan-warchol/selenized",
+		"Alvarez-Lucas/selenized-bw.nvim",
 		config = function(plugin)
 			vim.opt.rtp:append(plugin.dir .. "/editors/vim")
+			-- vim.opt.background = "light"
+			vim.cmd.colorscheme("selenized")
+			-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+			vim.api.nvim_set_hl(0, "GitGutterAdd", { fg = "green", bg = "bg" })
+			vim.api.nvim_set_hl(0, "GitGutterChange", { bg = "bg" })
+			-- vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE", fg= })
+
+			-- vim.api.nvim_set_hl(0, "GitsignsCurrentLineBlame", { link = "Todo" })
+
+			-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+			-- vim.cmd([[highlight clear SignColumn]])
 			-- vim.cmd([[colorscheme selenized]])
+			-- vim.api.nvim_set_hl(0, "GitGutterChange", { fg = theme.base0D, bg = theme.base00 })
+			-- vim.api.nvim_set_hl(0, "GitGutterDelete", { fg = theme.base08, bg = theme.base00 })
+			-- vim.api.nvim_set_hl(0, "GitGutterChangeDelete", { fg = theme.base0E, bg = theme.base00 })
+
+			-- LSP
+			-- vim.api.nvim_set_hl(0, "DiagnosticError", { fg = theme.base08, bg = theme.base00 })
+			-- vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = theme.base08, bg = theme.base00 })
+			-- vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = theme.base0C, bg = theme.base00 })
+			-- vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = theme.base05, bg = theme.base00 })
+			-- vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = theme.base0A, bg = theme.base00 })
 		end,
 	},
 }

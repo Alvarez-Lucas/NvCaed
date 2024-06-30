@@ -1,7 +1,7 @@
 return {
 	{
 		"yorik1984/newpaper.nvim",
-		enabled = true,
+		enabled = false,
 		priority = 1000,
 		lazy = false,
 		config = function()

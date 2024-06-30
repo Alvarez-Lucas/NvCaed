@@ -1,11 +1,15 @@
 return {
 	{
+		lazy = false,
 		"nvim-tree/nvim-tree.lua",
 		version = "*",
+		-- keys = { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "" },  -- Doesn't work for some reason
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
+			vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
+
 			local api = require("nvim-tree.api")
 
 			-- edit_or_open and vsplit_preview
